@@ -57,5 +57,5 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 
 ## author
 
-built by nelieo / iron cave industries.
+ENTROPIS IS CREATING IT.
 hack club slack: @nelieo.shorya
