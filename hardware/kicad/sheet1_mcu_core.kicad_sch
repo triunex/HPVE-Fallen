@@ -1,0 +1,13 @@
+(kicad_sch
+	(version 20230121)
+	(generator "HPVE_Hardware_Architect")
+	(generator_version "8.0")
+	(uuid "00000000-0000-0000-0000-000067200100")
+	(paper "A4")
+	(title_block
+		(title "Sheet 1: RP2040 Pico Core & I2C HUD")
+		(date "2026-10-30")
+		(rev "v1.0")
+		(company "Iron Cave Industries")
+	)
+)
