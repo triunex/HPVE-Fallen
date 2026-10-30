@@ -1,12 +1,16 @@
 Part,Description,Quantity,Unit Price (USD),Total Price (USD),Vendor Link,Notes
-400ST160,40kHz Ultrasonic Transducers (16mm THT),64,0.35,22.40,https://www.aliexpress.com/item/32847125345.html,Transducer array core elements
-TC4427CPA,Dual 1.5A High-Speed MOSFET Gate Driver (DIP-8),32,0.50,16.00,https://www.lcsc.com/product-detail/Gate-Drivers_Microchip-Tech-TC4427CPA_C14488.html,Boosts 3.3V RP2040 pulses to 12Vpp for transducers
-Raspberry Pi Pico,RP2040 MCU Board (Dual ARM Cortex-M0+ 133MHz),1,4.00,4.00,https://www.adafruit.com/product/4864,Generates synchronized multi-channel 40kHz phase PWM using PIO
-74HC595N,8-bit Serial-In Parallel-Out Shift Registers (High Speed),8,0.25,2.00,https://www.lcsc.com/product-detail/Logic-Shift-Registers_Texas-Instruments-SN74HC595N_C5642.html,High speed latching for multi-channel phase selection
-SSD1306 OLED,0.96 inch 128x64 I2C Blue OLED Display,1,2.50,2.50,https://www.amazon.com/dp/B08V8CGK39,Live focal coordinate HUD
-EC11 Encoder,Rotary Encoders with Push Button Switch,2,0.80,1.60,https://www.lcsc.com/product-detail/Encoders_ALPS-Alpine-EC11E15244B2_C114400.html,Coordinate X/Y and Z focal tuning
-12V 3A DC Adapter,12V 3A Center-Positive DC Power Supply + Jack,1,8.50,8.50,https://www.amazon.com/dp/B07GFFG5SS,Main power rail for transducer drivers
-MP1584EN Buck,Mini DC-DC Step-Down Buck Converter (12V to 5V),1,1.20,1.20,https://www.amazon.com/dp/B076P4C42B,Steps 12V rail down to 5V for Pico & logic
-JLCPCB 2-Layer PCB,Custom Emitter & Driver PCB (HASL finish 5 pcs),1,27.00,27.00,https://jlcpcb.com,2-layer FR-4 board with HASL lead-free finish
-Passives Kit,Decoupling Capacitors (0.1uF 10uF) & Resistors Pack,1,5.00,5.00,https://www.amazon.com/dp/B07P574R9G,Power filtering & I2C pullups
-Total,,,,90.20,,
+400ST160,40kHz Ultrasonic Transmitter Transducers (16mm 400ST160 THT),64,0.50,32.00,https://www.aliexpress.com/item/32847125345.html,64-element acoustic emitter matrix core
+TC4427ACOA,Dual 1.5A High-Speed Inverting/Non-Inverting MOSFET Driver (SOIC-8),32,0.67,21.50,https://www.lcsc.com/product-detail/Gate-Drivers_Microchip-Tech-TC4427ACOA713_C20551.html,Levels 3.3V logic to 12V peak-to-peak into transducers
+Raspberry Pi Pico,RP2040 Dual ARM Cortex-M0+ 133MHz Dev Board,1,4.00,4.00,https://www.digikey.com/en/products/detail/raspberry-pi/SC0915/13980313,Master pulse generator using PIO state machines
+74HC595N,High-Speed 8-Bit Serial-In Parallel-Out Shift Register (DIP-16),8,0.30,2.40,https://www.lcsc.com/product-detail/Logic-Shift-Registers_Texas-Instruments-SN74HC595N_C5642.html,Multi-channel high speed latching for phased outputs
+SSD1306 OLED,0.96 Inch 128x64 I2C Blue OLED Display Module,1,5.50,5.50,https://www.amazon.com/dp/B08V8CGK39,Live coordinate HUD and system telemetry
+EC11 Encoder,Rotary Encoders with Push-Button Switch (20 pulses/rev),2,1.50,3.00,https://www.amazon.com/dp/B07DM2YMT4,Physical X/Y/Z coordinate & focal tuning dials
+12V 5A DC Power,12V 5A Center-Positive DC Power Supply Adapter + 5.5x2.1mm Jack,1,16.99,16.99,https://www.amazon.com/dp/B07MXXX3SH,Supplies high-current 12V rail for 64 transducers
+MP1584EN Buck,Ultra-Small DC-DC Step Down Buck Converter Module (12V to 5V),1,3.50,3.50,https://www.amazon.com/dp/B076P4C42B,Steps 12V down to 5V to power Pico and logic chips
+JLCPCB 2-Layer PCB,Custom 8x8 Transducer Driver Board (5 pcs + Express Shipping),1,38.00,38.00,https://jlcpcb.com,120x120mm 2-layer FR-4 board with HASL lead-free finish
+60W Soldering Kit,Adjustable Temperature Soldering Iron with Stand & Tips,1,22.99,22.99,https://www.amazon.com/dp/B07S61WT8Z,Bare minimum soldering tool for assembling 64 transducers
+Digital Multimeter,Pocket Digital Multimeter with Continuity Buzzer & Test Probes,1,14.99,14.99,https://www.amazon.com/dp/B01ISAMUA6,Required to test continuity and trace shorts across 64 channels
+Solder Wire & Flux,60/40 Rosin Core Solder Wire 0.8mm + Rosin Flux Pen,1,9.99,9.99,https://www.amazon.com/dp/B083LSQ6K1,Soldering consumables for THT and SMD IC assembly
+Levitation Test Kit,2mm Expanded Polystyrene Beads + Anti-Static ESD Tweezers,1,6.99,6.99,https://www.amazon.com/dp/B077M5Q1J2,Target particles for optical acoustic trapping demo
+Passives Kit,Decoupling Capacitors (0.1uF 10uF 50V) + 10k Pull-Up Resistors,1,6.00,6.00,https://www.amazon.com/dp/B07P574R9G,Essential power rail decoupling and I2C line pullups
+Total,,,,187.85,,
