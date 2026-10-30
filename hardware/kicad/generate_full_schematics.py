@@ -1,6 +1,6 @@
 """
-HPVE KiCad Schematic Generator (Complete with Wires and Standard Footprints)
-Fixes the "no footprint assigned" error for F8 PCB sync and adds visible wiring.
+HPVE KiCad Schematic Generator (Complete with Wires, Global Labels, and Standard Footprints)
+Generates inter-sheet global labels so DRV, SIG, SPI, and power nets connect across all hierarchical sheets.
 """
 
 import uuid
@@ -130,7 +130,7 @@ def get_pico_lib_symbol():
     )"""
 
 def generate_sheet4_transducer_matrix():
-    """Generates 8x8 Transducer Grid in Sheet 4 with Footprints and Connecting Wires"""
+    """Generates 8x8 Transducer Grid in Sheet 4 with Footprints, Wires and Global Labels"""
     out = """(kicad_sch (version 20230121) (generator "HPVE_Generator") (generator_version "8.0")
 	(uuid "00000000-0000-0000-0000-000067200400")
 	(paper "A2")
@@ -174,13 +174,13 @@ def generate_sheet4_transducer_matrix():
 		(pin "2" (uuid "{gen_uuid()}"))
 	)
 	(wire (pts (xy {x:.2f} {pin1_y:.2f}) (xy {x:.2f} {wire_top_y:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "{drv_net}" (at {x:.2f} {wire_top_y:.2f} 90) (fields_autoplaced yes)
-		(effects (font (size 1.016 1.016)) (justify left bottom))
+	(global_label "{drv_net}" (shape bidirectional) (at {x:.2f} {wire_top_y:.2f} 90) (fields_autoplaced yes)
+		(effects (font (size 1.016 1.016)))
 		(uuid "{gen_uuid()}")
 	)
 	(wire (pts (xy {x:.2f} {pin2_y:.2f}) (xy {x:.2f} {wire_bot_y:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "GND" (at {x:.2f} {wire_bot_y:.2f} 270) (fields_autoplaced yes)
-		(effects (font (size 1.016 1.016)) (justify left top))
+	(global_label "GND" (shape bidirectional) (at {x:.2f} {wire_bot_y:.2f} 270) (fields_autoplaced yes)
+		(effects (font (size 1.016 1.016)))
 		(uuid "{gen_uuid()}")
 	)
 """
@@ -190,7 +190,7 @@ def generate_sheet4_transducer_matrix():
     return out
 
 def generate_sheet3_driver_bank():
-    """Generates 32x TC4427 Driver IC Bank in Sheet 3 with Footprints and Wires"""
+    """Generates 32x TC4427 Driver IC Bank in Sheet 3 with exact pin contact and Global Labels"""
     out = """(kicad_sch (version 20230121) (generator "HPVE_Generator") (generator_version "8.0")
 	(uuid "00000000-0000-0000-0000-000067200300")
 	(paper "A2")
@@ -240,23 +240,23 @@ def generate_sheet3_driver_bank():
 		(pin "7" (uuid "{gen_uuid()}"))
 		(pin "8" (uuid "{gen_uuid()}"))
 	)
-	(wire (pts (xy {ina_x:.2f} {y+5.08:.2f}) (xy {ina_x-7.62:.2f} {y+5.08:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "SIG_{ch_a}" (at {ina_x-7.62:.2f} {y+5.08:.2f} 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
+	(wire (pts (xy {ina_x:.2f} {y-3.81:.2f}) (xy {ina_x-7.62:.2f} {y-3.81:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
+	(global_label "SIG_{ch_a}" (shape bidirectional) (at {ina_x-7.62:.2f} {y-3.81:.2f} 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
-	(wire (pts (xy {ina_x:.2f} {y-5.08:.2f}) (xy {ina_x-7.62:.2f} {y-5.08:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "SIG_{ch_b}" (at {ina_x-7.62:.2f} {y-5.08:.2f} 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
+	(wire (pts (xy {ina_x:.2f} {y+3.81:.2f}) (xy {ina_x-7.62:.2f} {y+3.81:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
+	(global_label "SIG_{ch_b}" (shape bidirectional) (at {ina_x-7.62:.2f} {y+3.81:.2f} 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
-	(wire (pts (xy {outa_x:.2f} {y+5.08:.2f}) (xy {outa_x+7.62:.2f} {y+5.08:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "DRV_{ch_a}" (at {outa_x+7.62:.2f} {y+5.08:.2f} 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "{gen_uuid()}"))
+	(wire (pts (xy {outa_x:.2f} {y-3.81:.2f}) (xy {outa_x+7.62:.2f} {y-3.81:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
+	(global_label "DRV_{ch_a}" (shape bidirectional) (at {outa_x+7.62:.2f} {y-3.81:.2f} 0) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
-	(wire (pts (xy {outa_x:.2f} {y-5.08:.2f}) (xy {outa_x+7.62:.2f} {y-5.08:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "DRV_{ch_b}" (at {outa_x+7.62:.2f} {y-5.08:.2f} 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "{gen_uuid()}"))
+	(wire (pts (xy {outa_x:.2f} {y+3.81:.2f}) (xy {outa_x+7.62:.2f} {y+3.81:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
+	(global_label "DRV_{ch_b}" (shape bidirectional) (at {outa_x+7.62:.2f} {y+3.81:.2f} 0) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy {x:.2f} {vdd_y:.2f}) (xy {x:.2f} {vdd_y-5.08:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "+12V" (at {x:.2f} {vdd_y-5.08:.2f} 90) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
+	(global_label "+12V" (shape bidirectional) (at {x:.2f} {vdd_y-5.08:.2f} 90) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy {x:.2f} {gnd_y:.2f}) (xy {x:.2f} {gnd_y+5.08:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "GND" (at {x:.2f} {gnd_y+5.08:.2f} 270) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
+	(global_label "GND" (shape bidirectional) (at {x:.2f} {gnd_y+5.08:.2f} 270) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 """
             drv_idx += 1
 
@@ -264,7 +264,7 @@ def generate_sheet3_driver_bank():
     return out
 
 def generate_sheet2_shift_registers():
-    """Generates 8x 74HC595 Shift Registers in Sheet 2 with Footprints and Wires"""
+    """Generates 8x 74HC595 Shift Registers in Sheet 2 with exact pin contact and Global Labels"""
     out = """(kicad_sch (version 20230121) (generator "HPVE_Generator") (generator_version "8.0")
 	(uuid "00000000-0000-0000-0000-000067200200")
 	(paper "A3")
@@ -292,8 +292,8 @@ def generate_sheet2_shift_registers():
         ref = f"U{i+1}"
         base_ch = i * 8
 
-        ser_in = "SPI_MOSI" if i == 0 else f"CASCADE_{i}"
-        ser_out = f"CASCADE_{i+1}" if i < 7 else "NC_END"
+        ser_in_label = "SPI_MOSI" if i == 0 else f"CASCADE_{i}"
+        ser_out_label = f"CASCADE_{i+1}" if i < 7 else "NC_END"
         left_x = x - 13.97
         right_x = x + 13.97
 
@@ -321,46 +321,46 @@ def generate_sheet2_shift_registers():
 		(pin "7" (uuid "{gen_uuid()}"))
 		(pin "9" (uuid "{gen_uuid()}"))
 	)
-	(wire (pts (xy {left_x:.2f} {y+12.7:.2f}) (xy {left_x-7.62:.2f} {y+12.7:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "{ser_in}" (at {left_x-7.62:.2f} {y+12.7:.2f} 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
-
-	(wire (pts (xy {left_x:.2f} {y+7.62:.2f}) (xy {left_x-7.62:.2f} {y+7.62:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "SPI_SCK" (at {left_x-7.62:.2f} {y+7.62:.2f} 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
-
-	(wire (pts (xy {left_x:.2f} {y+2.54:.2f}) (xy {left_x-7.62:.2f} {y+2.54:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "SPI_LATCH" (at {left_x-7.62:.2f} {y+2.54:.2f} 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
-
-	(wire (pts (xy {left_x:.2f} {y-2.54:.2f}) (xy {left_x-7.62:.2f} {y-2.54:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "GND" (at {left_x-7.62:.2f} {y-2.54:.2f} 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
+	(wire (pts (xy {left_x:.2f} {y-12.7:.2f}) (xy {left_x-7.62:.2f} {y-12.7:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
+	(global_label "{ser_in_label}" (shape bidirectional) (at {left_x-7.62:.2f} {y-12.7:.2f} 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy {left_x:.2f} {y-7.62:.2f}) (xy {left_x-7.62:.2f} {y-7.62:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "+3V3" (at {left_x-7.62:.2f} {y-7.62:.2f} 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
+	(global_label "SPI_SCK" (shape bidirectional) (at {left_x-7.62:.2f} {y-7.62:.2f} 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
-	(wire (pts (xy {x:.2f} {y-21.59:.2f}) (xy {x:.2f} {y-26.67:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "GND" (at {x:.2f} {y-26.67:.2f} 270) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
+	(wire (pts (xy {left_x:.2f} {y-2.54:.2f}) (xy {left_x-7.62:.2f} {y-2.54:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
+	(global_label "SPI_LATCH" (shape bidirectional) (at {left_x-7.62:.2f} {y-2.54:.2f} 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
+
+	(wire (pts (xy {left_x:.2f} {y+2.54:.2f}) (xy {left_x-7.62:.2f} {y+2.54:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
+	(global_label "GND" (shape bidirectional) (at {left_x-7.62:.2f} {y+2.54:.2f} 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
+
+	(wire (pts (xy {left_x:.2f} {y+7.62:.2f}) (xy {left_x-7.62:.2f} {y+7.62:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
+	(global_label "+3V3" (shape bidirectional) (at {left_x-7.62:.2f} {y+7.62:.2f} 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy {x:.2f} {y+21.59:.2f}) (xy {x:.2f} {y+26.67:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "+3V3" (at {x:.2f} {y+26.67:.2f} 90) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
+	(global_label "GND" (shape bidirectional) (at {x:.2f} {y+26.67:.2f} 270) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
+
+	(wire (pts (xy {x:.2f} {y-21.59:.2f}) (xy {x:.2f} {y-26.67:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
+	(global_label "+3V3" (shape bidirectional) (at {x:.2f} {y-26.67:.2f} 90) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 """
         outputs = ["QA", "QB", "QC", "QD", "QE", "QF", "QG", "QH"]
-        offsets_y = [15.24, 11.43, 7.62, 3.81, 0.0, -3.81, -7.62, -11.43]
+        offsets_y = [-15.24, -11.43, -7.62, -3.81, 0.0, 3.81, 7.62, 11.43]
         for pin_i in range(8):
             py = y + offsets_y[pin_i]
             ch_num = base_ch + pin_i + 1
             out += f"""
 	(wire (pts (xy {right_x:.2f} {py:.2f}) (xy {right_x+7.62:.2f} {py:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "SIG_{ch_num}" (at {right_x+7.62:.2f} {py:.2f} 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "{gen_uuid()}"))
+	(global_label "SIG_{ch_num}" (shape bidirectional) (at {right_x+7.62:.2f} {py:.2f} 0) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 """
         out += f"""
-	(wire (pts (xy {right_x:.2f} {y-15.24:.2f}) (xy {right_x+7.62:.2f} {y-15.24:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "{ser_out}" (at {right_x+7.62:.2f} {y-15.24:.2f} 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "{gen_uuid()}"))
+	(wire (pts (xy {right_x:.2f} {y+15.24:.2f}) (xy {right_x+7.62:.2f} {y+15.24:.2f})) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
+	(global_label "{ser_out_label}" (shape bidirectional) (at {right_x+7.62:.2f} {y+15.24:.2f} 0) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 """
 
     out += ")\n"
     return out
 
 def generate_sheet1_mcu_core():
-    """Generates MCU Core with Footprints and Wires"""
+    """Generates MCU Core with Footprints, exact pin contact and Global Labels"""
     out = """(kicad_sch (version 20230121) (generator "HPVE_Generator") (generator_version "8.0")
 	(uuid "00000000-0000-0000-0000-000067200100")
 	(paper "A3")
@@ -385,39 +385,40 @@ def generate_sheet1_mcu_core():
         out += f'\t\t(pin "{p}" (uuid "{gen_uuid()}"))\n'
     out += """	)
 	(wire (pts (xy 99.68 77.30) (xy 89.68 77.30)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "I2C_SDA" (at 89.68 77.30 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
+	(global_label "I2C_SDA" (shape bidirectional) (at 89.68 77.30 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy 99.68 79.84) (xy 89.68 79.84)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "I2C_SCL" (at 89.68 79.84 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
+	(global_label "I2C_SCL" (shape bidirectional) (at 89.68 79.84 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy 99.68 97.62) (xy 89.68 97.62)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "ENC_A1" (at 89.68 97.62 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
+	(global_label "ENC_A1" (shape bidirectional) (at 89.68 97.62 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy 99.68 100.16) (xy 89.68 100.16)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "ENC_B1" (at 89.68 100.16 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
+	(global_label "ENC_B1" (shape bidirectional) (at 89.68 100.16 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy 99.68 102.70) (xy 89.68 102.70)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "ENC_A2" (at 89.68 102.70 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
+	(global_label "ENC_A2" (shape bidirectional) (at 89.68 102.70 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy 99.68 105.24) (xy 89.68 105.24)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "ENC_B2" (at 89.68 105.24 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "{gen_uuid()}"))
+	(global_label "ENC_B2" (shape bidirectional) (at 89.68 105.24 180) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy 140.32 112.86) (xy 150.32 112.86)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "SPI_MOSI" (at 150.32 112.86 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "{gen_uuid()}"))
+	(global_label "SPI_MOSI" (shape bidirectional) (at 150.32 112.86 0) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy 140.32 110.32) (xy 150.32 110.32)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "SPI_SCK" (at 150.32 110.32 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "{gen_uuid()}"))
+	(global_label "SPI_SCK" (shape bidirectional) (at 150.32 110.32 0) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy 140.32 105.24) (xy 150.32 105.24)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "SPI_LATCH" (at 150.32 105.24 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "{gen_uuid()}"))
+	(global_label "SPI_LATCH" (shape bidirectional) (at 150.32 105.24 0) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy 140.32 67.14) (xy 150.32 67.14)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "VSYS_5V" (at 150.32 67.14 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "{gen_uuid()}"))
+	(global_label "+5V" (shape bidirectional) (at 150.32 67.14 0) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy 140.32 74.76) (xy 150.32 74.76)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
-	(label "+3V3" (at 150.32 74.76 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "{gen_uuid()}"))
+	(global_label "+3V3" (shape bidirectional) (at 150.32 74.76 0) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 
 	(wire (pts (xy 140.32 69.68) (xy 150.32 69.68)) (stroke (width 0) (type default)) (uuid "{gen_uuid()}"))
+	(global_label "GND" (shape bidirectional) (at 150.32 69.68 0) (effects (font (size 1.016 1.016))) (uuid "{gen_uuid()}"))
 )
 """
     return out
@@ -450,7 +451,7 @@ def main():
         f.write(generate_sheet2_shift_registers())
     print(f"Generated Sheet 2: {s2_path}")
 
-    print("All 4 KiCad sheets updated with wires and official built-in footprints!")
+    print("All 4 KiCad sheets updated with wires, global labels, and official built-in footprints!")
 
 if __name__ == "__main__":
     main()
