@@ -1,5 +1,5 @@
 Drill report for HPVE_Controller.kicad_pcb
-Created on 2026-10-30T23:04:37
+Created on 2026-10-30T23:42:16
 
 Copper Layer Stackup:
     =============================================================
@@ -12,8 +12,9 @@ Drill file 'HPVE_Controller-PTH.drl' contains
     =============================================================
     T1  0.800mm  0.0315"  (128 holes))
     T2  1.000mm  0.0394"  (168 holes))
+    T3  3.200mm  0.1260"  (4 holes))
 
-    Total plated holes count 296
+    Total plated holes count 300
 
 
 Drill file 'HPVE_Controller-NPTH.drl' contains

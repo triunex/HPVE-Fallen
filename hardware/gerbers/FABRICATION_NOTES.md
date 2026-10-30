@@ -13,7 +13,7 @@
 
 | Parameter | Specification | Tolerance |
 | :--- | :--- | :--- |
-| **Board Dimensions** | 108.00 mm x 88.00 mm | ±0.15 mm |
+| **Board Dimensions** | 124.00 mm x 94.00 mm | ±0.15 mm |
 | **Corner Radius** | 2.0 mm | ±0.1 mm |
 | **Board Thickness** | 1.60 mm | ±10% |
 | **Layer Count** | 2 Copper Layers (Double Sided) | N/A |

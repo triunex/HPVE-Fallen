@@ -18,31 +18,28 @@ img = Image.new("RGBA", (WIDTH, HEIGHT), (24, 26, 27, 255))  # KiCad Dark Theme 
 draw = ImageDraw.Draw(img)
 
 # Coordinate transform: PCB mm to screen pixels
-# Board is [67, 49] to [175, 137] (width 108mm, height 88mm)
-# Center board in canvas with space for KiCad sidebars
-OFFSET_X = 260
-OFFSET_Y = 120
-BOARD_W_MM = 114.0
-SCALE = 11.5  # pixels per mm
+# Board is [46.0, 46.0] to [170.0, 140.0] (width 124mm, height 94mm)
+OFFSET_X = 240
+OFFSET_Y = 110
+SCALE = 10.5  # pixels per mm
 
 def mm_to_px(x_mm, y_mm):
-    px = int(OFFSET_X + (x_mm - 64.0) * SCALE)
-    py = int(OFFSET_Y + (y_mm - 46.0) * SCALE)
+    px = int(OFFSET_X + (x_mm - 44.0) * SCALE)
+    py = int(OFFSET_Y + (y_mm - 44.0) * SCALE)
     return px, py
 
 # 1. Draw subtle editor grid dots
 GRID_SPACING = 2.54 * SCALE
-for gx in range(int(OFFSET_X), int(OFFSET_X + 115 * SCALE), int(GRID_SPACING)):
-    for gy in range(int(OFFSET_Y), int(OFFSET_Y + 95 * SCALE), int(GRID_SPACING)):
+for gx in range(int(OFFSET_X), int(OFFSET_X + 130 * SCALE), int(GRID_SPACING)):
+    for gy in range(int(OFFSET_Y), int(OFFSET_Y + 100 * SCALE), int(GRID_SPACING)):
         draw.point((gx, gy), fill=(55, 60, 65, 255))
 
 # 2. Draw Board Boundary (Edge.Cuts) - Magenta / Yellow
-bx1, by1 = mm_to_px(67.0, 49.0)
-bx2, by2 = mm_to_px(175.0, 137.0)
+bx1, by1 = mm_to_px(46.0, 46.0)
+bx2, by2 = mm_to_px(170.0, 140.0)
 draw.rectangle([bx1, by1, bx2, by2], outline=(195, 175, 50, 255), width=2)
 
 # 3. Draw Filled Copper Ground Zones (Teal / Cyan)
-# Draw filled ground plane with clearance cutouts
 draw.rectangle([bx1 + 4, by1 + 4, bx2 - 4, by2 - 4], fill=(22, 58, 72, 210))
 
 # 4. Draw Back Copper Tracks (B.Cu) - Bright Green
@@ -98,18 +95,18 @@ for fp in board.GetFootprints():
     draw.text((fpx - 10, fpy - 16), ref, fill=(235, 235, 235, 240))
 
 # 8. Draw M3 Corner Mounting Holes (3.2mm drill + copper annular ring)
-m3_corners = [(71.0, 53.0), (171.0, 53.0), (71.0, 133.0), (171.0, 133.0)]
+m3_corners = [(50.0, 50.0), (166.0, 50.0), (50.0, 136.0), (166.0, 136.0)]
 for mx, my in m3_corners:
     mpx, mpy = mm_to_px(mx, my)
     # Ring
-    draw.ellipse([mpx - 22, mpy - 22, mpx + 22, mpy + 22], fill=(215, 175, 55, 255))
+    draw.ellipse([mpx - 20, mpy - 20, mpx + 20, mpy + 20], fill=(215, 175, 55, 255))
     # Drill
-    draw.ellipse([mpx - 14, mpy - 14, mpx + 14, mpy + 14], fill=(15, 15, 15, 255))
+    draw.ellipse([mpx - 12, mpy - 12, mpx + 12, mpy + 12], fill=(15, 15, 15, 255))
 
 # 9. Draw Board Text / Annotations (Silkscreen White)
-draw.text((mm_to_px(75.0, 51.5)), "HPVE CONTROLLER MOTHERBOARD REV 1.0", fill=(255, 255, 255, 255))
-draw.text((mm_to_px(75.0, 53.8)), "IRON CAVE INDUSTRIES | HACK CLUB FALLEN 2026", fill=(200, 200, 200, 255))
-draw.text((mm_to_px(85.0, 134.5)), "64-CHANNEL 40kHz PHASED ULTRASONIC EMITTER", fill=(255, 255, 255, 255))
+draw.text((mm_to_px(85.0, 48.5)), "HPVE CONTROLLER MOTHERBOARD REV 1.0", fill=(255, 255, 255, 255))
+draw.text((mm_to_px(80.0, 51.0)), "IRON CAVE INDUSTRIES | HACK CLUB FALLEN 2026", fill=(200, 200, 200, 255))
+draw.text((mm_to_px(80.0, 137.5)), "64-CHANNEL 40kHz PHASED ULTRASONIC EMITTER", fill=(255, 255, 255, 255))
 
 # 10. Draw KiCad GUI Overlay (Top menu, Left Tools, Right Layers Manager, Bottom Status)
 # Top Bar
