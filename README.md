@@ -45,6 +45,8 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 
 ## fallen 6-week roadmap
 
+see our day-by-day master execution plan in [CAMPAIGN_ROADMAP_45_DAYS.md](CAMPAIGN_ROADMAP_45_DAYS.md) (tracking our daily progress toward 2,500+ XP and Maker Faire Shenzhen).
+
 - [x] simulate wave interference in python (142x focal pressure verified)
 - [ ] draft kicad schematic for 64-transducer driver board
 - [ ] route pcb and submit design submission for hack club grant
