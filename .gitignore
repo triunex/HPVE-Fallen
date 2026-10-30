@@ -21,3 +21,6 @@ Thumbs.db
 *~
 # Local renders
 docs/images/
+*.lck
+.history/
+error_reports/
