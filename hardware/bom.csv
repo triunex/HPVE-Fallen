@@ -1,0 +1,12 @@
+Part,Description,Quantity,Unit Price (USD),Total Price (USD),Vendor Link,Notes
+400ST160,40kHz Ultrasonic Transducers (16mm THT),64,0.35,22.40,https://www.aliexpress.com/item/32847125345.html,Transducer array core elements
+TC4427CPA,Dual 1.5A High-Speed MOSFET Gate Driver (DIP-8),32,0.50,16.00,https://www.lcsc.com/product-detail/Gate-Drivers_Microchip-Tech-TC4427CPA_C14488.html,Boosts 3.3V RP2040 pulses to 12Vpp for transducers
+Raspberry Pi Pico,RP2040 MCU Board (Dual ARM Cortex-M0+ 133MHz),1,4.00,4.00,https://www.adafruit.com/product/4864,Generates synchronized multi-channel 40kHz phase PWM using PIO
+74HC595N,8-bit Serial-In Parallel-Out Shift Registers (High Speed),8,0.25,2.00,https://www.lcsc.com/product-detail/Logic-Shift-Registers_Texas-Instruments-SN74HC595N_C5642.html,High speed latching for multi-channel phase selection
+SSD1306 OLED,0.96 inch 128x64 I2C Blue OLED Display,1,2.50,2.50,https://www.amazon.com/dp/B08V8CGK39,Live focal coordinate HUD
+EC11 Encoder,Rotary Encoders with Push Button Switch,2,0.80,1.60,https://www.lcsc.com/product-detail/Encoders_ALPS-Alpine-EC11E15244B2_C114400.html,Coordinate X/Y and Z focal tuning
+12V 3A DC Adapter,12V 3A Center-Positive DC Power Supply + Jack,1,8.50,8.50,https://www.amazon.com/dp/B07GFFG5SS,Main power rail for transducer drivers
+MP1584EN Buck,Mini DC-DC Step-Down Buck Converter (12V to 5V),1,1.20,1.20,https://www.amazon.com/dp/B076P4C42B,Steps 12V rail down to 5V for Pico & logic
+JLCPCB 2-Layer PCB,Custom Emitter & Driver PCB (HASL finish 5 pcs),1,27.00,27.00,https://jlcpcb.com,2-layer FR-4 board with HASL lead-free finish
+Passives Kit,Decoupling Capacitors (0.1uF 10uF) & Resistors Pack,1,5.00,5.00,https://www.amazon.com/dp/B07P574R9G,Power filtering & I2C pullups
+Total,,,,90.20,,
