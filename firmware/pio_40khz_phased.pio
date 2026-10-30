@@ -1,0 +1,46 @@
+;
+; HPVE 40kHz Ultrasonic Phased-Array PIO Program
+; Target: Raspberry Pi Pico (RP2040)
+; Frequency: 40 kHz (25 microseconds period)
+;
+; Generates precision 40kHz square wave with programmable phase delay.
+; SysClk: 125 MHz. 
+; Clock Divisor: 125.0 -> PIO state machine runs at 1 MHz (1 us per cycle).
+; Period = 25 PIO cycles: 12 us HIGH, 13 us LOW.
+;
+
+.program ultrasonic_pwm
+.side_set 1 opt
+
+.wrap_target
+    ; Phase delay wait (loaded from OSR or counter)
+    pull noblock        ; Load phase delay ticks if available
+    mov x, osr          ; Store delay in X
+delay_loop:
+    jmp x-- delay_loop  ; Wait for initial phase offset
+
+pulse_cycle:
+    ; High for 12 microseconds (12 cycles at 1MHz)
+    set pins, 1 [11]    ; Set pin HIGH, wait 11 extra cycles (total 12 cycles)
+    
+    ; Low for 13 microseconds (13 cycles at 1MHz)
+    set pins, 0 [12]    ; Set pin LOW, wait 12 extra cycles (total 13 cycles)
+.wrap
+
+% c-sdk {
+static inline void ultrasonic_pwm_program_init(PIO pio, uint sm, uint offset, uint pin, float div) {
+    pio_sm_config c = ultrasonic_pwm_program_get_default_config(offset);
+    
+    // Bind output pin
+    sm_config_set_set_pins(&c, pin, 1);
+    pio_gpio_init(pio, pin);
+    pio_sm_set_consecutive_pindirs(pio, sm, pin, 1, true);
+
+    // Set clock divider: 125MHz / 125.0 = 1.0 MHz (1 us/tick)
+    sm_config_set_clkdiv(&c, div);
+
+    // Initialize and start state machine
+    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_enabled(pio, sm, true);
+}
+%}
