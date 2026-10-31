@@ -79,13 +79,13 @@
 ---
 
 ### DAY 02: Saturday, October 31, 2026 — TRANSDUCER RESONANCE & IMPEDANCE DYNAMICS
-- **Target Hours:** 3h 00m | **Target XP:** +24 XP | **Running XP Total:** ~49 XP
+- **Target Hours:** 3h 00m | **Actual Logged Today:** 4h 11m | **Actual XP Banked:** +33 XP | **Running XP Total:** 68 XP
 - **Focus:** Transducer electrical characteristics and 400ST160 resonant curve
 - [x] **Task 2.1:** Create `simulation/transducer_impedance_model.py`: model the 40 kHz series resonance (C0 = 2.2 nF, Cm = 123.2 pF, Lm = 128.5 mH, Rm = 922.7 Ohm).
 - [x] **Task 2.2:** Calculate reactive current consumption: 11.11 mA RMS per channel, 0.711 A total continuous array RMS current at 12Vpp.
 - [x] **Task 2.3:** Calculate thermal dissipation across all 32x TC4427 driver IC packages: 30.15 mW per IC, 3.8 deg C junction temperature rise.
 - [x] **Task 2.4:** Determine optimum bulk decoupling capacitor values on the +12V power rail: minimum 16.90 uF for <100mV droop, validating our 100 uF low-ESR bulk rail.
-- [ ] **Task 2.5:** Journal entry: "Why 64 transducers act like a giant capacitive sponge (and how not to burn the lab down)". Include impedance graph.
+- [x] **Task 2.5:** Journal entry: "Why 64 transducers act like a giant capacitive sponge (and how not to burn the lab down)". Logged 4h 11m, +33 XP banked! Total: 68 XP!
 
 ---
 
