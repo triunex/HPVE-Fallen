@@ -17277,54 +17277,6 @@
 		)
 		(embedded_fonts no)
 		(model "${KICAD10_3DMODEL_DIR}/Module.3dshapes/RaspberryPi_Pico_PinSockets_H8.50mm.step"
-			(hide yes)
-			(offset
-				(xyz 8.89 -24.13 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-		(model "${KICAD10_3DMODEL_DIR}/Module.3dshapes/RaspberryPi_Pico_AddedHeaders_H2.54mm.step"
-			(hide yes)
-			(offset
-				(xyz 8.89 -24.13 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-		(model "${KICAD10_3DMODEL_DIR}/Module.3dshapes/RaspberryPi_Pico_H.step"
-			(offset
-				(xyz 8.89 -24.13 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-		(model "${KICAD10_3DMODEL_DIR}/Module.3dshapes/RaspberryPi_Pico_W_AddedHeaders_H2.54mm.step"
-			(hide yes)
-			(offset
-				(xyz 8.89 -24.13 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-		(model "${KICAD10_3DMODEL_DIR}/Module.3dshapes/RaspberryPi_Pico_WH.step"
-			(hide yes)
 			(offset
 				(xyz 8.89 -24.13 0)
 			)
@@ -34194,6 +34146,22 @@
 		(uuid "de655840-b444-48c1-b436-066a87f6c18e")
 	)
 	(segment
+		(start 75.78 126.26)
+		(end 75.78 69.55)
+		(width 0.3)
+		(layer "F.Cu")
+		(net "SPI_MOSI")
+		(uuid "484fea93-c400-4fe9-8eaf-26296b23e97a")
+	)
+	(segment
+		(start 75.78 69.55)
+		(end 82.705 62.625)
+		(width 0.3)
+		(layer "F.Cu")
+		(net "SPI_MOSI")
+		(uuid "813ee3dd-91db-4dca-9bb6-2413a088dda1")
+	)
+	(segment
 		(start 75.085 70.245)
 		(end 75.085 92.545)
 		(width 0.25)
@@ -34368,22 +34336,6 @@
 		(layer "F.Cu")
 		(net "DRV_27")
 		(uuid "551b3033-1db4-49cb-8c3e-ffc168d01d76")
-	)
-	(segment
-		(start 75.78 126.26)
-		(end 75.78 69.55)
-		(width 0.3)
-		(layer "F.Cu")
-		(net "SPI_MOSI")
-		(uuid "484fea93-c400-4fe9-8eaf-26296b23e97a")
-	)
-	(segment
-		(start 75.78 69.55)
-		(end 82.705 62.625)
-		(width 0.3)
-		(layer "F.Cu")
-		(net "SPI_MOSI")
-		(uuid "813ee3dd-91db-4dca-9bb6-2413a088dda1")
 	)
 	(segment
 		(start 133.815 97.805)
