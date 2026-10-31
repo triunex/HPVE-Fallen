@@ -1,0 +1,23 @@
+{
+    "transient_dynamics": {
+        "num_channels": 64,
+        "v_supply_volts": 12.0,
+        "c_tot_nf": 140.79999999999998,
+        "c_bank_nf": 17.599999999999998,
+        "peak_inrush_current_a": 2.8107605257009207,
+        "t_peak_ns": 34.73389355742297,
+        "max_dv_dt_v_per_us": 319.402743160881
+    },
+    "pdn_verification": {
+        "droop_no_decoupling_v": 3.894206511856108,
+        "droop_bulk_only_mv": 800.0000000000007,
+        "droop_optimal_hybrid_mv": 15.105228924021219,
+        "rail_ripple_percent": 0.12587690770017684
+    },
+    "thermal_equilibrium": {
+        "power_per_tc4427_mw": 30.23503448275862,
+        "temp_rise_c": 3.7793793103448277,
+        "junction_temp_c": 28.77937931034483,
+        "silicon_limit_c": 150.0
+    }
+}
