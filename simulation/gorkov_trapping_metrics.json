@@ -1,0 +1,24 @@
+{
+    "acoustic_constants": {
+        "frequency_hz": 40000.0,
+        "wavelength_m": 0.008579999999999999,
+        "wavenumber_rad_per_m": 732.3059798577607,
+        "rho_air_kg_per_m3": 1.204,
+        "c_air_m_per_s": 343.2
+    },
+    "particle_properties": {
+        "radius_m": 0.001,
+        "density_kg_per_m3": 25.0,
+        "mass_kg": 1.0471975511965977e-07,
+        "gravity_force_n": 1.0269499865442114e-06,
+        "gorkov_f1": 0.99901517616,
+        "gorkov_f2": 0.929458636044059
+    },
+    "trapping_performance": {
+        "max_upward_force_un": 2.273769985478055,
+        "gravity_balance_ratio": 2.2141000197385625,
+        "max_payload_mass_mg": 0.2318600118774561,
+        "focal_height_m": 0.05,
+        "trap_type": "Acoustic Twin Trap (Marzo Nature Comms Protocol)"
+    }
+}
