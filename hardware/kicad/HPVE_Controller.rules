@@ -1,0 +1,95 @@
+
+(rules PCB HPVE_Controller
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 67)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.3)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.8)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 152.4)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 38.0 (type smd-smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND "SIG_34" "SIG_35" "SIG_36" "SIG_37" "SIG_38" "SIG_39" "SIG_40"
+    "CASCADE_5" "/Shift_Register_Cascade/CASCADE_4" "SPI_SCK" "SPI_LATCH" "/Shift_Register_Cascade/SPI_SCK" "CASCADE_4" "SIG_33" "SIG_55"
+    "/TC4427_Driver_Bank/GND" "SIG_56" "DRV_56" +12V "DRV_55" "SIG_42" "SIG_43" "SIG_44"
+    "SIG_45" "SIG_46" "SIG_47" "SIG_48" "CASCADE_6" "/Shift_Register_Cascade/CASCADE_5" "SIG_41" "DRV_16"
+    "DRV_25" "DRV_52" "DRV_7" "SIG_21" "SIG_22" "DRV_22" "DRV_21" "DRV_61"
+    "DRV_6" "SIG_49" "SIG_50" "DRV_50" "DRV_49" "DRV_53" "DRV_40" "DRV_39"
+    "SIG_26" "SIG_27" "SIG_28" "SIG_29" "SIG_30" "SIG_31" "SIG_32" "/Shift_Register_Cascade/CASCADE_3"
+    "CASCADE_3" "SIG_25" "SIG_53" "SIG_54" "DRV_54" "DRV_44" "DRV_43" "SIG_13"
+    "SIG_14" "DRV_14" "DRV_13" "DRV_37" "DRV_1" "SIG_57" "SIG_58" "DRV_58"
+    "DRV_57" "DRV_34" "DRV_33" "DRV_31" "DRV_42" "DRV_41" "DRV_30" "DRV_29"
+    "DRV_19" "SIG_63" "SIG_64" "DRV_64" "DRV_63" "DRV_48" "DRV_26" "DRV_62"
+    "DRV_8" "DRV_3" "SIG_5" "SIG_6" "DRV_5" "DRV_46" "DRV_45" "DRV_18"
+    "DRV_4" "DRV_32" "DRV_11" "DRV_59" "SIG_11" "SIG_12" "DRV_12" "DRV_47"
+    "SIG_15" "SIG_16" "DRV_15" "DRV_35" "DRV_24" "SIG_59" "SIG_60" "DRV_60"
+    "SIG_18" "SIG_19" "SIG_20" "SIG_23" "SIG_24" "/Shift_Register_Cascade/CASCADE_2" "CASCADE_2" "SIG_17"
+    "DRV_23" "unconnected-(U10-GP4_SDA-Pad6)" "unconnected-(U10-GP5_SCL-Pad7)" "unconnected-(U10-GP10_ENC_A1-Pad14)" "unconnected-(U10-GP11_ENC_B1-Pad15)" "unconnected-(U10-GP12_ENC_A2-Pad16)" "unconnected-(U10-GP13_ENC_B2-Pad17)" "SPI_MOSI"
+    "/RP2040_Core_UI/SPI_MOSI" "/RP2040_Core_UI/+5V" "SIG_7" "SIG_8" "SIG_51" "SIG_52" "CASCADE_7" "/Shift_Register_Cascade/CASCADE_6"
+    "DRV_51" "SIG_61" "SIG_62" "DRV_17" "DRV_28" "DRV_27" "DRV_38" "DRV_9"
+    "DRV_36" "SIG_9" "SIG_10" "DRV_10" "DRV_2" "/Shift_Register_Cascade/CASCADE_1" "CASCADE_1" "SIG_3"
+    "SIG_4" "SIG_2" "/Shift_Register_Cascade/SPI_MOSI" "SIG_1" "DRV_20" "unconnected-(U8-QH'-Pad9)" "/Shift_Register_Cascade/CASCADE_7"
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

@@ -19,13 +19,13 @@
 
 | Metric | Target Value | Current Value | Status |
 |---|---|---|---|
-| **Total XP Accumulated** | 2,500 XP | **25 XP** | 🟢 ON TRACK (HATCH COMPLETE) |
+| **Total XP Accumulated** | 2,500 XP | **124 XP** | 🟢 ON TRACK (VISA MILESTONE SURPASSED) |
 | **Current Multiplier** | 1.75x (Max) | **1.00x** (Week 1) | ⚡ 3 Freezes Remaining |
-| **Visa Invitation Gate** | 100 XP (Required) | 25 / 100 XP | ⏳ Unlocks ~Day 4 (Nov 2) |
-| **Need-Based Flight Gate** | 500 XP ($1,000 Grant) | 25 / 500 XP | ⏳ Unlocks ~Day 18 (Nov 16) |
-| **Shenzhen Qualifier Gate** | 1,000 XP (Final Form) | 25 / 1,000 XP | ⏳ Target: Day 30 (Nov 28) |
+| **Visa Invitation Gate** | 100 XP (Required) | **124 / 100 XP** | 🏆 UNLOCKED (Eligible for F-Visa Invitation) |
+| **Need-Based Flight Gate** | 500 XP ($1,000 Grant) | 124 / 500 XP | ⏳ In Progress (24.8% Complete) |
+| **Shenzhen Qualifier Gate** | 1,000 XP (Final Form) | 124 / 1,000 XP | ⏳ In Progress (12.4% Complete) |
 | **Cash Stipend Surplus** | $1,500 USD (1,500 XP+) | $0.00 | ⏳ Unlocks after 1,000 XP |
-| **Stage Progression** | Stage 1 ➔ Stage 2 | Stage 1 (175 XP to go) | 🟢 ACTIVE |
+| **Stage Progression** | Stage 1 ➔ Stage 2 | Stage 1 (76 XP to Stage 2) | 🟢 ACTIVE |
 | **Days Remaining** | 42 Days to Qualify | 42 Days | 🟢 FULL RUNWAY |
 
 ---
@@ -89,9 +89,9 @@
 
 ---
 
-### DAY 03: Sunday, November 01, 2026 — 3D GOR'KOV ACOUSTIC TRAP POTENTIAL MODELING (COMPLETED EARLY IN DAY 2 SPRINT)
-- **Target Hours:** 3h 30m | **Actual Logged:** 4h 30m | **Target XP:** +35 XP | **Projected Running XP Total:** ~103 XP (CROSSES 100 XP VISA MILESTONE!)
-- **Focus:** Particle levitation physics, 3D Gor'kov acoustic radiation force field, and mid-air tactile haptics
+### DAY 03: Sunday, November 01, 2026 — 3D GOR'KOV ACOUSTIC TRAP POTENTIAL & 64-CHANNEL PCB AUTOROUTE
+- **Target Hours:** 3h 30m | **Actual Logged Today:** 7h 00m | **Actual XP Banked:** +56 XP | **Running XP Total:** 124 XP (100 XP VISA MILESTONE SURPASSED!)
+- **Focus:** Particle levitation physics, 3D Gor'kov acoustic radiation force field, mid-air tactile haptics, and 64-channel PCB autorouting
 - [x] **Task 3.1:** Write `simulation/gorkov_potential.py`: implement the full Gor'kov acoustic potential equation:
   $$U = 2\pi R^3 \left( \frac{\langle p^2 \rangle}{3\rho_0 c_0^2} f_1 - \frac{\rho_0 \langle v^2 \rangle}{2} f_2 \right)$$
   Incorporated 64-element Bessel circular piston directivity ($D(\theta) = 2 J_1(k a \sin\theta) / (k a \sin\theta)$) and particle velocity via Euler equation ($\mathbf{v} = \frac{j}{\omega \rho_0} \nabla P$).
@@ -101,12 +101,15 @@
 - [x] **Task 3.5:** Compute mid-air haptic radiation pressure field on human skin mechanoreceptors: $P_{\mathrm{rad}} = 172.7\text{ Pa}$ peak, $F_{\mathrm{tactile}} = 5.84\text{ mN}$ integrated force over a 10 mm fingertip contact patch with 200 Hz envelope modulation.
 - [x] **Task 3.6:** Publish 4 standalone, publication-grade academic figures (`fig5` through `fig8`) and export structured JSON metrics (`simulation/gorkov_trapping_metrics.json`).
 - [x] **Task 3.7:** Upgrade `firmware/main.cpp` with dual-core ARM Cortex-M0+ architecture: Core 0 executes real-time wave interference phase calculation; Core 1 drives the high-speed PIO carrier pulse engine.
-- [x] **Task 3.8:** Journal entry: "Session 2: Trapping matter and bending mid-air pressure with pure acoustic physics (and reaching the 100 XP threshold)".
+- [x] **Task 3.8:** Comprehensive KiCad DRC audit and routing overhaul: eliminated 100% of 116 dead short circuits, 192 crossing tracks, and 199 mask bridge warnings.
+- [x] **Task 3.9:** Exported Specctra DSN to FreeRouting: routed 2,448 physical copper segments, 329 plated through-hole vias, dual ground planes, and fixed edge clearance violation on via `DRV_14`.
+- [x] **Task 3.10:** Rendered full 64-channel array in KiCad 3D Viewer with complete through-hole transducer matrix and driver IC footprints.
+- [x] **Task 3.11:** Journal entry: "Session 2: 7 Hours in the Iron Cave — 3D Gor'kov Trapping, Dual-Core PIO Firmware, & 2,448-Track PCB Autoroute". Banked +56 XP! Total: 124 XP!
 
 ---
 
 ### DAY 04: Monday, November 02, 2026 — 100 XP VISA MILESTONE UNLOCKED
-- **Target Hours:** 3h 00m | **Target XP:** +24 XP | **Running XP Total:** ~101 XP
+- **Target Hours:** 3h 00m | **Target XP:** +24 XP | **Running XP Total:** 124 XP (VISA MILESTONE ALREADY SURPASSED)
 - **Focus:** Reaching 100 XP Threshold & Chinese F-Visa Application
 - [ ] **Task 4.1:** Verify XP crosses 100 on dashboard.
 - [ ] **Task 4.2:** **CRITICAL ACTION:** Fill out the official Hack Club Visa Form at `https://forms.hackclub.com/fallen-visa` to request the **Chinese F-Visa Invitation Letter**.

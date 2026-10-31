@@ -11,6 +11,7 @@ env/
 *.kicad_prl
 *.kicad_pcb-bak
 *.kicad_sch-bak
+*.bak
 fp-info-cache
 *.net
 

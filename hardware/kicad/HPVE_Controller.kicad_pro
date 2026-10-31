@@ -533,7 +533,7 @@
       "idf": "",
       "netlist": "",
       "plot": "",
-      "specctra_dsn": "",
+      "specctra_dsn": "HPVE_Controller.dsn",
       "step": "",
       "vrml": ""
     },
