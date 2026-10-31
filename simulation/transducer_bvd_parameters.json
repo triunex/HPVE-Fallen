@@ -1,0 +1,29 @@
+{
+    "bvd_parameters": {
+        "C0_farads": 2.2e-09,
+        "tan_delta": 0.005,
+        "fs_target_hz": 40000.0,
+        "Qm": 35.0,
+        "Cm_farads": 1.232e-10,
+        "Lm_henries": 0.12850190701392272,
+        "Rm_ohms": 922.7443361079277,
+        "fp_antires_hz": 41104.744251728414,
+        "keff": 0.23028309323591944
+    },
+    "resonance_metrics": {
+        "fs_hz": 39767.38369184593,
+        "fp_hz": 41338.16908454227,
+        "min_impedance_ohms": 760.0903788068506,
+        "max_impedance_ohms": 4037.579841183715,
+        "bandwidth_hz": 1142.857142857143,
+        "keff": 0.23028309323591944
+    },
+    "array_metrics_64ch": {
+        "total_rms_current_a": 0.7110481664371571,
+        "total_real_power_w": 2.034954587529275,
+        "total_reactive_power_var": 2.199564389649525,
+        "min_decoupling_capacitance_uf": 16.895999999999997,
+        "tc4427_dissipation_mw": 30.15123287671233,
+        "tc4427_temp_rise_c": 3.7689041095890414
+    }
+}
