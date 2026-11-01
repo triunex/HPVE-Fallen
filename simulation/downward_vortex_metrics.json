@@ -1,0 +1,35 @@
+{
+  "project": "HPVE - Malibu Volumetric Engine",
+  "target_event": "Maker Faire Shenzhen 2026",
+  "acoustic_solver": "single_sided_vortex_trap.py",
+  "array_configuration": {
+    "grid_x": 16,
+    "grid_y": 16,
+    "channel_count": 256,
+    "carrier_freq_hz": 40000.0,
+    "pitch_mm": 12.0,
+    "aperture_width_mm": 180.0,
+    "focal_depth_mm": 200.0
+  },
+  "levitated_particle": {
+    "material": "Expanded Polystyrene (EPS)",
+    "radius_mm": 1.0,
+    "density_kg_m3": 25.0,
+    "mass_mg": 0.10471975511965978,
+    "gravitational_weight_uN": 1.0269499865442113
+  },
+  "acoustic_trap_metrics": {
+    "peak_vortex_rms_pressure_pa": 3949.096295625278,
+    "peak_vortex_spl_db": 165.9093545626607,
+    "singularity_core_pressure_pa": 6.675879166002413e-12,
+    "peak_upward_radiation_force_uN": 9.738863068126552,
+    "peak_lateral_restoring_force_uN": 2.616374920923231,
+    "vertical_safety_factor": 9.483288568802452,
+    "lateral_safety_factor": 2.5477140612539393,
+    "trap_depth_well_nJ": 14.625389118591336,
+    "critical_escape_velocity_m_s": 0.5285114537490626,
+    "lateral_stiffness_mN_m": 0.6074107128202259,
+    "vertical_stiffness_mN_m": 0.034545460860385825,
+    "levitation_stability_verified": true
+  }
+}
