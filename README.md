@@ -27,35 +27,44 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 
 ## hardware architecture
 
+- **modular tile design (`HPVE_Tile_16Ch`)**: scaled from a bulky monolith to daisy-chainable 16-channel phased array tiles (4x4 transducers per board). 4 tiles daisy-chain into a 64-channel array; 16 tiles snap into a 256-channel Holotable!
+- **stackup**: 4-layer high-current board (`F.Cu` signals, `In1.Cu` solid GND plane, `In2.Cu` dedicated +12V power plane, `B.Cu` signals).
+- **interconnects**: ultra-low profile 0.5mm horizontal flip-lock FFC ribbon connectors (`J_IN` / `J_OUT`, Hirose FH12-6S-0.5SH) for flush edge-to-edge tile stacking, plus dedicated 2-pin auxiliary 12V bench power terminal (`J_PWR`).
 - **mcu**: raspberry pi pico (rp2040). standard arduinos are way too slow to drive 64 phase channels, but the rp2040 has PIO (programmable i/o) state machines running at 133 mhz, which can toggle pins with nanosecond timing without burning cpu cycles.
-- **transducers**: 64x 400ST160 40khz ultrasonic emitters arranged in an 8x8 grid.
-- **drivers**: TC4427 / L293DD dual half-bridge mosfet drivers to level shift 3.3v logic up to 12v-16v peak-to-peak for enough acoustic power.
+- **transducers**: 16x 400ST160 40khz ultrasonic emitters per tile (64 across 4 tiles) mounted in 100% female header sockets for hot-swapping and zero soldering heat stress.
+- **drivers**: 8x TC4427 dual high-speed MOSFET gate drivers per tile with individual 0.1uF 50V X7R 0805 decoupling caps, level shifting 3.3v logic up to 12v peak-to-peak.
+- **shift registers**: 2x 74HC595 SOIC-16 shift registers per tile cascading SPI control.
 - **controls**: dual rotary encoders for moving the focal point (x, y, z) + 0.96 inch i2c oled screen for telemetry.
-- **power**: 12v 3a dc power supply with a buck converter stepping down to 5v for logic.
 
 ## repository structure
 
 ```
-├── firmware/         # rp2040 c++ code and pio state machines (wip)
-├── hardware/         # kicad schematics, pcb layout, gerbers
-├── simulation/       # python wave physics model and pressure verification
-├── docs/             # calculations, notes, bom
+├── firmware/         # rp2040 c++ code and pio state machines
+├── hardware/         # kicad schematics, pcb layout, gerbers, drc reports
+│   └── modular_tile/ # 16-channel 4-layer modular tile (pcb, gerbers, bom, cpl, 3d renders)
+├── simulation/       # python wave physics model, 3d gor'kov trapping, impedance
+├── docs/             # calculations, notes, pinout architecture
+├── CAMPAIGN_ROADMAP_45_DAYS.md # master 45-day expedition manifest & live telemetry
 └── README.md
 ```
 
 ## fallen 6-week roadmap
 
 - [x] simulate wave interference in python (142x focal pressure verified)
+- [x] 3d gor'kov acoustic trap simulation (2.0mm bead levitation & 200hz skin haptics modeled)
 - [x] timing budget verified: 20MHz SPI loads 64 channels in 3.25us (87% margin)
-- [x] initialize KiCad 8.0 hierarchical schematic project
-- [ ] draft kicad schematic for 64-transducer driver board
-- [ ] route pcb and submit design submission for hack club grant
-- [ ] prototype 8-channel pio square wave generator on rp2040
-- [ ] order boards from jlcpcb and get parts
-- [ ] solder driver board and test 40khz output with oscilloscope
-- [ ] test mid-air skin haptics and particle levitation
-- [ ] design 3d printed desktop chassis
-- [ ] ship build submission and demo at maker faire shenzhen!
+- [x] architectural pivot: scalable 16-channel 4-layer modular tile (`HPVE_Tile_16Ch`)
+- [x] route 4-layer modular tile with 0.5mm FFC connectors, bench power, and decoupling
+- [x] achieve 0 DRC violations, 0 unconnected pads, and 0 warnings (`hardware/DRC.rpt`)
+- [x] export 1-click JLCPCB production package (Gerbers, drills, BOM with LCSC IDs, CPL)
+- [x] cross 200+ XP on Hack Club Fallen (216 XP banked on Day 4, Sami evolved to Stage 2!)
+- [ ] submit official Chinese F-Visa application on Hack Club portal
+- [ ] prototype RP2040 PIO cascading shift register firmware
+- [ ] order custom tiles from JLCPCB and components from LCSC / AliExpress
+- [ ] assemble and test 40khz acoustic output on breadboard / bench
+- [ ] test mid-air skin haptics and particle levitation with multi-tile array
+- [ ] design 3d printed desktop chassis with acoustic horn aperture
+- [ ] ship build submission and demo live at maker faire shenzhen 2026!
 
 ## author
 

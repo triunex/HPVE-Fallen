@@ -1,13 +1,13 @@
 # HPVE 45-DAY MASTER EXPEDITION MANIFEST
 ## Target: 2,500+ XP | Hack Club Fallen | Maker Faire Shenzhen 2026
-### Operative: nelieo.shorya | Division: Iron Cave Industries | Companion: Sami (Team Sami 🦊)
+### Operative: nelieo.shorya | Division: Iron Cave Industries | Companion: Sami (Team Sami 🦊 - STAGE 2 EVOLVED!)
 
 ```
 ==================================================================================================
            HAPTIC PHOTONIC VOLUMETRIC ENGINE (HPVE) - 45-DAY CAMPAIGN ROADMAP
 ==================================================================================================
   MISSION TARGET: 2,500+ XP (1,000 XP Qualification + $1,500+ USD Travel Stipend Reimbursement)
-  COMPANION: SAMI | STREAK STRATEGY: 1.00x -> 1.75x MAX ACCELERATOR
+  COMPANION: SAMI (STAGE 2 UNLOCKED!) | STREAK STRATEGY: 1.00x -> 1.75x MAX ACCELERATOR
   CRITICAL HARD STOP: DECEMBER 9TH, 2026 (11:59 PM ET)
   EXPEDITION DATES: DECEMBER 11 - 14, 2026 @ MAKER FAIRE SHENZHEN, CHINA
 ==================================================================================================
@@ -19,26 +19,28 @@
 
 | Metric | Target Value | Current Value | Status |
 |---|---|---|---|
-| **Total XP Accumulated** | 2,500 XP | **124 XP** | 🟢 ON TRACK (VISA MILESTONE SURPASSED) |
-| **Current Multiplier** | 1.75x (Max) | **1.00x** (Week 1) | ⚡ 3 Freezes Remaining |
-| **Visa Invitation Gate** | 100 XP (Required) | **124 / 100 XP** | 🏆 UNLOCKED (Eligible for F-Visa Invitation) |
-| **Need-Based Flight Gate** | 500 XP ($1,000 Grant) | 124 / 500 XP | ⏳ In Progress (24.8% Complete) |
-| **Shenzhen Qualifier Gate** | 1,000 XP (Final Form) | 124 / 1,000 XP | ⏳ In Progress (12.4% Complete) |
+| **Total XP Accumulated** | 2,500 XP | **216 XP** | 🟢 ON TRACK (STAGE 2 UNLOCKED! +91 XP IN DAY 4) |
+| **Current Multiplier** | 1.75x (Max) | **1.00x** (Week 1) | ⚡ 3 Freezes Remaining (Sami Streak Active!) |
+| **Overall Logged Time** | 200+ Hours | **24h 37m** (6 Journals) | 🚀 11h 21m logged in Day 4 alone! |
+| **Team Sami Standings** | Team Victory | **9,163 XP** | 🦊 Team Sami Weekly Total |
+| **Visa Invitation Gate** | 100 XP (Required) | **216 / 100 XP (216%)** | 🏆 UNLOCKED (Eligible for F-Visa Invitation) |
+| **Need-Based Flight Gate** | 500 XP ($1,000 Grant) | **216 / 500 XP (43.2%)** | ⏳ In Progress (Only 284 XP to Flight Grant!) |
+| **Shenzhen Qualifier Gate** | 1,000 XP (Final Form) | **216 / 1,000 XP (21.6%)** | ⏳ In Progress (39 Days to Final Form) |
 | **Cash Stipend Surplus** | $1,500 USD (1,500 XP+) | $0.00 | ⏳ Unlocks after 1,000 XP |
-| **Stage Progression** | Stage 1 ➔ Stage 2 | Stage 1 (76 XP to Stage 2) | 🟢 ACTIVE |
-| **Days Remaining** | 42 Days to Qualify | 42 Days | 🟢 FULL RUNWAY |
+| **Stage Progression** | Stage 1 ➔ Stage 2 | **Stage 2 UNLOCKED** | 🦊 SAMI EVOLVED TO STAGE 2! (284 XP to Stage 3) |
+| **Days Remaining** | 39 Days to Final Form | **39 Days** | 🟢 FULL RUNWAY |
 
 ---
 
 ## 2. The 6 Strategic Phase Banners
 
 ```
-[PHASE 01: DAYS 01-07] DIGITAL ARCHITECTURE & WAVE INTERACTION MATH       (XP: 0000 -> 0200)
-[PHASE 02: DAYS 08-14] KICAD SCHEMATIC, PCB ROUTING & DESIGN SUBMISSION  (XP: 0200 -> 0450)
-[PHASE 03: DAYS 15-21] FIRMWARE PROTOTYPING & 500 XP FLIGHT STIPEND       (XP: 0450 -> 0800)
-[PHASE 04: DAYS 22-28] HARDWARE ARRIVAL, SOLDERING & POWER STAGE PROOF   (XP: 0800 -> 1250)
-[PHASE 05: DAYS 29-35] 1000 XP QUALIFIER: LEVITATION & HAPTIC TUNING     (XP: 1250 -> 1800)
-[PHASE 06: DAYS 36-45] BUILD SUBMISSION, PACKING & MAKER FAIRE SHENZHEN   (XP: 1800 -> 2500+)
+[PHASE 01: DAYS 01-07] DIGITAL ARCHITECTURE & MODULAR TILE REVOLUTION     (XP: 0000 -> 0216+) [SURPASSED!]
+[PHASE 02: DAYS 08-14] FABRICATION PROCUREMENT, FIRMWARE & ENCLOSURE CAD   (XP: 0216 -> 0450) [ADVANCED EARLY!]
+[PHASE 03: DAYS 15-21] MULTI-TILE PIO RIG & 500 XP FLIGHT STIPEND          (XP: 0450 -> 0800)
+[PHASE 04: DAYS 22-28] HARDWARE ARRIVAL, SOLDERING & POWER STAGE PROOF      (XP: 0800 -> 1250)
+[PHASE 05: DAYS 29-35] 1000 XP QUALIFIER: LEVITATION & HAPTIC TUNING        (XP: 1250 -> 1800)
+[PHASE 06: DAYS 36-45] BUILD SUBMISSION, PACKING & MAKER FAIRE SHENZHEN      (XP: 1800 -> 2500+)
 ```
 
 ---
@@ -108,52 +110,76 @@
 
 ---
 
-### DAY 04: Monday, November 02, 2026 — 100 XP VISA MILESTONE UNLOCKED
-- **Target Hours:** 3h 00m | **Target XP:** +24 XP | **Running XP Total:** 124 XP (VISA MILESTONE ALREADY SURPASSED)
-- **Focus:** Reaching 100 XP Threshold & Chinese F-Visa Application
-- [ ] **Task 4.1:** Verify XP crosses 100 on dashboard.
-- [ ] **Task 4.2:** **CRITICAL ACTION:** Fill out the official Hack Club Visa Form at `https://forms.hackclub.com/fallen-visa` to request the **Chinese F-Visa Invitation Letter**.
-- [ ] **Task 4.3:** Gather passport scan and prepare visa submission dossier.
-- [ ] **Task 4.4:** Write `hardware/CIRCUIT_SPECS.md` detailing the signal routing from RP2040 to TC4427 inputs.
-- [ ] **Task 4.5:** Journal entry: "Hit 100 XP! Chinese Visa invitation requested + deep dive into driver gate delays".
+### DAY 04: Monday, November 02, 2026 — THE MODULAR TILE REVOLUTION & STAGE 2 UNLOCKED! 🦊
+- **Target Hours:** 3h 00m | **Actual Logged Today:** 11h 21m (11.35h) | **Actual XP Banked:** +91 XP! | **Running XP Total:** 216 XP! (STAGE 2 UNLOCKED!)
+- **Focus:** Complete Architectural Pivot to Scalable 16-Channel Modular Tile (`HPVE_Tile_16Ch`), 4-Layer High-Current Stackup, 0.5mm FFC Connectors, 0 DRC Verification, and JLCPCB Fabrication Release
+- [x] **Task 4.1:** **Architectural Pivot:** Scaled down from a monolithic 64-channel slab to a modular, daisy-chainable 16-channel phased tile (`HPVE_Tile_16Ch`).
+  - *Tile Math:* 16 Transducers (4x4 grid), 8x TC4427 high-speed dual drivers, 2x 74HC595 shift registers per tile.
+  - *Scalability:* 4 tiles daisy-chain into 64 channels; 16 tiles snap into a 256-channel Holotable!
+- [x] **Task 4.2:** **4-Layer High-Current Stackup:**
+  - `F.Cu`: Top signal routing and local interconnects.
+  - `In1.Cu`: Dedicated solid Ground plane (low inductance, RF shielding).
+  - `In2.Cu`: Dedicated +12V high-current power plane to handle inductive acoustic pulses.
+  - `B.Cu`: Bottom signal routing.
+- [x] **Task 4.3:** **Ultra-Low Profile FFC Daisy-Chaining:**
+  - Replaced tall through-hole pin headers with 0.5mm pitch horizontal flip-lock FFC connectors (`J_IN` and `J_OUT`, Hirose FH12-6S-0.5SH) for flush, gap-free edge-to-edge tile stacking with flat ribbon cables.
+  - Added dedicated 2-pin 2.54mm auxiliary bench power terminal (`J_PWR`) to inject +12V directly into `In2.Cu` power plane, preventing voltage droop across daisy chains.
+- [x] **Task 4.4:** **Decoupling & Transducer Sockets:**
+  - Placed 8x 0.1uF 50V X7R 0805 ceramic caps directly flanking every TC4427 driver VDD pin.
+  - Placed 2x 0.1uF 16V X7R 0805 caps for 74HC595 shift registers.
+  - Positioned 47uF bulk electrolytic reservoir capacitor (`C_BULK`) at power entry.
+  - Configured 100% female header sockets for all 16 transducers for hot-swapping and zero thermal soldering stress.
+- [x] **Task 4.5:** **Flawless KiCad DRC Cleared:**
+  - Eliminated isolated copper fill zones and solved courtyard overlaps with `J_PWR`.
+  - Completed all unrouted nets and achieved **0 DRC errors, 0 unconnected pads, 0 warnings** (`hardware/DRC.rpt` 100% clean!).
+- [x] **Task 4.6:** **Fabrication Package Exported:**
+  - Packaged 1-click JLCPCB archive: `hardware/modular_tile/production/HPVE_Tile_16Ch_Gerber.zip`.
+  - Generated complete BOM with verified LCSC part numbers: `hardware/modular_tile/production/HPVE_Tile_16Ch_bom.csv`.
+  - Generated automated SMT pick-and-place position file: `hardware/modular_tile/production/HPVE_Tile_16Ch_cpl.csv`.
+  - Rendered high-resolution 3D raytraced renders (`render_3d_iso.png`, `render_top.png`, `render_bottom.png`).
+- [x] **Task 4.7:** **Git Commit & Push:** Pushed all production artifacts to GitHub `triunex/HPVE-Fallen` (`53c1886` and `28b02f5`).
+- [x] **Task 4.8:** **HISTORIC MILESTONE: BANKED +91 XP IN 11h 21m MARATHON!**
+  - Total XP surges to **216 XP**!
+  - **STAGE 2 UNLOCKED!** Companion Sami evolved into a 9-tailed fox spirit form!
+  - Only 284 XP left to reach Stage 3! Need-based flight grant is already 43.2% complete!
 
 ---
 
-### DAY 05: Tuesday, November 03, 2026 — SHIFT REGISTER PIPELINE BENCHMARKING
-- **Target Hours:** 3h 30m | **Target XP:** +28 XP | **Running XP Total:** ~129 XP
-- **Focus:** SPI vs. Bit-Bang Data Throughput for 64-Channel Output
-- [ ] **Task 5.1:** Write `firmware/shift_register_bench.c` to test SPI clock rates up to 30 MHz on RP2040.
-- [ ] **Task 5.2:** Measure latency to shift 64 bits through eight 74HC595 shift registers.
-- [ ] **Task 5.3:** Verify that shift register reload frequency comfortably exceeds the 40 kHz acoustic period ($25\ \mu\text{s}$).
-- [ ] **Task 5.4:** Design latch signal synchronization using RP2040 PWM hardware interrupt.
-- [ ] **Task 5.5:** Journal entry: "Pushing 30 MHz SPI down an 8-stage shift register daisy chain".
+### DAY 05: Tuesday, November 03, 2026 — VISA SUBMISSION & JLCPCB FABRICATION SETUP
+- **Target Hours:** 3h 30m | **Target XP:** +28 XP | **Running XP Total:** ~244 XP
+- **Focus:** Chinese F-Visa Application Submission & JLCPCB / LCSC Order Preparation
+- [ ] **Task 5.1:** **CRITICAL ACTION:** Submit official Hack Club Chinese F-Visa Application form at `https://forms.hackclub.com/fallen-visa` (Visa invitation unlocked at 100 XP, now at 216 XP!).
+- [ ] **Task 5.2:** Upload `HPVE_Tile_16Ch_Gerber.zip` to JLCPCB: verify 4-layer stackup (JLC04161H-7628), 1.6mm thickness, matte black finish.
+- [ ] **Task 5.3:** Validate JLCPCB SMT assembly preview using `HPVE_Tile_16Ch_bom.csv` and `HPVE_Tile_16Ch_cpl.csv`.
+- [ ] **Task 5.4:** Verify part availability on LCSC / AliExpress for a 4-tile setup (64 transducers, 32x TC4427, 8x 74HC595, 0.5mm FFC cables).
+- [ ] **Task 5.5:** Journal entry: "Visa application submitted + JLCPCB manufacturing review of the 16-channel modular tile".
 
 ---
 
-### DAY 06: Wednesday, November 04, 2026 — UI & TELEMETRY SUBSYSTEM
-- **Target Hours:** 3h 00m | **Target XP:** +24 XP | **Running XP Total:** ~153 XP
-- **Focus:** SSD1306 OLED HUD & EC11 Rotary Encoder Interrupt Handler
-- [ ] **Task 6.1:** Create `firmware/ui_controller.cpp`: implement I2C OLED driver using lightweight SSD1306 ASCII library.
-- [ ] **Task 6.2:** Create custom bitmap icons: HPVE logo, 3D Target Reticle, Frequency Indicator, Active Channel Counter.
-- [ ] **Task 6.3:** Write quadrature decoding ISR for dual EC11 rotary encoders on GPIO 10, 11, 12, 13 with hardware debouncing.
-- [ ] **Task 6.4:** Test coordinate incrementation ($X, Y, Z$) with velocity-based acceleration.
-- [ ] **Task 6.5:** Journal entry: "Designing the Stark lab UI: zero-latency rotary control on a 0.96 inch OLED HUD".
+### DAY 06: Wednesday, November 04, 2026 — MULTI-TILE PIO FIRMWARE & CASCADE TIMING
+- **Target Hours:** 3h 30m | **Target XP:** +28 XP | **Running XP Total:** ~272 XP
+- **Focus:** RP2040 PIO Cascading Shift Register Firmware & Multi-Tile SPI Daisy-Chaining
+- [ ] **Task 6.1:** Author `firmware/pio_cascade_driver.c`: RP2040 PIO state machine for cascading 64-bit to 256-bit shift register frames.
+- [ ] **Task 6.2:** Multi-tile SPI timing verification: prove 20 MHz SPI clocks 64 bits across 4 cascaded tiles in 3.2 microseconds (87% timing margin inside 25us acoustic period).
+- [ ] **Task 6.3:** Wire SSD1306 OLED HUD & EC11 rotary encoder breadboard test for real-time 3D coordinate steering.
+- [ ] **Task 6.4:** Journal entry: "Writing the multi-tile cascade driver: driving 4 daisy-chained tiles with a single RP2040 PIO core".
 
 ---
 
-### DAY 07: Thursday, November 05, 2026 — WEEK 1 REVIEW & SAMI MULTIPLIER UPGRADE
-- **Target Hours:** 3h 30m | **Target XP:** +28 XP | **Running XP Total:** ~181 XP
-- **Focus:** Week 1 Streak Lock, Multiplier Boost, Full Phase 1 Git Tag
-- [ ] **Task 7.1:** Verify 7 consecutive days of journaling.
+### DAY 07: Thursday, November 05, 2026 — BREADBOARD ACOUSTIC TEST & SAMI MULTIPLIER UPGRADE
+- **Target Hours:** 3h 30m | **Target XP:** +28 XP | **Running XP Total:** ~300 XP
+- **Focus:** Week 1 Streak Lock, Breadboard Acoustic Resonance Proof, Multiplier Boost to 1.15x
+- [ ] **Task 7.1:** Verify 7 consecutive days of journaling on Hack Club Fallen.
 - [ ] **Task 7.2:** **TEAM SAMI UPGRADE:** Multiplier increases from **1.00x ➔ 1.15x**!
-- [ ] **Task 7.3:** Clean up code, add docstrings, and tag release `v0.1-digital-prototype` on GitHub.
-- [ ] **Task 7.4:** Prepare KiCad project workspace for Week 2 schematic sprint.
-- [ ] **Task 7.5:** Journal entry: "Week 1 in the books: Sami multiplier upgraded to 1.15x + digital architecture locked".
+- [ ] **Task 7.3:** Breadboard test: wire RP2040 Pico to 1x TC4427 driver and 2x 400ST160 transducers to verify 40 kHz acoustic emission.
+- [ ] **Task 7.4:** Tag official GitHub release: `v0.2-modular-tile-fab-ready`.
+- [ ] **Task 7.5:** Journal entry: "Week 1 locked! Sami multiplier upgraded to 1.15x, modular tile fab-ready, 300 XP within reach".
 
 ---
 
-## PHASE 02: KICAD SCHEMATIC, PCB ROUTING & DESIGN SUBMISSION (DAYS 8 - 14)
-### Multiplier: 1.15x | Base Rate: 9.2 XP / Hour | Goal: 250 XP | Total XP: 181 ➔ 431 | Unlock: Project Funding via HCB
+## PHASE 02: FABRICATION PROCUREMENT, FIRMWARE & ENCLOSURE CAD (DAYS 8 - 14)
+### Multiplier: 1.15x | Base Rate: 9.2 XP / Hour | Goal: 200 XP | Total XP: 300 ➔ 500+ | Unlock: $1,000 FLIGHT STIPEND!
+*(Note: Hardware PCB design and DRC verification was completed early on Day 4! Phase 2 focuses on placing the JLCPCB order, 3D enclosure CAD, and multi-tile cascade firmware).*
 
 ---
 
