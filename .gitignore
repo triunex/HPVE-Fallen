@@ -25,3 +25,5 @@ docs/images/
 *.lck
 .history/
 error_reports/
+logs/
+
