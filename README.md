@@ -58,8 +58,12 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - [x] achieve 0 DRC violations, 0 unconnected pads, and 0 warnings (`hardware/DRC.rpt`)
 - [x] export 1-click JLCPCB production package (Gerbers, drills, BOM with LCSC IDs, CPL)
 - [x] cross 200+ XP on Hack Club Fallen (216 XP banked on Day 4, Sami evolved to Stage 2!)
+- [x] convert to 100% single-sided top SMT (`F.Cu`) to slash JLCPCB PCBA setup costs by 60%
+- [x] implement production-grade RP2040 dual-core PIO + DMA cascading firmware stack (`firmware/`)
+- [x] Q16.16 fixed-point 3D holographic wave solver with 6 operational modes (Twin, Bottle, Vortex, Haptic, POV, Dual-Trap)
+- [x] hardware-in-the-loop emulation test passed: 0 bit errors over 1,024 bits/cycle, exact 40.000 kHz carrier
+- [x] cross 330+ XP on Hack Club Fallen (338 XP banked on Day 5, 11h 07m journaled at 1.15x multiplier!)
 - [ ] submit official Chinese F-Visa application on Hack Club portal
-- [ ] prototype RP2040 PIO cascading shift register firmware
 - [ ] order custom tiles from JLCPCB and components from LCSC / AliExpress
 - [ ] assemble and test 40khz acoustic output on breadboard / bench
 - [ ] test mid-air skin haptics and particle levitation with multi-tile array
