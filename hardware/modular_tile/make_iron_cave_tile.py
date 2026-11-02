@@ -46,8 +46,8 @@ def build_iron_cave_tile():
                     "min_silk_clearance": 0.15,
                     "min_through_hole_diameter": 0.30,
                     "min_track_width": 0.15,
-                    "min_via_annular_width": 0.15,
-                    "min_via_diameter": 0.60,
+                    "min_via_annular_width": 0.10,
+                    "min_via_diameter": 0.50,
                     "min_text_height": 0.60
                 }
             }
@@ -296,18 +296,16 @@ def build_iron_cave_tile():
     board.Add(u1)
     board.Add(u2)
 
-    # Decoupling Caps C1 & C2 (0.1uF 16V 0805) for U1 & U2 on B.Cu directly under the shift registers
-    c1 = inst_fp(fp_c0805, "C1", "0.1uF", 38.0, 9.5, 90)
+    # Decoupling Caps C1 & C2 (0.1uF 16V 0805) for U1 & U2 on F.Cu in open space between shift registers
+    c1 = inst_fp(fp_c0805, "C1", "0.1uF", 47.0, 9.5, 90)
     c1.FindPadByNumber("1").SetNet(nets["+5V"])
     c1.FindPadByNumber("2").SetNet(nets["GND"])
     board.Add(c1)
-    c1.SetLayerAndFlip(b_cu)
 
-    c2 = inst_fp(fp_c0805, "C2", "0.1uF", 66.0, 9.5, 90)
+    c2 = inst_fp(fp_c0805, "C2", "0.1uF", 57.0, 9.5, 90)
     c2.FindPadByNumber("1").SetNet(nets["+5V"])
     c2.FindPadByNumber("2").SetNet(nets["GND"])
     board.Add(c2)
-    c2.SetLayerAndFlip(b_cu)
 
     # 16 Transducers TX1..TX16: FEMALE 2-Pin Sockets!
     # Pitch = 16.5 mm (16.2 mm cans + 0.3 mm gap), 4x4 grid
@@ -347,13 +345,12 @@ def build_iron_cave_tile():
         u.FindPadByNumber("7").SetNet(nets[f"DRV_{ch_a}"])
         board.Add(u)
         
-        # Local 0.1uF 50V X7R ceramic capacitor directly on B.Cu beneath VDD/GND (X=13.0mm)
+        # Local 0.1uF 50V X7R ceramic capacitor directly on F.Cu next to TC4427 VDD/GND (X=18.0mm)
         c_ref = f"C{101+i}"
-        c = inst_fp(fp_c0805, c_ref, "0.1uF_50V", 13.0, uy, 0)
+        c = inst_fp(fp_c0805, c_ref, "0.1uF_50V", 18.0, uy + 0.635, 90)
         c.FindPadByNumber("1").SetNet(nets["+12V"])
         c.FindPadByNumber("2").SetNet(nets["GND"])
         board.Add(c)
-        c.SetLayerAndFlip(b_cu)
 
     print("[3/4] Adding Elite Iron Cave Industrial Silkscreen & Aperture Reticles...")
     # 1. Transducer Aperture Channel Labels & Reticles
@@ -452,7 +449,11 @@ def build_iron_cave_tile():
         dsn_text = f.read()
     dsn_text = dsn_text.replace('(layer In1.Cu (type signal)', '(layer In1.Cu (type power)')
     dsn_text = dsn_text.replace('(layer In2.Cu (type signal)', '(layer In2.Cu (type power)')
-    dsn_text = dsn_text.replace('(clearance 37.5 (type smd_smd))', '(clearance 150 (type smd_smd))')
+    import re
+    dsn_text = re.sub(r'\(clearance\s+[\d\.]+\s+\(type smd_smd\)\)', '(clearance 150 (type smd_smd))', dsn_text)
+    dsn_text = re.sub(r'\(clearance\s+[\d\.]+\s+\(type smd_via\)\)', '(clearance 150 (type smd_via))', dsn_text)
+    dsn_text = re.sub(r'\(clearance\s+[\d\.]+\s+\(type smd_pin\)\)', '(clearance 150 (type smd_pin))', dsn_text)
+    dsn_text = re.sub(r'\(clearance\s+50\b', '(clearance 150', dsn_text)
     dsn_text = dsn_text.replace('(clearance 200)', '(clearance 150)')
     with open(dsn_path, 'w') as f:
         f.write(dsn_text)
