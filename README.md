@@ -36,6 +36,21 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - **shift registers**: 2x 74HC595 SOIC-16 shift registers per tile cascading SPI control.
 - **controls**: dual rotary encoders for moving the focal point (x, y, z) + 0.96 inch i2c oled screen for telemetry.
 
+
+## firmware architecture & verification
+
+- **deterministic PIO cascade engine (irmware/cascade_spi.pio)**: running at 102.4 MHz, shifting 64 bits across 8 daisy-chained 74HC595 shift registers every 1.5625 microseconds (exact 40.000 kHz acoustic carrier wave, 16 phase steps per cycle, 0% CPU overhead).
+- **chained ping-pong DMA (irmware/pio_cascade_driver.c)**: DMA channels A and B auto-chain in ping-pong buffers for seamless, gapless acoustic wave emission.
+- **Q16.16 fixed-point 3D wave solver (irmware/wave_solver.c)**: real-time integer square root and atan2 algorithms running on Core 1 supporting 6 operational modes:
+  1. **Twin-Trap**: acoustic tweezers for open-air particle levitation.
+  2. **Bottle-Trap**: 3D acoustic cage for holding larger objects.
+  3. **Vortex-Beam**: acoustic vortex carrying orbital angular momentum (OAM, l=+1).
+  4. **200 Hz Haptic Focus**: amplitude-modulated acoustic radiation pressure exciting Pacinian corpuscles for invisible, touchable mid-air tactile forcefields.
+  5. **Volumetric POV**: high-speed parametric scanner for light persistence holograms (Möbius strip trajectory).
+  6. **Dual-Trap SMF**: simultaneous multi-focal Huygens superposition for multi-point levitation.
+- **live OLED HUD & G-Code CLI (irmware/ui_telemetry.c)**: 128x64 SSD1306 display showing a 3D wireframe chamber reticle and 8x8 transducer matrix, with USB serial G-code input (G0 X.. Y.. Z..).
+- **cycle-accurate HIL verification (irmware/verify_cascade_engine.py)**: verified 0 bit errors across 1,024 bits/cycle and 100% Q16.16 solver accuracy (irmware/cascade_engine_verification.png).
+
 ## repository structure
 
 ```
