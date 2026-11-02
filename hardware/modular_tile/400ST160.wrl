@@ -1,0 +1,108 @@
+﻿#VRML V2.0 utf8
+# 400ST160 40kHz Ultrasonic Transducer 3D Model
+# 16.2mm Diameter, 12mm Height, 10mm Pin Pitch
+Transform {
+  children [
+    # Main Aluminum Can Body: Diameter 16.2mm (Radius 8.1mm), Height 12.0mm
+    # Sits on board surface (Z=0 to Z=12.0mm)
+    Transform {
+      translation 0 0 6.0
+      rotation 1 0 0 1.5707963
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.82 0.84 0.86
+              specularColor 0.9 0.9 0.9
+              ambientIntensity 0.3
+              shininess 0.8
+            }
+          }
+          geometry Cylinder {
+            radius 8.1
+            height 12.0
+          }
+        }
+      ]
+    }
+    # Top Recessed Acoustic Mesh Grille
+    Transform {
+      translation 0 0 12.02
+      rotation 1 0 0 1.5707963
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.22 0.24 0.26
+              specularColor 0.4 0.4 0.4
+              shininess 0.3
+            }
+          }
+          geometry Cylinder {
+            radius 5.5
+            height 0.05
+          }
+        }
+      ]
+    }
+    # Top Center Sound Port Hole
+    Transform {
+      translation 0 0 12.05
+      rotation 1 0 0 1.5707963
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.05 0.05 0.05
+              shininess 0.1
+            }
+          }
+          geometry Cylinder {
+            radius 1.5
+            height 0.05
+          }
+        }
+      ]
+    }
+    # Pin 1 at (-5.0mm, 0mm): Sits in Pin 1 hole, extends 4mm through PCB into -Z
+    Transform {
+      translation -5.0 0 -2.0
+      rotation 1 0 0 1.5707963
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.85 0.75 0.2
+              specularColor 0.9 0.8 0.3
+              shininess 0.9
+            }
+          }
+          geometry Cylinder {
+            radius 0.45
+            height 4.5
+          }
+        }
+      ]
+    }
+    # Pin 2 at (+5.0mm, 0mm): Sits in Pin 2 hole, extends 4mm through PCB into -Z
+    Transform {
+      translation 5.0 0 -2.0
+      rotation 1 0 0 1.5707963
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.85 0.75 0.2
+              specularColor 0.9 0.8 0.3
+              shininess 0.9
+            }
+          }
+          geometry Cylinder {
+            radius 0.45
+            height 4.5
+          }
+        }
+      ]
+    }
+  ]
+}

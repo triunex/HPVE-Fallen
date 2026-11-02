@@ -31,7 +31,7 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - **stackup**: 4-layer high-current board (`F.Cu` signals, `In1.Cu` solid GND plane, `In2.Cu` dedicated +12V power plane, `B.Cu` signals).
 - **interconnects**: ultra-low profile 0.5mm horizontal flip-lock FFC ribbon connectors (`J_IN` / `J_OUT`, Hirose FH12-6S-0.5SH) for flush edge-to-edge tile stacking, plus dedicated 2-pin auxiliary 12V bench power terminal (`J_PWR`).
 - **mcu**: raspberry pi pico (rp2040). standard arduinos are way too slow to drive 64 phase channels, but the rp2040 has PIO (programmable i/o) state machines running at 133 mhz, which can toggle pins with nanosecond timing without burning cpu cycles.
-- **transducers**: 16x 400ST160 40khz ultrasonic emitters per tile (64 across 4 tiles) mounted in 100% female header sockets for hot-swapping and zero soldering heat stress.
+- **transducers**: 16x Prowave 400ST160 40khz ultrasonic emitters per tile (64 across 4 tiles). each has a 16.2 mm can and 10.0 mm lead spacing, so the tile uses a 4x4 grid at 16.5 mm pitch with 10 mm plated-hole footprints (solder direct, or fit two single-pin sockets per transducer). tile size is 98 x 88 mm.
 - **drivers**: 8x TC4427 dual high-speed MOSFET gate drivers per tile with individual 0.1uF 50V X7R 0805 decoupling caps, level shifting 3.3v logic up to 12v peak-to-peak.
 - **shift registers**: 2x 74HC595 SOIC-16 shift registers per tile cascading SPI control.
 - **controls**: dual rotary encoders for moving the focal point (x, y, z) + 0.96 inch i2c oled screen for telemetry.

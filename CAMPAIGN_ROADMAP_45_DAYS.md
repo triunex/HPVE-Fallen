@@ -128,7 +128,7 @@
   - Placed 8x 0.1uF 50V X7R 0805 ceramic caps directly flanking every TC4427 driver VDD pin.
   - Placed 2x 0.1uF 16V X7R 0805 caps for 74HC595 shift registers.
   - Positioned 47uF bulk electrolytic reservoir capacitor (`C_BULK`) at power entry.
-  - Configured 100% female header sockets for all 16 transducers for hot-swapping and zero thermal soldering stress.
+  - Transducer footprint fixed after engineering review: 10.0 mm lead spacing (was 2.54 mm), 16.5 mm grid pitch for 16.2 mm cans (was 10.5 mm, cans overlapped), tile resized to 98 x 88 mm, re-routed, DRC re-verified at 0 errors.
 - [x] **Task 4.5:** **Flawless KiCad DRC Cleared:**
   - Eliminated isolated copper fill zones and solved courtyard overlaps with `J_PWR`.
   - Completed all unrouted nets and achieved **0 DRC errors, 0 unconnected pads, 0 warnings** (`hardware/DRC.rpt` 100% clean!).

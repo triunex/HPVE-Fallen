@@ -1,0 +1,3 @@
+Comment,Designator,Footprint,Qty,Notes
+Prowave 400ST160 40kHz ultrasonic transducer,"TX1,TX2,TX3,TX4,TX5,TX6,TX7,TX8,TX9,TX10,TX11,TX12,TX13,TX14,TX15,TX16","TX_400ST160_P10.0mm (2x PTH, 10.0mm lead spacing, 16.2mm can)",16,"Solder directly, or fit 2x single-pin round machine sockets per transducer"
+AUX 12V/GND 2-pin header 2.54mm,J_PWR,PinHeader_1x02_P2.54mm_Vertical,1,Hand solder; pin1=+12V pin2=GND

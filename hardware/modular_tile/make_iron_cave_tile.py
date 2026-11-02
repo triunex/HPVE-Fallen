@@ -116,9 +116,10 @@ def build_iron_cave_tile():
     board.SetLayerType(in1_cu, pcbnew.LT_POWER)
     board.SetLayerType(in2_cu, pcbnew.LT_POWER)
     
-    # Board Dimension: 65mm x 65mm with 3mm Corner Chamfers
-    W = 65.0
-    H = 65.0
+    # Board Dimension: 98mm x 88mm with 3mm Corner Chamfers
+    # (resized so 16.2 mm 400ST160 cans fit at 16.5 mm pitch)
+    W = 98.0
+    H = 88.0
     C = 3.0
     outline_pts = [
         (C, 0.0), (W - C, 0.0),
@@ -163,7 +164,23 @@ def build_iron_cave_tile():
     lib_cap = "N:/resume/share/kicad/footprints/Capacitor_SMD.pretty"
     lib_res = "N:/resume/share/kicad/footprints/Resistor_SMD.pretty"
     
-    fp_tx_socket = pcbnew.FootprintLoad(lib_sock, "PinSocket_1x02_P2.54mm_Vertical")
+    # 400ST160 transducer footprint: 2 plated holes, 10.0 mm lead spacing (datasheet)
+    TX_LEAD_SPACING = 10.0
+    fp_tx_socket = pcbnew.FOOTPRINT(board)
+    fp_tx_socket.SetFPID(pcbnew.LIB_ID("", "TX_400ST160_P10.0mm"))
+    fp_tx_socket.SetReference("TX")
+    fp_tx_socket.SetValue("400ST160_P10.0mm")
+    for pnum, px in (("1", -TX_LEAD_SPACING / 2), ("2", TX_LEAD_SPACING / 2)):
+        pad = pcbnew.PAD(fp_tx_socket)
+        pad.SetNumber(pnum)
+        pad.SetShape(pcbnew.PAD_SHAPE_CIRCLE)
+        pad.SetAttribute(pcbnew.PAD_ATTRIB_PTH)
+        pad.SetSize(pcbnew.VECTOR2I(pcbnew.FromMM(1.9), pcbnew.FromMM(1.9)))
+        pad.SetDrillSize(pcbnew.VECTOR2I(pcbnew.FromMM(1.0), pcbnew.FromMM(1.0)))
+        pad.SetLayerSet(pad.PTHMask())
+        pad.SetPosition(pcbnew.VECTOR2I(pcbnew.FromMM(px), 0))
+        pad.SetFPRelativePosition(pcbnew.VECTOR2I(pcbnew.FromMM(px), 0))
+        fp_tx_socket.Add(pad)
     fp_fpc_6p = pcbnew.FootprintLoad(lib_fpc, "Hirose_FH12-6S-0.5SH_1x06-1MP_P0.50mm_Horizontal")
     fp_soic16 = pcbnew.FootprintLoad(lib_so, "SOIC-16_3.9x9.9mm_P1.27mm")
     fp_soic8 = pcbnew.FootprintLoad(lib_so, "SOIC-8_3.9x4.9mm_P1.27mm")
@@ -205,7 +222,7 @@ def build_iron_cave_tile():
 
     print("[2/4] Placing Hardware Components with Verified Clearances...")
     # 4x M3 Mounting Holes
-    corners = [(4.5, 4.5), (60.5, 4.5), (4.5, 60.5), (60.5, 60.5)]
+    corners = [(4.5, 4.5), (W - 4.5, 4.5), (4.5, H - 4.5), (W - 4.5, H - 4.5)]
     for i, (mx, my) in enumerate(corners):
         h = inst_fp(fp_m3, f"H{i+1}", "M3_Pad", mx, my)
         h.FindPadByNumber("1").SetNet(nets["GND"])
@@ -224,7 +241,7 @@ def build_iron_cave_tile():
 
     # J_OUT: Ultra-Low-Profile 0.5mm Pitch 6-Pin FFC / FPC Connector at Right Edge (X=60.2, Y=36.0)
     # Cable mouth faces outwards to the right for cascade chain
-    j_out = inst_fp(fp_fpc_6p, "J_OUT", "0.5mm_FFC_6P", 60.2, 36.0, 90)
+    j_out = inst_fp(fp_fpc_6p, "J_OUT", "0.5mm_FFC_6P", W - 4.8, 36.0, 90)
     out_nets = ["+12V", "+5V", "GND", "SPI_MOSI_OUT", "SPI_SCK", "SPI_LATCH"]
     for i, nname in enumerate(out_nets):
         j_out.FindPadByNumber(str(i+1)).SetNet(nets[nname])
@@ -260,8 +277,8 @@ def build_iron_cave_tile():
         board.Add(r)
 
     # Shift Registers U1 & U2 placed at Y=9.5mm
-    u1 = inst_fp(fp_soic16, "U1", "74HC595", 26.0, 9.5, 90)
-    u2 = inst_fp(fp_soic16, "U2", "74HC595", 44.0, 9.5, 90)
+    u1 = inst_fp(fp_soic16, "U1", "74HC595", 38.0, 9.5, 90)
+    u2 = inst_fp(fp_soic16, "U2", "74HC595", 66.0, 9.5, 90)
     
     def wire_sr_soic(sr, sig_offset, mosi_in, mosi_out):
         pin_map = {
@@ -280,24 +297,24 @@ def build_iron_cave_tile():
     board.Add(u2)
 
     # Decoupling Caps C1 & C2 (0.1uF 16V 0805) for U1 & U2 on B.Cu directly under the shift registers
-    c1 = inst_fp(fp_c0805, "C1", "0.1uF", 26.0, 9.5, 90)
+    c1 = inst_fp(fp_c0805, "C1", "0.1uF", 38.0, 9.5, 90)
     c1.FindPadByNumber("1").SetNet(nets["+5V"])
     c1.FindPadByNumber("2").SetNet(nets["GND"])
     board.Add(c1)
     c1.SetLayerAndFlip(b_cu)
 
-    c2 = inst_fp(fp_c0805, "C2", "0.1uF", 44.0, 9.5, 90)
+    c2 = inst_fp(fp_c0805, "C2", "0.1uF", 66.0, 9.5, 90)
     c2.FindPadByNumber("1").SetNet(nets["+5V"])
     c2.FindPadByNumber("2").SetNet(nets["GND"])
     board.Add(c2)
     c2.SetLayerAndFlip(b_cu)
 
     # 16 Transducers TX1..TX16: FEMALE 2-Pin Sockets!
-    # Pitch = 10.5 mm, Centered at X=38.0mm, Y=36.0mm
-    PITCH_X = 10.5
-    PITCH_Y = 10.5
-    GRID_X0 = 38.0 - 1.5 * PITCH_X # 22.25 mm
-    GRID_Y0 = 36.0 - 1.5 * PITCH_Y # 20.25 mm
+    # Pitch = 16.5 mm (16.2 mm cans + 0.3 mm gap), 4x4 grid
+    PITCH_X = 16.5
+    PITCH_Y = 16.5
+    GRID_X0 = 29.5   # center of column 1 (can edge at 21.4 mm)
+    GRID_Y0 = 24.0   # center of row 1 (can edge at 15.9 mm)
     for r in range(4):
         for c in range(4):
             idx = r * 4 + c + 1
@@ -316,7 +333,7 @@ def build_iron_cave_tile():
         add_silk_text(f"COL {c+1}", cx, GRID_Y0 - 4.5, size=0.65, thick=0.12)
 
     # Drivers U101..U108 at X = 13.0 mm + Local Decoupling Caps C101..C108 on B.Cu (0.1uF 50V 0805)
-    driver_ys = [13.0 + i * 6.5 for i in range(8)]
+    driver_ys = [13.0 + i * 8.0 for i in range(8)]
     for i, uy in enumerate(driver_ys):
         ref = f"U{101+i}"
         u = inst_fp(fp_soic8, ref, "TC4427ACOA", 13.0, uy)
@@ -350,24 +367,36 @@ def build_iron_cave_tile():
             add_silk_text(f"CH{idx:02d}", tx_x, tx_y - 2.8, size=0.60, thick=0.11)
 
     # 2. Main Title & Identity Block (Stark Industrial Typography)
-    add_silk_text("IRON CAVE INDUSTRIES", 35.0, 2.0, size=1.1, thick=0.18)
-    add_silk_text("HPVE 16-CH PHASED TILE // MK-II", 35.0, 3.5, size=0.75, thick=0.13)
+    add_silk_text("IRON CAVE INDUSTRIES", W / 2, 2.0, size=1.1, thick=0.18)
+    add_silk_text("HPVE 16-CH PHASED TILE // MK-II", W / 2, 3.5, size=0.75, thick=0.13)
     
-    # 3. Transducer Aperture Framing Box with verified clearances to transducer pads
-    bx0 = 18.0          # 18.0 mm
-    bx1 = 56.5          # 56.5 mm
-    by0 = 14.5          # 14.5 mm
-    by1 = 56.5          # 56.5 mm
+    # 3. Transducer Aperture Framing Box around the 4x4 can footprints
+    bx0 = GRID_X0 - 8.1 - 0.5
+    bx1 = GRID_X0 + 3 * PITCH_X + 8.1 + 0.5
+    by0 = GRID_Y0 - 8.1 - 0.5
+    by1 = GRID_Y0 + 3 * PITCH_Y + 8.1 + 0.5
     add_silk_line(bx0, by0, bx1, by0, width=0.20)
     add_silk_line(bx1, by0, bx1, by1, width=0.20)
     add_silk_line(bx1, by1, bx0, by1, width=0.20)
     add_silk_line(bx0, by1, bx0, by0, width=0.20)
+
+    # 16.2 mm can outline around every transducer (fit check)
+    for r in range(4):
+        for c in range(4):
+            circ = pcbnew.PCB_SHAPE(board)
+            circ.SetShape(pcbnew.SHAPE_T_CIRCLE)
+            cx = GRID_X0 + c * PITCH_X
+            cy = GRID_Y0 + r * PITCH_Y
+            circ.SetCenter(pcbnew.VECTOR2I(pcbnew.FromMM(cx), pcbnew.FromMM(cy)))
+            circ.SetEnd(pcbnew.VECTOR2I(pcbnew.FromMM(cx + 8.1), pcbnew.FromMM(cy)))
+            circ.SetWidth(pcbnew.FromMM(0.12))
+            circ.SetLayer(f_silk)
+            board.Add(circ)
     
     # Technical Aperture Header
-    add_silk_text("4x4 ACOUSTIC PHASED-ARRAY APERTURE", 38.0, 58.0, size=0.65, thick=0.12)
-    add_silk_text("40.0 kHz EMITTERS // 10.5mm PITCH", 38.0, 59.5, size=0.60, thick=0.11)
-    add_silk_text("4-LAYER COPPER // F.CU - GND - 12V - B.CU", 38.0, 61.0, size=0.60, thick=0.11)
-    add_silk_text("MAKER FAIRE SHENZHEN 2026 // FALLEN", 38.0, 62.6, size=0.70, thick=0.13)
+    add_silk_text("4x4 ACOUSTIC PHASED-ARRAY APERTURE", W / 2, 83.0, size=0.65, thick=0.12)
+    add_silk_text("40.0 kHz EMITTERS // 16.5mm PITCH // 10mm LEADS", W / 2, 84.5, size=0.60, thick=0.11)
+    add_silk_text("MAKER FAIRE SHENZHEN 2026 // FALLEN", W / 2, 86.2, size=0.70, thick=0.13)
 
     # 4. Input Connector J_IN (Left FFC Bus at Y=36.0)
     add_silk_text("J_IN (FFC)", 4.8, 28.5, size=0.65, thick=0.12)
@@ -375,9 +404,9 @@ def build_iron_cave_tile():
     add_silk_text("6:LAT", 4.8, 42.0, size=0.60, thick=0.11)
 
     # 5. Output Connector J_OUT (Right Cascade FFC Bus at Y=36.0)
-    add_silk_text("J_OUT (FFC)", 60.2, 28.5, size=0.65, thick=0.12)
-    add_silk_text("1:12V", 60.2, 30.0, size=0.60, thick=0.11)
-    add_silk_text("6:LAT", 60.2, 42.0, size=0.60, thick=0.11)
+    add_silk_text("J_OUT (FFC)", W - 4.8, 28.5, size=0.65, thick=0.12)
+    add_silk_text("1:12V", W - 4.8, 30.0, size=0.60, thick=0.11)
+    add_silk_text("6:LAT", W - 4.8, 42.0, size=0.60, thick=0.11)
 
 
     print("[4/4] Establishing Solid Ground & Power Planes...")
