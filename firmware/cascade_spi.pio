@@ -1,0 +1,130 @@
+; =============================================================================
+; Iron Cave Industries - HPVE Multi-Tile 74HC595 Cascade PIO Engine
+; Target: RP2040 PIO State Machine (4x SM lockstep capable for up to 256 ch)
+;
+; Signal Mapping:
+;   OUT pin 0      : SPI_MOSI  (74HC595 SER, Pin 14 via 33R series damper R1)
+;   SIDE-SET bit 0 : SPI_SCK   (74HC595 SRCLK, Pin 11 via 33R series damper R2)
+;   SIDE-SET bit 1 : SPI_LATCH (74HC595 RCLK, Pin 12 via 33R series damper R3)
+;
+; Timing Architecture (f_sys = 128.000 MHz, clkdiv = 2.50 -> f_pio = 51.200 MHz):
+;   - 1 PIO cycle = 19.53125 ns
+;   - 40.000 kHz acoustic period = 25.000 us = 1280 PIO cycles
+;   - 8 phase bins per period -> 160 PIO cycles per bin (3.125 us / bin)
+;   - Shifting 64 bits (4 cascaded 16-ch tiles):
+;       64 bits * 2 cycles/bit = 128 PIO cycles (25.60 MHz SPI clock)
+;       Post-shift LATCH strobe + deterministic frame pad = 32 PIO cycles
+;       Total = 160 PIO cycles/bin * 8 bins = 1280 PIO cycles = 25.000000 us
+; =============================================================================
+
+.program cascade_spi
+.side_set 2
+
+; Register allocation:
+;   ISR : Stores (bits_per_frame - 1), e.g., 63 for 64 channels (4 tiles)
+;   Y   : Stores (pad_cycles - 1) for deterministic time-slice period lock
+;   X   : Loop counter per frame
+
+public entry_point:
+.wrap_target
+    mov x, isr              side 0b00   ; [1] Reload bit counter (N_bits - 1), SCK=0, LATCH=0
+bit_loop:
+    out pins, 1             side 0b00   ; [1] Drive next MSB onto MOSI, SCK low (setup >= 19.5 ns)
+    jmp x-- bit_loop        side 0b01   ; [1] Rising edge on SCK shifts bit into 74HC595 cascade
+    mov x, y                side 0b10   ; [1] SCK low, LATCH high -> transfer shift reg to storage latch
+    nop                     side 0b10   ; [1] Hold LATCH high (pulse width = 2 cycles = 39.1 ns)
+pad_loop:
+    jmp x-- pad_loop        side 0b00   ; [Y+1] Deterministic wait to lock exact slice period
+.wrap
+
+
+; =============================================================================
+; High-Density Parallel Quad-Bus PIO Program (4x 64-ch chains = 256 channels)
+; Shifts 4 parallel MOSI pins simultaneously per SCK edge.
+; =============================================================================
+.program cascade_spi_quad
+.side_set 2
+
+public entry_point:
+.wrap_target
+    mov x, isr              side 0b00   ; [1] Reload bit counter (63 for 64 bits per lane = 256 ch)
+quad_bit_loop:
+    out pins, 4             side 0b00   ; [1] Output 4 parallel MOSI bits (Lanes 0..3), SCK=0
+    jmp x-- quad_bit_loop   side 0b01   ; [1] Rising edge on shared SCK clocks all 4 tile chains
+    mov x, y                side 0b10   ; [1] Rising edge on shared LATCH updates all 256 channels
+    nop                     side 0b10   ; [1] Hold LATCH pulse width
+quad_pad_loop:
+    jmp x-- quad_pad_loop   side 0b00   ; [Y+1] Slice period synchronization pad
+.wrap
+
+
+% c-sdk {
+#include "hardware/clocks.h"
+#include "hardware/gpio.h"
+
+static inline void cascade_spi_program_init(
+    PIO pio,
+    uint sm,
+    uint offset,
+    uint pin_mosi,
+    uint pin_sck_latch_base,
+    uint32_t bits_per_frame,
+    uint32_t target_slice_cycles,
+    float clkdiv
+) {
+    pio_sm_config c = cascade_spi_program_get_default_config(offset);
+
+    sm_config_set_out_pins(&c, pin_mosi, 1);
+    sm_config_set_sideset_pins(&c, pin_sck_latch_base);
+
+    // Shift MSB-first, autopull enabled at 32 bits
+    sm_config_set_out_shift(&c, false, true, 32);
+    sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_TX);
+    sm_config_set_clkdiv(&c, clkdiv);
+
+    // Configure GPIO pads for high-speed slew rate and 8mA drive across FFC cable
+    pio_gpio_init(pio, pin_mosi);
+    pio_gpio_init(pio, pin_sck_latch_base);
+    pio_gpio_init(pio, pin_sck_latch_base + 1);
+
+    gpio_set_slew_rate(pin_mosi, GPIO_SLEW_RATE_FAST);
+    gpio_set_slew_rate(pin_sck_latch_base, GPIO_SLEW_RATE_FAST);
+    gpio_set_slew_rate(pin_sck_latch_base + 1, GPIO_SLEW_RATE_FAST);
+
+    gpio_set_drive_strength(pin_mosi, GPIO_DRIVE_STRENGTH_8MA);
+    gpio_set_drive_strength(pin_sck_latch_base, GPIO_DRIVE_STRENGTH_8MA);
+    gpio_set_drive_strength(pin_sck_latch_base + 1, GPIO_DRIVE_STRENGTH_8MA);
+
+    pio_sm_set_pins_with_mask(
+        pio, sm, 0u,
+        (1u << pin_mosi) | (3u << pin_sck_latch_base)
+    );
+    pio_sm_set_pindirs_with_mask(
+        pio, sm,
+        (1u << pin_mosi) | (3u << pin_sck_latch_base),
+        (1u << pin_mosi) | (3u << pin_sck_latch_base)
+    );
+
+    pio_sm_init(pio, sm, offset, &c);
+
+    // Overhead outside pad_loop is:
+    //   1 (mov x, isr) + 2 * bits_per_frame + 1 (mov x, y) + 1 (nop) = 2*N + 3
+    // pad_loop executes (Y + 1) cycles -> total cycles = 2*N + 4 + Y
+    uint32_t min_cycles = (2u * bits_per_frame) + 4u;
+    uint32_t y_val = (target_slice_cycles > min_cycles)
+                   ? (target_slice_cycles - min_cycles)
+                   : 0u;
+
+    // Preload ISR = (bits_per_frame - 1) and Y = y_val
+    pio_sm_put_blocking(pio, sm, bits_per_frame - 1u);
+    pio_sm_exec(pio, sm, pio_encode_pull(false, false));
+    pio_sm_exec(pio, sm, pio_encode_mov(pio_isr, pio_osr));
+
+    pio_sm_put_blocking(pio, sm, y_val);
+    pio_sm_exec(pio, sm, pio_encode_pull(false, false));
+    pio_sm_exec(pio, sm, pio_encode_mov(pio_y, pio_osr));
+
+    pio_sm_clear_fifos(pio, sm);
+    pio_sm_exec(pio, sm, pio_encode_jmp(offset + cascade_spi_offset_entry_point));
+}
+%}
