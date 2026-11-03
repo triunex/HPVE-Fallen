@@ -1,6 +1,7 @@
 #include "hpve_config.h"
 #include "pio_cascade_driver.h"
 #include "wave_solver.h"
+#include "trajectory.h"
 #include "ui_telemetry.h"
 
 #include <stdio.h>
@@ -27,14 +28,21 @@ static void hpve_state_set_defaults(hpve_system_state_t *st) {
     st->focus_primary.z        =  WORKSPACE_DEFAULT_Z_M;
     st->focus_secondary.x      =  0.018f;
     st->focus_secondary.y      =  0.000f;
-    st->focus_secondary.z        =  WORKSPACE_DEFAULT_Z_M;
+    st->focus_secondary.z      =  WORKSPACE_DEFAULT_Z_M;
     st->active_mode            =  HPVE_MODE_TWIN_TRAP;
+    st->active_trajectory      =  TRAJ_NONE_STATIC;
     st->twin_axis              =  TWIN_AXIS_X;
     st->vortex_charge          =  1;
     st->bottle_radius_m        =  0.036f;
     st->haptic_mod_hz          =  200.0f;
-    st->orbit_radius_m         =  0.015f;
-    st->orbit_freq_hz          =  10.0f;
+    st->orbit_radius_m         =  0.022f;
+    st->orbit_freq_hz          =  8.0f;
+    st->traj_scale             =  1.0f;
+    st->traj_yaw_rad           =  0.0f;
+    st->traj_pitch_rad         =  0.26f;
+    st->moebius_strip_width_m  =  0.0085f;
+    st->forcefield_z_wall_m    =  0.065f;
+    st->finger_probe_z_m       =  0.065f;
     st->orbit_enabled          =  false;
     st->output_enabled         =  true;
     st->use_fixed_point_solver =  true;
@@ -113,6 +121,14 @@ int main(void) {
            MAX_CASCADE_TILES, TILE_CHANNELS, TRANSDUCER_PITCH_M * 1000.0f, ACOUSTIC_CARRIER_HZ);
     printf("====================================================================\n");
 
+    char cmd_reply[160];
+    hpve_ui_process_serial_line(&g_system_state, "M202 S1.0 Y15 P20", cmd_reply, sizeof(cmd_reply));
+    printf("[TRAJ-TEST ] %s", cmd_reply);
+
+    for (uint32_t step = 1u; step <= 32u; ++step) {
+        hpve_solve_frame(&g_system_state, geom, step * 5u, &g_latest_channel_frame);
+    }
+
     uint32_t slice_words[SLICES_PER_CARRIER_PERIOD * WORDS_PER_SLICE];
     hpve_compile_single_carrier_bitplanes(&g_latest_channel_frame, slice_words, true);
 
@@ -128,22 +144,15 @@ int main(void) {
         }
     }
 
-    vec3f_t focal_pt = g_system_state.focus_primary;
-    vec3f_t flank_pt = { focal_pt.x + 0.0043f, focal_pt.y, focal_pt.z };
-    float p_node  = hpve_eval_field_pressure_pa(&g_latest_channel_frame, geom, focal_pt);
-    float p_flank = hpve_eval_field_pressure_pa(&g_latest_channel_frame, geom, flank_pt);
-
     uint8_t *fb = (uint8_t *)hpve_ui_get_framebuffer();
     hpve_ui_render_hud(fb, &g_system_state, &g_latest_channel_frame);
 
     char status_reply[160];
     hpve_ui_process_serial_line(&g_system_state, "STATUS", status_reply, sizeof(status_reply));
 
-    printf("[SELF-TEST] 74HC595 64-Bit Cascade Shift Verification : %s (%u errors)\n",
+    printf("[SELF-TEST ] 74HC595 64-Bit Cascade Shift Verification : %s (%u errors)\n",
            (bit_match_errors == 0u) ? "PASS" : "FAIL", bit_match_errors);
-    printf("[SELF-TEST] Twin-Trap Node Pressure @ (0,0,55mm)     : %.2f Pa\n", p_node);
-    printf("[SELF-TEST] Twin-Trap Lobe Peak     @ (+4.3,0,55mm)  : %.2f Pa\n", p_flank);
-    printf("[SELF-TEST] CLI Telemetry Response                   : %s", status_reply);
+    printf("[SELF-TEST ] CLI Telemetry Response                   : %s", status_reply);
     return (bit_match_errors == 0u) ? 0 : 1;
 #endif
 }

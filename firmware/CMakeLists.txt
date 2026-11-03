@@ -13,6 +13,7 @@ if(PICO_SDK_FOUND)
         main.cpp
         pio_cascade_driver.c
         wave_solver.c
+        trajectory.c
         ui_telemetry.c
     )
 
@@ -53,6 +54,7 @@ else()
         main.cpp
         pio_cascade_driver.c
         wave_solver.c
+        trajectory.c
         ui_telemetry.c
     )
     target_compile_options(hpve_host_bench PRIVATE -O3 -Wall -Wextra)

@@ -2,6 +2,7 @@
 #define WAVE_SOLVER_H
 
 #include "hpve_config.h"
+#include "trajectory.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -40,6 +41,8 @@ float hpve_eval_field_pressure_pa(
     const hpve_transducer_map_t *geom,
     vec3f_t eval_pt
 );
+
+const hpve_trajectory_sample_t* hpve_solver_get_last_trajectory_sample(void);
 
 #ifdef __cplusplus
 }

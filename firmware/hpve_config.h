@@ -10,7 +10,7 @@ extern "C" {
 #endif
 
 #define HPVE_FW_VERSION_MAJOR       2
-#define HPVE_FW_VERSION_MINOR       6
+#define HPVE_FW_VERSION_MINOR       7
 #define HPVE_FW_VERSION_PATCH       0
 
 #define SYS_CLOCK_KHZ               128000u
@@ -54,6 +54,9 @@ extern "C" {
 
 #define HAPTIC_MOD_FREQ_HZ          200u
 #define HAPTIC_CARRIER_RATIO        (ACOUSTIC_CARRIER_HZ / HAPTIC_MOD_FREQ_HZ)
+
+#define MAX_MULTIFOCAL_NODES        7u
+#define TRAJ_HISTORY_LEN            32u
 
 #define PIN_I2C_SDA                 0u
 #define PIN_I2C_SCL                 1u
@@ -101,8 +104,21 @@ typedef enum {
     HPVE_MODE_HAPTIC_FOCUS    = 4,
     HPVE_MODE_VOLUMETRIC_POV  = 5,
     HPVE_MODE_DUAL_TRAP_SMF   = 6,
-    HPVE_MODE_COUNT           = 7
+    HPVE_MODE_ARC_REACTOR_SMF = 7,
+    HPVE_MODE_COUNT           = 8
 } hpve_mode_t;
+
+typedef enum {
+    TRAJ_NONE_STATIC            = 0,
+    TRAJ_ARC_REACTOR_CORE       = 1,
+    TRAJ_ENDGAME_MOEBIUS        = 2,
+    TRAJ_TREFOIL_KNOT           = 3,
+    TRAJ_LISSAJOUS_RIBBON       = 4,
+    TRAJ_HAPTIC_FORCEFIELD_WALL = 5,
+    TRAJ_HAPTIC_DETENT_DIAL     = 6,
+    TRAJ_HELIX_DOUBLE_STRAND    = 7,
+    TRAJ_COUNT                  = 8
+} hpve_trajectory_type_t;
 
 typedef enum {
     TWIN_AXIS_X               = 0,
@@ -149,23 +165,50 @@ typedef struct {
 } hpve_channel_frame_t;
 
 typedef struct {
-    volatile vec3f_t          focus_primary;
-    volatile vec3f_t          focus_secondary;
-    volatile hpve_mode_t      active_mode;
-    volatile hpve_twin_axis_t twin_axis;
-    volatile int8_t           vortex_charge;
-    volatile float            bottle_radius_m;
-    volatile float            haptic_mod_hz;
-    volatile float            orbit_radius_m;
-    volatile float            orbit_freq_hz;
-    volatile bool             orbit_enabled;
-    volatile bool             output_enabled;
-    volatile bool             use_fixed_point_solver;
-    volatile uint32_t         frame_counter;
-    volatile uint32_t         dma_swap_counter;
-    volatile uint32_t         dma_underrun_counter;
-    volatile uint32_t         solver_time_us;
-    volatile uint32_t         compile_time_us;
+    vec3f_t  primary_pos;
+    vec3f_t  secondary_pos;
+    vec3f_t  velocity_mps;
+    float    speed_mps;
+    float    curvature_inv_m;
+    float    param_u_rad;
+    float    param_v_m;
+    uint8_t  num_active_nodes;
+    vec3f_t  multifocal_nodes[MAX_MULTIFOCAL_NODES];
+    float    multifocal_weights[MAX_MULTIFOCAL_NODES];
+    uint8_t  multifocal_topological_sign[MAX_MULTIFOCAL_NODES];
+    uint8_t  haptic_am_override;
+    uint8_t  duty_step_override;
+    uint8_t  r_pwm;
+    uint8_t  g_pwm;
+    uint8_t  b_pwm;
+    bool     laser_blank_active;
+} hpve_trajectory_sample_t;
+
+typedef struct {
+    volatile vec3f_t                focus_primary;
+    volatile vec3f_t                focus_secondary;
+    volatile hpve_mode_t            active_mode;
+    volatile hpve_trajectory_type_t active_trajectory;
+    volatile hpve_twin_axis_t       twin_axis;
+    volatile int8_t                 vortex_charge;
+    volatile float                  bottle_radius_m;
+    volatile float                  haptic_mod_hz;
+    volatile float                  orbit_radius_m;
+    volatile float                  orbit_freq_hz;
+    volatile float                  traj_scale;
+    volatile float                  traj_yaw_rad;
+    volatile float                  traj_pitch_rad;
+    volatile float                  moebius_strip_width_m;
+    volatile float                  forcefield_z_wall_m;
+    volatile float                  finger_probe_z_m;
+    volatile bool                   orbit_enabled;
+    volatile bool                   output_enabled;
+    volatile bool                   use_fixed_point_solver;
+    volatile uint32_t               frame_counter;
+    volatile uint32_t               dma_swap_counter;
+    volatile uint32_t               dma_underrun_counter;
+    volatile uint32_t               solver_time_us;
+    volatile uint32_t               compile_time_us;
 } hpve_system_state_t;
 
 #ifdef __cplusplus

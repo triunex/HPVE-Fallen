@@ -1,5 +1,7 @@
 #include "ui_telemetry.h"
 #include "pio_cascade_driver.h"
+#include "trajectory.h"
+#include "wave_solver.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -130,15 +132,27 @@ void hpve_oled_draw_str(uint8_t *fb, int x, int y, const char *str) {
 
 static const char* mode_short_name(hpve_mode_t mode) {
     switch (mode) {
-        case HPVE_MODE_STANDBY:        return "STBY";
-        case HPVE_MODE_TWIN_TRAP:      return "TWIN";
-        case HPVE_MODE_BOTTLE_TRAP:    return "BOTL";
-        case HPVE_MODE_VORTEX_BEAM:    return "VRTX";
-        case HPVE_MODE_HAPTIC_FOCUS:   return "HAPT";
-        case HPVE_MODE_VOLUMETRIC_POV: return "VPOV";
-        case HPVE_MODE_DUAL_TRAP_SMF:  return "DUAL";
-        default:                       return "UNKN";
+        case HPVE_MODE_STANDBY:         return "STBY";
+        case HPVE_MODE_TWIN_TRAP:       return "TWIN";
+        case HPVE_MODE_BOTTLE_TRAP:     return "BOTL";
+        case HPVE_MODE_VORTEX_BEAM:     return "VRTX";
+        case HPVE_MODE_HAPTIC_FOCUS:    return "HAPT";
+        case HPVE_MODE_VOLUMETRIC_POV:  return "VPOV";
+        case HPVE_MODE_DUAL_TRAP_SMF:   return "DUAL";
+        case HPVE_MODE_ARC_REACTOR_SMF: return "ARCR";
+        default:                        return "UNKN";
     }
+}
+
+static inline void project_3d_to_hud(vec3f_t pt, int *px_out, int *py_out) {
+    int px = 77 + (int)(pt.x * 260.0f) + (int)(pt.y * 90.0f);
+    int py = 56 - (int)((pt.z - WORKSPACE_MIN_Z_M) * 320.0f) - (int)(pt.y * 70.0f);
+    if (px < 61) px = 61;
+    if (px > 92) px = 92;
+    if (py < 15) py = 15;
+    if (py > 58) py = 58;
+    *px_out = px;
+    *py_out = py;
 }
 
 void hpve_ui_render_hud(
@@ -148,16 +162,21 @@ void hpve_ui_render_hud(
 ) {
     hpve_oled_clear(fb);
 
+    const hpve_trajectory_sample_t *tsamp = hpve_solver_get_last_trajectory_sample();
+    vec3f_t disp_pt = (state->active_trajectory != TRAJ_NONE_STATIC)
+                    ? tsamp->primary_pos
+                    : state->focus_primary;
+
     char line[32];
-    snprintf(line, sizeof(line), "HPVE %s %s",
+    snprintf(line, sizeof(line), "%s %s",
              mode_short_name(state->active_mode),
-             state->output_enabled ? "ARM" : "SAFE");
+             hpve_trajectory_type_name(state->active_trajectory));
     hpve_oled_draw_str(fb, 0, 0, line);
     hpve_oled_draw_line(fb, 0, 9, 127, 9, true);
 
-    int32_t xm_tenths = (int32_t)(state->focus_primary.x * 10000.0f);
-    int32_t ym_tenths = (int32_t)(state->focus_primary.y * 10000.0f);
-    int32_t zm_tenths = (int32_t)(state->focus_primary.z * 10000.0f);
+    int32_t xm_tenths = (int32_t)(disp_pt.x * 10000.0f);
+    int32_t ym_tenths = (int32_t)(disp_pt.y * 10000.0f);
+    int32_t zm_tenths = (int32_t)(disp_pt.z * 10000.0f);
 
     snprintf(line, sizeof(line), "X:%+3d.%01dmm", (int)(xm_tenths / 10), abs((int)(xm_tenths % 10)));
     hpve_oled_draw_str(fb, 0, 13, line);
@@ -166,7 +185,6 @@ void hpve_ui_render_hud(
     hpve_oled_draw_str(fb, 0, 22, line);
 
     snprintf(line, sizeof(line), "Z:%+3d.%01dmm", (int)(zm_tenths / 10), abs((int)(zm_tenths % 10)));
-    hpve_oled_oled_z_label:
     hpve_oled_draw_str(fb, 0, 31, line);
 
     snprintf(line, sizeof(line), "SLV:%3uus", (unsigned)state->solver_time_us);
@@ -175,22 +193,29 @@ void hpve_ui_render_hud(
     snprintf(line, sizeof(line), "FRM:%5lu", (unsigned long)(state->frame_counter % 100000u));
     hpve_oled_draw_str(fb, 0, 52, line);
 
-    /*
-     * 3D Isometric Wireframe Chamber & Focal Point Reticle (Center Pane: x = 60..95, y = 12..62)
-     */
     hpve_oled_draw_rect(fb, 60, 14, 34, 46, true);
-    int fx_px = 77 + (int)(state->focus_primary.x * 260.0f);
-    int fy_px = 56 - (int)((state->focus_primary.z - WORKSPACE_MIN_Z_M) * 320.0f);
-    if (fx_px < 62) fx_px = 62;
-    if (fx_px > 91) fx_px = 91;
-    if (fy_px < 16) fy_px = 16;
-    if (fy_px > 57) fy_px = 57;
+
+    const hpve_trajectory_engine_t *teng = hpve_trajectory_get_global();
+    if (teng->trail_count > 1u) {
+        int prev_x = 0;
+        int prev_y = 0;
+        for (uint8_t k = 0; k < teng->trail_count; ++k) {
+            uint8_t idx = (uint8_t)((teng->trail_head + TRAJ_HISTORY_LEN - teng->trail_count + k) % TRAJ_HISTORY_LEN);
+            int cur_x, cur_y;
+            project_3d_to_hud(teng->trail_ring[idx], &cur_x, &cur_y);
+            if (k > 0u) {
+                hpve_oled_draw_line(fb, prev_x, prev_y, cur_x, cur_y, true);
+            }
+            prev_x = cur_x;
+            prev_y = cur_y;
+        }
+    }
+
+    int fx_px, fy_px;
+    project_3d_to_hud(disp_pt, &fx_px, &fy_px);
     hpve_oled_draw_line(fb, fx_px - 3, fy_px, fx_px + 3, fy_px, true);
     hpve_oled_draw_line(fb, fx_px, fy_px - 3, fx_px, fy_px + 3, true);
 
-    /*
-     * 8x8 Live Transducer Phase Matrix Indicator (Right Pane: x = 98..126, y = 14..46)
-     */
     hpve_oled_draw_rect(fb, 97, 13, 27, 27, true);
     const hpve_transducer_map_t *geom = hpve_driver_get_geometry_table();
     for (uint8_t ch = 0; ch < NUM_TRANSDUCERS; ++ch) {
@@ -206,10 +231,6 @@ void hpve_ui_render_hud(
             hpve_oled_set_pixel(fb, px + 1, py + 1, true);
         }
     }
-    (void)0;
-    goto done_hud;
-done_hud:
-    return;
 }
 
 const uint8_t* hpve_ui_get_framebuffer(void) {
@@ -291,12 +312,22 @@ void hpve_ui_poll_inputs(hpve_system_state_t *state, uint32_t now_ms) {
             float step_m = (dt < 18u) ? 0.0010f : 0.00025f;
             float delta = (float)dir * step_m;
 
-            if (axis == 0) {
-                state->focus_primary.x = clampf(state->focus_primary.x + delta, WORKSPACE_MIN_X_M, WORKSPACE_MAX_X_M);
-            } else if (axis == 1) {
-                state->focus_primary.y = clampf(state->focus_primary.y + delta, WORKSPACE_MIN_Y_M, WORKSPACE_MAX_Y_M);
+            if (state->active_trajectory == TRAJ_ENDGAME_MOEBIUS || state->active_trajectory == TRAJ_TREFOIL_KNOT) {
+                if (axis == 0) {
+                    state->traj_yaw_rad += (float)dir * 0.06f;
+                } else if (axis == 1) {
+                    state->traj_pitch_rad = clampf(state->traj_pitch_rad + (float)dir * 0.05f, -1.2f, 1.2f);
+                } else {
+                    state->traj_scale = clampf(state->traj_scale + (float)dir * 0.05f, 0.4f, 1.8f);
+                }
             } else {
-                state->focus_primary.z = clampf(state->focus_primary.z + delta, WORKSPACE_MIN_Z_M, WORKSPACE_MAX_Z_M);
+                if (axis == 0) {
+                    state->focus_primary.x = clampf(state->focus_primary.x + delta, WORKSPACE_MIN_X_M, WORKSPACE_MAX_X_M);
+                } else if (axis == 1) {
+                    state->focus_primary.y = clampf(state->focus_primary.y + delta, WORKSPACE_MIN_Y_M, WORKSPACE_MAX_Y_M);
+                } else {
+                    state->focus_primary.z = clampf(state->focus_primary.z + delta, WORKSPACE_MIN_Z_M, WORKSPACE_MAX_Z_M);
+                }
             }
         }
     }
@@ -306,11 +337,13 @@ void hpve_ui_poll_inputs(hpve_system_state_t *state, uint32_t now_ms) {
 
     if (!btn_mode && g_btn_mode_prev && (now_ms - g_btn_last_ms > 180u)) {
         g_btn_last_ms = now_ms;
-        uint8_t next_m = (uint8_t)state->active_mode + 1u;
-        if (next_m >= (uint8_t)HPVE_MODE_COUNT) {
-            next_m = (uint8_t)HPVE_MODE_TWIN_TRAP;
+        uint8_t next_t = (uint8_t)state->active_trajectory + 1u;
+        if (next_t >= (uint8_t)TRAJ_COUNT) {
+            next_t = 0u;
         }
-        state->active_mode = (hpve_mode_t)next_m;
+        hpve_trajectory_engine_t tmp_eng;
+        hpve_trajectory_init(&tmp_eng);
+        hpve_trajectory_set_type(&tmp_eng, state, (hpve_trajectory_type_t)next_t);
     }
     if (!btn_en && g_btn_en_prev && (now_ms - g_btn_last_ms > 180u)) {
         g_btn_last_ms = now_ms;
@@ -394,25 +427,29 @@ void hpve_ui_process_serial_line(
     }
 
     if (strncmp(line, "M100", 4) == 0) {
-        state->active_mode = HPVE_MODE_STANDBY;
+        state->active_trajectory = TRAJ_NONE_STATIC;
+        state->active_mode       = HPVE_MODE_STANDBY;
         hpve_driver_set_output_enable(false);
         snprintf(reply_buf, reply_max, "OK MODE=STANDBY\n");
         return;
     }
     if (strncmp(line, "M101", 4) == 0) {
-        state->active_mode = HPVE_MODE_TWIN_TRAP;
+        state->active_trajectory = TRAJ_NONE_STATIC;
+        state->active_mode       = HPVE_MODE_TWIN_TRAP;
         hpve_driver_set_output_enable(true);
         snprintf(reply_buf, reply_max, "OK MODE=TWIN_TRAP\n");
         return;
     }
     if (strncmp(line, "M102", 4) == 0) {
-        state->active_mode = HPVE_MODE_BOTTLE_TRAP;
+        state->active_trajectory = TRAJ_NONE_STATIC;
+        state->active_mode       = HPVE_MODE_BOTTLE_TRAP;
         hpve_driver_set_output_enable(true);
         snprintf(reply_buf, reply_max, "OK MODE=BOTTLE_TRAP\n");
         return;
     }
     if (strncmp(line, "M103", 4) == 0) {
-        state->active_mode = HPVE_MODE_VORTEX_BEAM;
+        state->active_trajectory = TRAJ_NONE_STATIC;
+        state->active_mode       = HPVE_MODE_VORTEX_BEAM;
         float l_val = (float)state->vortex_charge;
         if (parse_float_token(line + 4, 'L', &l_val)) {
             int c = (int)l_val;
@@ -425,21 +462,64 @@ void hpve_ui_process_serial_line(
         return;
     }
     if (strncmp(line, "M104", 4) == 0) {
-        state->active_mode = HPVE_MODE_HAPTIC_FOCUS;
+        state->active_trajectory = TRAJ_NONE_STATIC;
+        state->active_mode       = HPVE_MODE_HAPTIC_FOCUS;
         hpve_driver_set_output_enable(true);
         snprintf(reply_buf, reply_max, "OK MODE=HAPTIC_FOCUS\n");
         return;
     }
     if (strncmp(line, "M105", 4) == 0) {
-        state->active_mode = HPVE_MODE_VOLUMETRIC_POV;
+        state->active_trajectory = TRAJ_NONE_STATIC;
+        state->active_mode       = HPVE_MODE_VOLUMETRIC_POV;
         hpve_driver_set_output_enable(true);
         snprintf(reply_buf, reply_max, "OK MODE=VOLUMETRIC_POV\n");
         return;
     }
     if (strncmp(line, "M106", 4) == 0) {
-        state->active_mode = HPVE_MODE_DUAL_TRAP_SMF;
+        state->active_trajectory = TRAJ_NONE_STATIC;
+        state->active_mode       = HPVE_MODE_DUAL_TRAP_SMF;
         hpve_driver_set_output_enable(true);
         snprintf(reply_buf, reply_max, "OK MODE=DUAL_TRAP_SMF\n");
+        return;
+    }
+
+    if (strncmp(line, "M20", 3) == 0 && line[3] >= '0' && line[3] <= '7') {
+        uint8_t t_idx = (uint8_t)(line[3] - '0');
+        float s_val = state->traj_scale > 0.1f ? state->traj_scale : 1.0f;
+        float y_deg = state->traj_yaw_rad * 57.29578f;
+        float p_deg = state->traj_pitch_rad * 57.29578f;
+        float w_mm  = state->moebius_strip_width_m * 1000.0f;
+        float zw_mm = state->forcefield_z_wall_m * 1000.0f;
+        float zf_mm = state->finger_probe_z_m * 1000.0f;
+
+        if (parse_float_token(line + 4, 'S', &s_val)) {
+            state->traj_scale = clampf(s_val, 0.3f, 2.0f);
+        }
+        if (parse_float_token(line + 4, 'Y', &y_deg)) {
+            state->traj_yaw_rad = y_deg * 0.01745329f;
+        }
+        if (parse_float_token(line + 4, 'P', &p_deg)) {
+            state->traj_pitch_rad = clampf(p_deg * 0.01745329f, -1.3f, 1.3f);
+        }
+        if (parse_float_token(line + 4, 'W', &w_mm)) {
+            state->moebius_strip_width_m = clampf(w_mm * 0.001f, 0.002f, 0.020f);
+        }
+        if (parse_float_token(line + 4, 'Z', &zw_mm)) {
+            state->forcefield_z_wall_m = clampf(zw_mm * 0.001f, 0.025f, 0.110f);
+        }
+        if (parse_float_token(line + 4, 'F', &zf_mm)) {
+            state->finger_probe_z_m = clampf(zf_mm * 0.001f, 0.015f, 0.120f);
+        }
+
+        hpve_trajectory_engine_t tmp_eng;
+        hpve_trajectory_init(&tmp_eng);
+        hpve_trajectory_set_type(&tmp_eng, state, (hpve_trajectory_type_t)t_idx);
+        hpve_driver_set_output_enable(true);
+
+        snprintf(reply_buf, reply_max, "OK TRAJ=%s MODE=%s SCALE=%.2f\n",
+                 hpve_trajectory_type_name(state->active_trajectory),
+                 mode_short_name(state->active_mode),
+                 state->traj_scale);
         return;
     }
 
@@ -462,9 +542,10 @@ void hpve_ui_process_serial_line(
 
     if (strncmp(line, "STATUS", 6) == 0) {
         snprintf(reply_buf, reply_max,
-                 "HPVE v%u.%u.%u MODE=%s EN=%u X=%.2f Y=%.2f Z=%.2f FRM=%lu SWP=%lu UDR=%lu SLV=%luus\n",
+                 "HPVE v%u.%u.%u MODE=%s TRAJ=%s EN=%u X=%.2f Y=%.2f Z=%.2f FRM=%lu SWP=%lu UDR=%lu SLV=%luus\n",
                  HPVE_FW_VERSION_MAJOR, HPVE_FW_VERSION_MINOR, HPVE_FW_VERSION_PATCH,
                  mode_short_name(state->active_mode),
+                 hpve_trajectory_type_name(state->active_trajectory),
                  state->output_enabled ? 1u : 0u,
                  state->focus_primary.x * 1000.0f,
                  state->focus_primary.y * 1000.0f,
