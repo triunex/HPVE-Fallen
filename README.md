@@ -34,29 +34,36 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - **transducers**: 16x Prowave 400ST160 40khz ultrasonic emitters per tile (64 across 4 tiles). each has a 16.2 mm can and 10.0 mm lead spacing, so the tile uses a 4x4 grid at 16.5 mm pitch with 10 mm plated-hole footprints (solder direct, or fit two single-pin sockets per transducer). tile size is 98 x 88 mm.
 - **drivers**: 8x TC4427 dual high-speed MOSFET gate drivers per tile with individual 0.1uF 50V X7R 0805 decoupling caps, level shifting 3.3v logic up to 12v peak-to-peak.
 - **shift registers**: 2x 74HC595 SOIC-16 shift registers per tile cascading SPI control.
+- **exoskeleton chassis**: native parametric OpenSCAD snap-lock exoskeleton (`HPVE_Modular_Exoskeleton.scad`) locking 4 tiles into a rigid 196x176mm 2x2 grid, with rear RP2040 master avionics dock, external USB-C port, external BOOTSEL pin, and Amass XT30 12V 10A power input.
+- **exponential horn waveguides**: contoured 64-channel 5-stage exponential horn bezel (+3.8 dB acoustic SPL boost) with 37-pore perforated stainless honeycomb mesh clamping the transducer cans flush.
+- **central optical & tof docking bay**: downward-looking VL53L5CX 8x8 multizone Time-of-Flight hand-tracking sensor + 4x collimated 450nm cyan photonic projection laser diodes centered at (0, 0).
 - **controls**: dual rotary encoders for moving the focal point (x, y, z) + 0.96 inch i2c oled screen for telemetry.
-
 
 ## firmware architecture & verification
 
-- **deterministic PIO cascade engine (irmware/cascade_spi.pio)**: running at 102.4 MHz, shifting 64 bits across 8 daisy-chained 74HC595 shift registers every 1.5625 microseconds (exact 40.000 kHz acoustic carrier wave, 16 phase steps per cycle, 0% CPU overhead).
-- **chained ping-pong DMA (irmware/pio_cascade_driver.c)**: DMA channels A and B auto-chain in ping-pong buffers for seamless, gapless acoustic wave emission.
-- **Q16.16 fixed-point 3D wave solver (irmware/wave_solver.c)**: real-time integer square root and atan2 algorithms running on Core 1 supporting 6 operational modes:
+- **deterministic PIO cascade engine (`firmware/cascade_spi.pio`)**: running at 102.4 MHz, shifting 64 bits across 8 daisy-chained 74HC595 shift registers every 1.5625 microseconds (exact 40.000 kHz acoustic carrier wave, 16 phase steps per cycle, 0% CPU overhead).
+- **chained ping-pong DMA (`firmware/pio_cascade_driver.c`)**: DMA channels A and B auto-chain in ping-pong buffers for seamless, gapless acoustic wave emission.
+- **Q16.16 fixed-point 3D wave solver (`firmware/wave_solver.c`)**: real-time integer square root and atan2 algorithms running on Core 1 supporting 6 operational modes:
   1. **Twin-Trap**: acoustic tweezers for open-air particle levitation.
   2. **Bottle-Trap**: 3D acoustic cage for holding larger objects.
   3. **Vortex-Beam**: acoustic vortex carrying orbital angular momentum (OAM, l=+1).
   4. **200 Hz Haptic Focus**: amplitude-modulated acoustic radiation pressure exciting Pacinian corpuscles for invisible, touchable mid-air tactile forcefields.
   5. **Volumetric POV**: high-speed parametric scanner for light persistence holograms (Möbius strip trajectory).
   6. **Dual-Trap SMF**: simultaneous multi-focal Huygens superposition for multi-point levitation.
-- **live OLED HUD & G-Code CLI (irmware/ui_telemetry.c)**: 128x64 SSD1306 display showing a 3D wireframe chamber reticle and 8x8 transducer matrix, with USB serial G-code input (G0 X.. Y.. Z..).
-- **cycle-accurate HIL verification (irmware/verify_cascade_engine.py)**: verified 0 bit errors across 1,024 bits/cycle and 100% Q16.16 solver accuracy (irmware/cascade_engine_verification.png).
+- **real-time 3D parametric trajectory engine (`firmware/trajectory.c`)**:
+  - **Demo 1 (Arc Reactor Core)**: 6-node hexagonal acoustic trap ring + central core with 450nm cyan photonic lock.
+  - **Demo 2 (Endgame Möbius Strip & Trefoil Knot)**: real-time 3D parametric curve solver with curvature-adaptive minimum-jerk stepping and RGB color sync.
+  - **Demo 3 (Spatiotemporal Haptic Forcefield Wall & Detent Dial)**: 5.7 m/s ultrasonic focal sweep with 200 Hz tactile envelope and dynamic virtual spring penetration resistance.
+- **live OLED HUD & G-Code CLI (`firmware/ui_telemetry.c`)**: 128x64 SSD1306 display showing a 3D wireframe chamber reticle, live trajectory trail, and 8x8 transducer matrix, with USB serial G-code input (G0, M200..M207).
+- **cycle-accurate HIL verification (`firmware/verify_cascade_engine.py`, `firmware/verify_trajectory_engine.py`)**: verified 0 bit errors across 1,024 bits/cycle and 100% trajectory velocity stability.
 
 ## repository structure
 
 ```
-├── firmware/         # rp2040 c++ code and pio state machines
+├── firmware/         # rp2040 c++ code, pio state machines, trajectory engines & verification
 ├── hardware/         # kicad schematics, pcb layout, gerbers, drc reports
-│   └── modular_tile/ # 16-channel 4-layer modular tile (pcb, gerbers, bom, cpl, 3d renders)
+│   ├── modular_tile/ # 16-channel 4-layer modular tile (pcb, gerbers, bom, cpl, 3d renders)
+│   └── cad/          # native openscad exoskeleton, horn bezel, halo arch, stl exports & renders
 ├── simulation/       # python wave physics model, 3d gor'kov trapping, impedance
 ├── docs/             # calculations, notes, pinout architecture
 ├── CAMPAIGN_ROADMAP_45_DAYS.md # master 45-day expedition manifest & live telemetry
@@ -78,11 +85,18 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - [x] Q16.16 fixed-point 3D holographic wave solver with 6 operational modes (Twin, Bottle, Vortex, Haptic, POV, Dual-Trap)
 - [x] hardware-in-the-loop emulation test passed: 0 bit errors over 1,024 bits/cycle, exact 40.000 kHz carrier
 - [x] cross 330+ XP on Hack Club Fallen (338 XP banked on Day 5, 11h 07m journaled at 1.15x multiplier!)
-- [ ] submit official Chinese F-Visa application on Hack Club portal
+- [x] real-time 3D parametric trajectory & spatiotemporal haptics engine (Arc Reactor ring, Möbius strip, touchable forcefield)
+- [x] native parametric OpenSCAD exoskeleton CAD (`HPVE_Modular_Exoskeleton.scad`): snap-lock 4-tile frame + rear RP2040 avionics dock
+- [x] 64-channel 5-stage exponential acoustic horn waveguide bezel (+3.8 dB on-axis SPL gain) with honeycomb mesh
+- [x] central cruciform docking bay for downward-looking VL53L5CX 8x8 ToF hand tracker + 4x 450nm photonic laser diodes
+- [x] export watertight production STL package ready for 3D printing (PETG)
+- [x] **500 XP FLIGHT GRANT UNLOCKED! (517 XP banked on Day 7, Sami evolved to Stage 3!)**
+- [ ] submit official Chinese F-Visa & $1,000 USD Travel Grant application on Hack Club portal
+- [ ] implement closed-loop VL53L5CX ToF spatial hand tracking & autonomous forcefield trigger (`firmware/spatial_tracker.c`)
+- [ ] build desktop Stark Holo-Console GUI (`host_console/`) with live 3D Gor'kov slices and G-code control
 - [ ] order custom tiles from JLCPCB and components from LCSC / AliExpress
-- [ ] assemble and test 40khz acoustic output on breadboard / bench
+- [ ] assemble and calibrate acoustic output across 4 snapped modular tiles
 - [ ] test mid-air skin haptics and particle levitation with multi-tile array
-- [ ] design 3d printed desktop chassis with acoustic horn aperture
 - [ ] ship build submission and demo live at maker faire shenzhen 2026!
 
 ## author
