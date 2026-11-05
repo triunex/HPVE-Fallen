@@ -1,10 +1,13 @@
 // ============================================================================
 // IRON CAVE INDUSTRIES // DEFENSE & SPATIAL SYSTEMS DIVISION
-// PROJECT: HPVE (Haptic Photonic Volumetric Engine) - Task 7.1 (MK-II V3)
-// PART:    4-Tile Interlocking Snap-Lock Exoskeleton, Exponential Horn Bezel,
+// PROJECT: HPVE (Haptic Photonic Volumetric Engine) - Task 7.1 (MK-II V4)
+// PART:    4-Tile Interlocking Snap-Lock Exoskeleton (Anduril Structural Core),
+//          Internal Iso-Grid & Warren-Truss Wall Lattice, Helmholtz Acoustic
+//          Back-Chambers, 3-Stage Brass Heat-Set Insert Bosses (M3 & M2.5),
+//          Slotted O-Ring Transducer Collets, Exponential Horn Waveguide Bezel,
 //          RP2040 Master Avionics Dock (USB-C + BOOTSEL + OLED + XT30 + FFC),
 //          6-Pin FFC Daisy-Chain Ribbon Routing & Overhead Halo Gimbal Mounts
-// STYLE:   TVA Retro-Futurism / Anduril Skunkworks (Matched to Hero Render)
+// STYLE:   TVA Retro-Futurism / Anduril Skunkworks (Flight Production Grade)
 // CAD:     Native Parametric OpenSCAD Solid Modeling Architecture
 // ============================================================================
 
@@ -22,12 +25,21 @@ $fn = 64;
 //    4 = Rear Orthographic View — Full Avionics Backplane & FFC Harness Map
 //    5 = Front-Left Side Elevation — Shows External USB-C Programming Port,
 //        BOOTSEL button, XT30 +12V_DRV Power Input, and Anodized Louver Fins
-//    6 = Single Tile 5-Layer Exploded Engineering View
+//    6 = Single Tile 6-Layer Exploded Engineering View (with Brass Heat-Set Inserts)
 //    7 = Full 2x2 Quad Array + RP2040 Master Avionics Dock Exploded View
 //    8 = Macro Close-Up — Exponential Acoustic Horn Waveguides & Honeycomb Mesh
 //    9 = Printable STL Part A: Single Tile Exoskeleton Base Frame
 //   10 = Printable STL Part B: Contoured 16-Ch Exponential Horn Waveguide Bezel
-//   11 = Printable STL Part C: 2x2 Quad Exoskeleton + Avionics Dock Frame
+//   11 = Printable STL Part C: 2x2 Quad Exoskeleton Base Assembly
+//   12 = View 12 (Task 7.3): Complete Portable Overhead Desktop Halo Arch Stand
+//   13 = View 13 (Task 7.4): Macro Close-Up of Central VL53L5CX ToF Sensor Pod
+//   14 = Printable STL Part D: Central Optical & VL53L5CX ToF Sensor Pod
+//   15 = Printable STL Part E: Heavy-Duty Tabletop C-Clamp & Pillar Base Bracket
+//   16 = Printable STL Part F: Cross-Seam Cruciform Shear-Lock Corner Brace Clip
+//   17 = View 17 (X-Ray Cutaway): Stepped Section View through Internal Warren-Truss
+//        Wall Core, Under-PCB Iso-Grid Lattice, Helmholtz Damping Chambers, and
+//        3-Stage Brass Heat-Set Threaded Insert Bosses (M3 & M2.5)!
+//   18 = Printable STL Part G: RP2040 Master Avionics Dock & Cruciform Backplane Shield
 // ----------------------------------------------------------------------------
 render_mode = 0;
 
@@ -260,15 +272,106 @@ module stadium_louver_insert_y(y_pos, x0, len_x, z0, h_z, is_back=false) {
 }
 
 // ----------------------------------------------------------------------------
-// 7. MODULAR TILE EXOSKELETON BASE CARRIER FRAME
+// 6B. PRECISION KNURLED BRASS HEAT-SET THREADED INSERTS (M3x4x4.6 & M2.5x3.5x3.5)
+//     Models real CNC-machined opposing-helix diamond-knurled brass inserts
+//     with central torque-trap undercut ring, pilot nose, and internal threads.
+// ----------------------------------------------------------------------------
+module knurled_brass_heatset_insert(od=4.60, id=3.00, h=4.00) {
+    pilot_h = h * 0.18;
+    band_h  = h * 0.34;
+    groove_h = h - pilot_h - 2 * band_h;
+
+    color(c_gold_pad)
+    difference() {
+        union() {
+            // Bottom Pilot Guide Nose (smooth cylinder that self-centers in bore)
+            cylinder(d1 = od - 0.45, d2 = od - 0.25, h = pilot_h + 0.05, $fn = 32);
+
+            // Lower Knurled Band
+            translate([0, 0, pilot_h])
+                cylinder(d = od, h = band_h, $fn = 32);
+
+            // Central Melt-Lock Undercut Waist
+            translate([0, 0, pilot_h + band_h - 0.05])
+                cylinder(d = od - 0.50, h = groove_h + 0.10, $fn = 32);
+
+            // Upper Knurled Band
+            translate([0, 0, h - band_h])
+                cylinder(d = od, h = band_h, $fn = 32);
+        }
+
+        // Opposing Knurl Flute Cuts around Lower & Upper Knurl Bands
+        for (a = [0 : 22.5 : 337.5]) {
+            rotate([0, 0, a])
+                translate([od / 2, 0, pilot_h - 0.05])
+                    cylinder(d = 0.42, h = band_h + 0.10, $fn = 8);
+            rotate([0, 0, a + 11.25])
+                translate([od / 2, 0, h - band_h - 0.05])
+                    cylinder(d = 0.42, h = band_h + 0.15, $fn = 8);
+        }
+
+        // Internal Threaded Bore + Top & Bottom Lead-In Chamfers
+        translate([0, 0, -0.2])
+            cylinder(d = id, h = h + 0.4, $fn = 28);
+        translate([0, 0, h - 0.40])
+            cylinder(d1 = id, d2 = id + 0.65, h = 0.50, $fn = 28);
+        translate([0, 0, -0.10])
+            cylinder(d1 = id + 0.55, d2 = id, h = 0.45, $fn = 28);
+    }
+}
+
+module tile_brass_heatset_inserts_hardware(exploded_z_m3=0.0, exploded_z_m25=0.0) {
+    m3_coords = [
+        [m3_inset, m3_inset],
+        [pcb_w - m3_inset, m3_inset],
+        [m3_inset, pcb_h - m3_inset],
+        [pcb_w - m3_inset, pcb_h - m3_inset]
+    ];
+
+    BezelScrewCoords = [
+        [20.25, 14.50], [54.25, 14.50], [88.25, 14.50],
+        [20.25, 83.00], [54.25, 83.00], [88.25, 83.00],
+        [20.25, 48.75], [88.25, 48.75]
+    ];
+
+    // 1. 4x M3x4x4.6mm Brass Heat-Set Inserts in PCB Stand-Off Bosses
+    for (pt = m3_coords) {
+        translate([pt[0], pt[1], pcb_ledge_z - 4.00 + exploded_z_m3])
+            knurled_brass_heatset_insert(4.60, 3.00, 4.00);
+
+        // M3x6mm Low-Profile Black-Oxide Socket Cap Screw Clamping PCB to Boss
+        color(c_anduril_slate)
+        difference() {
+            union() {
+                translate([pt[0], pt[1], pcb_top_z + exploded_z_m3 * 1.35])
+                    cylinder(d = 5.30, h = 1.60, $fn = 28);
+                translate([pt[0], pt[1], pcb_top_z - 4.20 + exploded_z_m3 * 1.35])
+                    cylinder(d = 2.95, h = 4.30, $fn = 20);
+            }
+            translate([pt[0], pt[1], pcb_top_z + 0.65 + exploded_z_m3 * 1.35])
+                cylinder(d = 2.50, h = 1.20, $fn = 6);
+        }
+    }
+
+    // 2. 8x M2.5x3.5x3.5mm Brass Heat-Set Inserts in Upper Bezel Hold-Down Pillars
+    for (bpt = BezelScrewCoords) {
+        translate([bpt[0], bpt[1], bezel_bottom_z - 3.50 + exploded_z_m25])
+            knurled_brass_heatset_insert(3.50, 2.50, 3.50);
+    }
+}
+
+// ----------------------------------------------------------------------------
+// 7. MODULAR TILE EXOSKELETON BASE CARRIER FRAME (ANDURIL FLIGHT-GRADE V4)
 //    Includes:
-//    - Internal 98x88mm PCB Seat + 16x Transducer Centering Cradles
+//    - Internal 98x88mm PCB Seat + 16x Slotted 4-Finger O-Ring Transducer Collets
+//    - Under-PCB 45-Deg Iso-Grid Structural Stiffening Web + 16x Individual
+//      Helmholtz Acoustic Damping Back-Chambers with Conical Phase Diffusers
+//    - Perimeter Wall Internal Warren-Truss / Honeycomb Composite Core Cells
+//    - 3-Stage Heat-Set Insert Bosses (M3 & M2.5) with 45-Deg Soldering-Iron
+//      Entry Chamfers, Melt-Trap Relief Grooves & 4x Radial Buttress Gussets
+//    - Contoured FFC Bend-Radius Ramps (R=3mm) & Overhanging 45-Deg Snap-Tabs
 //    - Dedicated IC Thermal Bays for U101..U108 (TC4427) & U1..U2 (74HC595)
 //    - Inter-Tile FFC Ribbon Tunnels across X=98mm and Y=88mm Mating Walls
-//    - Master Feed FFC Vertical Slot into Tile 0's J_IN (4.8, 36.0) from the
-//      RP2040 Master Avionics Dock on the rear backplane!
-//    - U-Turn FFC Vertical Slots at Tile 1 J_OUT & Tile 2 J_IN so the 4 tiles
-//      daisy-chain cleanly (Pico -> Tile 0 -> Tile 1 -> Tile 2 -> Tile 3)!
 // ----------------------------------------------------------------------------
 module tile_exoskeleton_base_frame(qx=0, qy=0, include_color=true) {
     is_left_outer   = (qx == 0);
@@ -298,43 +401,37 @@ module tile_exoskeleton_base_frame(qx=0, qy=0, include_color=true) {
     outer_bolt_y = is_front_outer ? 6.20 : (pcb_h - 6.20);
 
     union() {
-        color(include_color ? c_tva_cream : [0.88, 0.88, 0.88])
-        difference() {
-            union() {
-                // 1. Main Tile Structural Monocoque (98.0 x 88.0 x 20.6 mm)
-                asymmetric_quad_prism(tile_pitch_x, tile_pitch_y, frame_total_h - 2.4, c_sw, c_se, c_ne, c_nw);
-
-                // 2. Inter-Tile Sliding Dovetail Tenons ONLY on Internal Mating Interfaces
-                if (!is_right_outer) {
-                    for (dy = [24.0, 64.0]) {
-                        translate([tile_pitch_x, dy, dovetail_z0])
-                            linear_extrude(height = dovetail_h, convexity = 4)
-                                rotate([0, 0, -90])
-                                    dovetail_2d(dovetail_neck_w, dovetail_head_w, dovetail_depth, dovetail_tol);
-                    }
-                }
-                if (!is_back_outer) {
-                    for (dx = [29.0, 69.0]) {
-                        translate([dx, tile_pitch_y, dovetail_z0])
-                            linear_extrude(height = dovetail_h, convexity = 4)
+        // Outer Dovetail Tenons & Top Alignment Latch Bridges (outside difference() to keep CSG tree 9x smaller!)
+        color(include_color ? c_tva_cream : [0.88, 0.88, 0.88]) {
+            if (!is_right_outer) {
+                for (dy = [24.0, 64.0]) {
+                    translate([tile_pitch_x, dy, dovetail_z0])
+                        linear_extrude(height = dovetail_h, convexity = 4)
+                            rotate([0, 0, -90])
                                 dovetail_2d(dovetail_neck_w, dovetail_head_w, dovetail_depth, dovetail_tol);
-                    }
                 }
-
-                // 3. Raised Inter-Tile Top Alignment Latch Bridges across the Inner Cross Seam
-                if (!is_right_outer) {
-                    for (ly = [30.0, 67.5]) {
-                        translate([tile_pitch_x - 2.2, ly - 5.5, frame_total_h - 1.2])
-                            chamfered_prism(4.4, 11.0, 1.4, 0.8);
-                    }
-                }
-                if (!is_back_outer) {
-                    for (lx = [38.0, 70.5]) {
-                        translate([lx - 5.5, tile_pitch_y - 2.2, frame_total_h - 1.2])
-                            chamfered_prism(11.0, 4.4, 1.4, 0.8);
-                    }
+                for (ly = [30.0, 67.5]) {
+                    translate([tile_pitch_x - 2.2, ly - 5.5, frame_total_h - 1.2])
+                        chamfered_prism(4.4, 11.0, 1.4, 0.8);
                 }
             }
+            if (!is_back_outer) {
+                for (dx = [29.0, 69.0]) {
+                    translate([dx, tile_pitch_y, dovetail_z0])
+                        linear_extrude(height = dovetail_h, convexity = 4)
+                            dovetail_2d(dovetail_neck_w, dovetail_head_w, dovetail_depth, dovetail_tol);
+                }
+                for (lx = [38.0, 70.5]) {
+                    translate([lx - 5.5, tile_pitch_y - 2.2, frame_total_h - 1.2])
+                        chamfered_prism(11.0, 4.4, 1.4, 0.8);
+                }
+            }
+        }
+
+        color(include_color ? c_tva_cream : [0.88, 0.88, 0.88])
+        difference() {
+            // 1. Main Tile Structural Monocoque (98.0 x 88.0 x 20.6 mm) — Single Positive Primitive!
+            asymmetric_quad_prism(tile_pitch_x, tile_pitch_y, frame_total_h - 2.41, c_sw, c_se, c_ne, c_nw);
 
             // --- SUBTRACTIVE INTERNAL MACHINING & CAVITIES ---
 
@@ -393,7 +490,6 @@ module tile_exoskeleton_base_frame(qx=0, qy=0, include_color=true) {
                 cube([8.6, 15.0, 7.5]);
 
             //    5) Internal Inter-Tile FFC Ribbon Pass-Through Slot across the X=98 / X=0 Mating Wall
-            //       (Connects J_OUT of Left Tile directly into J_IN of Right Tile!)
             if (!is_right_outer) {
                 translate([tile_pitch_x - 4.5, ffc_y - ffc_slot_w/2, pcb_ledge_z - 1.2])
                     cube([9.0, ffc_slot_w, ffc_slot_h + 2.5]);
@@ -403,26 +499,99 @@ module tile_exoskeleton_base_frame(qx=0, qy=0, include_color=true) {
                     cube([9.0, ffc_slot_w, ffc_slot_h + 2.5]);
             }
 
-            //    6) Vertical Bottom-Entry FFC Slots through Base Floor (Z = -0.5 .. pcb_ledge_z + 2.0)
-            //       Allows the RP2040 Master Dock on the rear backplane to plug its 6-pin FFC ribbon
-            //       directly up into Tile 0's J_IN (4.8, 36.0), and allows the Tile 1 J_OUT -> Tile 2 J_IN
-            //       cascade ribbon to route cleanly through the protected rear spine channel!
+            //    6) Vertical Bottom-Entry FFC Slots through Base Floor with Contoured Entry Relief
             translate([2.4, ffc_y - 5.5, -0.5])
                 cube([5.2, 11.0, pcb_ledge_z + 2.5]);
             translate([pcb_w - 7.6, ffc_y - 5.5, -0.5])
                 cube([5.2, 11.0, pcb_ledge_z + 2.5]);
 
-            // F. Under-PCB Solder-Pin Clearance Cavities (2.4mm deep below PCB bottom face)
+            // F. Under-PCB 16-Channel Helmholtz Acoustic Damping Back-Chambers & Solder Pin Relief
+            //    Leaves an orthogonal + 45-degree Iso-Grid structural web supporting the PCB!
             for (r = [0 : 3]) {
                 for (c = [0 : 3]) {
                     tx_x = tx_grid_x0 + c * tx_pitch;
                     tx_y = tx_grid_y0 + r * tx_pitch;
+
+                    // Cylindrical Helmholtz Acoustic Damping Back-Chamber (d = 12.8mm, Z = 1.80..5.80mm)
+                    translate([tx_x, tx_y, 1.80])
+                        cylinder(d = 12.8, h = pcb_ledge_z - 1.80 + 0.4, $fn = 36);
+
+                    // Oval Solder-Pin Clearance Stadium Slot (for +/-5.0mm Prowave 400ST160 leads)
                     hull() {
-                        translate([tx_x - 5.5, tx_y, base_floor_h])
-                            cylinder(d = 4.2, h = pcb_ledge_z - base_floor_h + 0.5);
-                        translate([tx_x + 5.5, tx_y, base_floor_h])
-                            cylinder(d = 4.2, h = pcb_ledge_z - base_floor_h + 0.5);
+                        translate([tx_x - 5.5, tx_y, 1.40])
+                            cylinder(d = 4.2, h = pcb_ledge_z - 1.40 + 0.5);
+                        translate([tx_x + 5.5, tx_y, 1.40])
+                            cylinder(d = 4.2, h = pcb_ledge_z - 1.40 + 0.5);
                     }
+                }
+            }
+
+            // F2. Interstitial Iso-Grid Diamond Lightening & Acoustic Isolation Pockets
+            //     Placed at the 9 grid centers between the 4x4 transducer chambers
+            //     (45-degree X-truss ribs are added in the positive union to prevent 3^9 De Morgan CSG blowup!)
+            for (ir = [0 : 2]) {
+                for (ic = [0 : 2]) {
+                    ix = tx_grid_x0 + (ic + 0.5) * tx_pitch;
+                    iy = tx_grid_y0 + (ir + 0.5) * tx_pitch;
+                    translate([ix, iy, 1.80])
+                        rotate([0, 0, 45])
+                            cylinder(d = 9.2, h = pcb_ledge_z - 1.80 + 0.4, $fn = 4);
+                }
+            }
+
+            // F3. Perimeter Wall Internal Warren-Truss / Staggered Honeycomb Composite Core Matrix
+            //     Forces slicer to generate continuous internal vertical perimeters (I-beam truss walls)
+            //     across all 4 walls while showcased in X-Ray Structural Section Cutaway (render_mode = 17)!
+            //     1) Under-Driver Left Spine Staggered Dual-Row Honeycomb Truss (X = 12.0..17.6, Y = 15.0..73.0)
+            for (ty_idx = [0 : 11]) {
+                ty = 15.5 + ty_idx * 5.0;
+                tx_off = (ty_idx % 2 == 0) ? 13.2 : 16.2;
+                translate([tx_off, ty, 1.60])
+                    rotate([0, 0, 30])
+                        cylinder(d = 4.2, h = pcb_ledge_z - 2.00, $fn = 6);
+            }
+            //     2) Under-Logic Front Spine Staggered Honeycomb Truss (X = 20.0..78.0, Y = 5.4..10.8)
+            for (tx_idx = [0 : 11]) {
+                tx_cell = 20.5 + tx_idx * 5.0;
+                ty_off = (tx_idx % 2 == 0) ? 6.8 : 9.4;
+                translate([tx_cell, ty_off, 1.60])
+                    rotate([0, 0, 30])
+                        cylinder(d = 4.0, h = pcb_ledge_z - 2.00, $fn = 6);
+            }
+            //     3) Right Perimeter Wall Dual-Row Staggered Warren-Honeycomb Core (X = 91.2..95.4, Z = 2.20..16.20)
+            //        Clears FFC bay (Y = 28.0..44.0) and M3 corner bosses (Y < 11.0, Y > 79.0)
+            for (wy_idx = [0 : 13]) {
+                wy = 13.0 + wy_idx * 4.8;
+                if (wy < 27.0 || wy > 45.0) {
+                    wx_r = (wy_idx % 2 == 0) ? 91.8 : 94.6;
+                    translate([wx_r, wy, 2.20])
+                        rotate([0, 0, 30])
+                            cylinder(d = 3.1, h = 14.00, $fn = 6);
+                }
+            }
+            //     4) Back Perimeter Wall Staggered Honeycomb Core Cells (Y = 84.8..86.4, Z = 2.20..16.20)
+            for (wx_idx = [0 : 14]) {
+                wx = 12.5 + wx_idx * 5.0;
+                wy_b = (wx_idx % 2 == 0) ? 84.7 : 86.1;
+                translate([wx, wy_b, 2.20])
+                    rotate([0, 0, 30])
+                        cylinder(d = 2.5, h = 14.00, $fn = 6);
+            }
+            //     5) Front Outer Wall Staggered Honeycomb Core Cells (Y = 1.6..3.0, Z = 2.20..16.20)
+            for (wx_f_idx = [0 : 14]) {
+                wx_f = 12.5 + wx_f_idx * 5.0;
+                wy_f = (wx_f_idx % 2 == 0) ? 1.8 : 2.9;
+                translate([wx_f, wy_f, 2.20])
+                    rotate([0, 0, 30])
+                        cylinder(d = 2.3, h = 14.00, $fn = 6);
+            }
+            //     6) Left Outer Wall Staggered Honeycomb Core Cells (X = 1.6..2.8, Z = 2.20..16.20)
+            for (wy_l_idx = [0 : 10]) {
+                wy_l = 16.0 + wy_l_idx * 5.2;
+                if (wy_l < 27.0 || wy_l > 45.0) {
+                    translate([2.1, wy_l, 2.20])
+                        rotate([0, 0, 30])
+                            cylinder(d = 2.2, h = 14.00, $fn = 6);
                 }
             }
 
@@ -455,7 +624,7 @@ module tile_exoskeleton_base_frame(qx=0, qy=0, include_color=true) {
                         chamfered_prism(16.0, 20.0, 1.2, 1.5);
                     for (sy = [vy - 7.5 : 3.0 : vy + 7.5]) {
                         translate([vx - 6.5, sy - 0.6, -0.5])
-                            cube([13.0, 1.2, base_floor_h + 1.0]);
+                            cube([13.0, 1.2, 2.4]);
                     }
                 }
             }
@@ -465,7 +634,7 @@ module tile_exoskeleton_base_frame(qx=0, qy=0, include_color=true) {
                 translate([pt[0], pt[1], -0.5])
                     cylinder(d = m3_drill_d, h = pcb_ledge_z + 2.0);
                 translate([pt[0], pt[1], -0.2])
-                    cylinder(d = 6.0, h = 1.8);
+                    cylinder(d = 6.0, h = 1.4);
             }
 
             // K. Outer Corner M4 Socket-Head Cap Screw Counterbore
@@ -475,44 +644,176 @@ module tile_exoskeleton_base_frame(qx=0, qy=0, include_color=true) {
                 cylinder(d = 4.0, h = frame_total_h + 1.0);
         }
 
-        // --- ADDITIVE INTERNAL BOSSES & LOUVER FIN INSERTS ---
+        // --- ADDITIVE INTERNAL BOSSES, ISO-GRID DIFFUSERS, SNAP CLIPS & LOUVERS ---
 
-        // 1. 4x M3 PCB Support Stand-Off Bosses with Brass Heat-Set Insert Pockets
+        // 1. 4x 3-Stage M3 PCB Support Stand-Off Bosses with Lead-In Chamfer,
+        //    Knurl Bore, Bottom Melt-Trap Relief Groove & 4x Radial Buttress Gussets
         color(include_color ? c_tva_cream : [0.88, 0.88, 0.88])
         for (pt = m3_coords) {
             difference() {
-                translate([pt[0], pt[1], 0])
-                    cylinder(d = m3_boss_od, h = pcb_ledge_z);
+                union() {
+                    // Main Boss Cylinder (OD = 8.2mm)
+                    translate([pt[0], pt[1], 0])
+                        cylinder(d = m3_boss_od + 0.4, h = pcb_ledge_z);
+
+                    // 4x Radial Triangular Buttress Gussets anchoring Boss to Floor
+                    for (ga = [0, 90, 180, 270]) {
+                        translate([pt[0], pt[1], 1.2])
+                            rotate([0, 0, ga])
+                                hull() {
+                                    translate([m3_boss_od/2 - 0.4, -0.7, 0])
+                                        cube([0.4, 1.4, pcb_ledge_z - 1.6]);
+                                    translate([m3_boss_od/2 + 2.4, -0.7, 0])
+                                        cube([0.4, 1.4, 0.4]);
+                                }
+                    }
+                }
+                // Stage 0: Full M3 Clearance Through-Bore
                 translate([pt[0], pt[1], -0.5])
                     cylinder(d = m3_drill_d, h = pcb_ledge_z + 1.0);
-                translate([pt[0], pt[1], pcb_ledge_z - 3.6])
-                    cylinder(d = m3_insert_od, h = 3.8);
+                // Stage 1: Top 45-Degree Soldering-Iron Entry Chamfer (d1=4.60 -> d2=5.40mm)
+                translate([pt[0], pt[1], pcb_ledge_z - 0.60])
+                    cylinder(d1 = m3_insert_od, d2 = m3_insert_od + 0.80, h = 0.70);
+                // Stage 2: Precision Brass Insert Knurl Interference Bore (d=4.60mm, depth=3.30mm)
+                translate([pt[0], pt[1], pcb_ledge_z - 3.30])
+                    cylinder(d = m3_insert_od, h = 3.40);
+                // Stage 3: Bottom Melt-Trap Relief Undercut Groove (d=5.05mm, depth=0.85mm)
+                //          Captures displaced molten polymer so M3 threads never clog!
+                translate([pt[0], pt[1], pcb_ledge_z - 4.15])
+                    cylinder(d = m3_insert_od + 0.45, h = 0.90);
+                // Bottom Counterbore
+                translate([pt[0], pt[1], -0.2])
+                    cylinder(d = 6.0, h = 1.4);
             }
         }
 
-        // 2. 16x Conical Acoustic Transducer Cradle Rings on PCB Top Shelf
+        // 1B. 16x Conical Acoustic Phase-Diffuser Spikes & Iso-Grid Floor Ribs inside Helmholtz Chambers
+        //     Scatters 40kHz (lambda=8.57mm) back-wave radiation between the +/-5.0mm solder pins!
+        color(include_color ? c_tva_cream : [0.88, 0.88, 0.88])
+        for (r = [0 : 3]) {
+            for (c = [0 : 3]) {
+                tx_x = tx_grid_x0 + c * tx_pitch;
+                tx_y = tx_grid_y0 + r * tx_pitch;
+                // Conical Helmholtz Phase-Diffuser Spike at Center of Back-Chamber
+                translate([tx_x, tx_y, 1.80])
+                    cylinder(d1 = 5.2, d2 = 1.2, h = 3.10, $fn = 24);
+                // Y-Axis Stiffening Rib Bisecting the Chamber Floor (clears pins at X = tx_x +/- 5.0)
+                translate([tx_x - 0.7, tx_y - 6.2, 1.80])
+                    cube([1.4, 12.4, 1.60]);
+            }
+            // 9x Additive 45-Degree Iso-Grid X-Truss Ribs across the Interstitial Diamond Pockets
+            // (Overlaps floor at Z=1.50mm and pocket walls at L=9.6mm to guarantee 100% watertight 2-manifold CGAL mesh!)
+            for (ir = [0 : 2]) {
+                for (ic = [0 : 2]) {
+                    ix = tx_grid_x0 + (ic + 0.5) * tx_pitch;
+                    iy = tx_grid_y0 + (ir + 0.5) * tx_pitch;
+                    translate([ix, iy, 1.50 + (pcb_ledge_z - 1.50)/2])
+                        rotate([0, 0, 45])
+                            cube([9.6, 1.5, pcb_ledge_z - 1.50], center = true);
+                    translate([ix, iy, 1.50 + (pcb_ledge_z - 1.50)/2])
+                        rotate([0, 0, -45])
+                            cube([9.6, 1.5, pcb_ledge_z - 1.50], center = true);
+                }
+            }
+        }
+
+        // 2. 16x Slotted 4-Finger Acoustic Transducer Collet Cradles with O-Ring Isolation Gland
         color(include_color ? c_tva_cream : [0.88, 0.88, 0.88])
         for (r = [0 : 3]) {
             for (c = [0 : 3]) {
                 tx_x = tx_grid_x0 + c * tx_pitch;
                 tx_y = tx_grid_y0 + r * tx_pitch;
                 difference() {
+                    // Outer Cradle Wall (OD = 18.5mm, h = 2.8mm)
                     translate([tx_x, tx_y, pcb_top_z])
-                        cylinder(d = tx_can_clear_d + 1.6, h = 2.4);
+                        cylinder(d = tx_can_clear_d + 2.0, h = 2.8);
+
+                    // Precision Transducer Seat Bore (ID = 16.5mm)
                     translate([tx_x, tx_y, pcb_top_z - 0.2])
-                        cylinder(d = tx_can_clear_d, h = 2.8);
+                        cylinder(d = tx_can_clear_d, h = 3.2);
+
+                    // Top 45-Degree Self-Centering Entry Chamfer
+                    translate([tx_x, tx_y, pcb_top_z + 2.2])
+                        cylinder(d1 = tx_can_clear_d, d2 = tx_can_clear_d + 1.2, h = 0.7);
+
+                    // Mid-Wall Silicone O-Ring Acoustic Isolation Gland Groove
+                    translate([tx_x, tx_y, pcb_top_z + 0.95])
+                        cylinder(d = tx_can_clear_d + 0.75, h = 0.90);
+
+                    // 4x Axial Compliance Flexure Slots (at 45, 135, 225, 315 deg)
+                    // Converts solid ring into a 4-finger precision collet!
+                    for (sa = [45, 135]) {
+                        translate([tx_x, tx_y, pcb_top_z + 1.6])
+                            rotate([0, 0, sa])
+                                cube([tx_can_clear_d + 3.0, 1.5, 2.6], center = true);
+                    }
                 }
             }
         }
 
-        // 3. 8x Internal Bezel Hold-Down Pillars
+        // 3. 8x 3-Stage Internal Bezel Hold-Down Pillars (for M2.5x3.5x3.5mm Brass Inserts)
+        //    Includes 45-Deg Entry Chamfer, Knurl Bore, Melt-Trap Groove & 4x Base Gussets
         color(include_color ? c_tva_cream : [0.88, 0.88, 0.88])
         for (bpt = BezelScrewCoords) {
+            pillar_h = bezel_bottom_z - pcb_top_z;
             difference() {
-                translate([bpt[0], bpt[1], pcb_top_z])
-                    cylinder(d = 5.2, h = bezel_bottom_z - pcb_top_z);
+                union() {
+                    translate([bpt[0], bpt[1], pcb_top_z])
+                        cylinder(d = 5.6, h = pillar_h);
+
+                    // 4x Cruciform Buttress Gusset Fins at Base of Pillar
+                    for (ga = [0, 90, 180, 270]) {
+                        translate([bpt[0], bpt[1], pcb_top_z])
+                            rotate([0, 0, ga])
+                                hull() {
+                                    translate([2.4, -0.6, 0])
+                                        cube([0.4, 1.2, 3.2]);
+                                    translate([4.0, -0.6, 0])
+                                        cube([0.4, 1.2, 0.4]);
+                                }
+                    }
+                }
+                // Through-Bore
                 translate([bpt[0], bpt[1], pcb_top_z - 0.5])
-                    cylinder(d = 2.5, h = bezel_bottom_z - pcb_top_z + 1.0);
+                    cylinder(d = 2.55, h = pillar_h + 1.0);
+                // Stage 1: Top 45-Degree Lead-In Chamfer (d1=3.50 -> d2=4.20mm)
+                translate([bpt[0], bpt[1], bezel_bottom_z - 0.55])
+                    cylinder(d1 = 3.50, d2 = 4.20, h = 0.65);
+                // Stage 2: M2.5 Brass Insert Knurl Interference Bore (d=3.50mm, depth=2.90mm)
+                translate([bpt[0], bpt[1], bezel_bottom_z - 2.90])
+                    cylinder(d = 3.50, h = 3.00);
+                // Stage 3: Bottom Melt-Trap Relief Undercut Groove (d=3.90mm, depth=0.75mm)
+                translate([bpt[0], bpt[1], bezel_bottom_z - 3.65])
+                    cylinder(d = 3.90, h = 0.80);
+            }
+        }
+
+        // 3B. Contoured FFC Bend-Radius Guide Ramps (R=3.0mm) & 45-Deg Snap-In Retention Fingers
+        //     plus +12V_DRV 16AWG Wire Retention Bridges!
+        color(include_color ? c_tva_cream : [0.88, 0.88, 0.88]) {
+            // Left J_IN & Right J_OUT FFC Snap-Tab Retention Fingers (45-deg printable overhang)
+            for (fy_tab = [ffc_y - 5.2, ffc_y + 4.0]) {
+                // Left J_IN Retention Finger
+                hull() {
+                    translate([2.2, fy_tab, pcb_top_z + 2.2])
+                        cube([1.0, 1.2, 1.4]);
+                    translate([2.2, fy_tab, pcb_top_z + 2.8])
+                        cube([2.2, 1.2, 0.8]);
+                }
+                // Right J_OUT Retention Finger
+                hull() {
+                    translate([pcb_w - 3.2, fy_tab, pcb_top_z + 2.2])
+                        cube([1.0, 1.2, 1.4]);
+                    translate([pcb_w - 4.4, fy_tab, pcb_top_z + 2.8])
+                        cube([2.2, 1.2, 0.8]);
+                }
+            }
+            // Twin Wire-Retention Snap Tabs over the +12V_DRV 16AWG Raceway (Y = 18.0, 27.0)
+            for (wy_tab = [18.0, 27.0]) {
+                translate([1.8, wy_tab, 1.4])
+                    cube([1.4, 1.6, 2.2]);
+                translate([1.8, wy_tab, 3.0])
+                    cube([2.6, 1.6, 0.9]);
             }
         }
 
@@ -677,6 +978,17 @@ module acoustic_horn_bezel_plate(include_color=true) {
                 }
             }
 
+            // Inter-Horn Under-Bezel Iso-Grid Acoustic Sandwich Pockets (at the 9 interstitial grid centers)
+            for (ir = [0 : 2]) {
+                for (ic = [0 : 2]) {
+                    ix = tx_grid_x0 + (ic + 0.5) * tx_pitch;
+                    iy = tx_grid_y0 + (ir + 0.5) * tx_pitch;
+                    translate([ix, iy, bezel_bottom_z - 0.1])
+                        rotate([0, 0, 45])
+                            cylinder(d = 7.4, h = 3.20, $fn = 4);
+                }
+            }
+
             for (bpt = BezelScrewCoords) {
                 translate([bpt[0], bpt[1], bezel_bottom_z - 0.5])
                     cylinder(d = 2.6, h = bezel_thick + 1.0);
@@ -697,6 +1009,22 @@ module acoustic_horn_bezel_plate(include_color=true) {
             translate([71.25, 14.50, frame_total_h - 0.40])
                 linear_extrude(height = 0.55)
                     text("120dB SPL // MK-II", size = 1.50, font = "Consolas:style=Bold", halign = "center", valign = "center");
+        }
+
+        // Additive 45-Deg X-Truss Stiffening Ribs inside Under-Bezel Inter-Horn Sandwich Pockets
+        // (Overlaps pocket ceiling by +0.3mm and walls at L=7.8mm to guarantee 100% watertight 2-manifold CGAL mesh!)
+        color(include_color ? c_tva_bone : [0.92, 0.92, 0.92])
+        for (ir = [0 : 2]) {
+            for (ic = [0 : 2]) {
+                ix = tx_grid_x0 + (ic + 0.5) * tx_pitch;
+                iy = tx_grid_y0 + (ir + 0.5) * tx_pitch;
+                translate([ix, iy, bezel_bottom_z + 1.70])
+                    rotate([0, 0, 45])
+                        cube([7.8, 1.3, 3.40], center = true);
+                translate([ix, iy, bezel_bottom_z + 1.70])
+                    rotate([0, 0, -45])
+                        cube([7.8, 1.3, 3.40], center = true);
+            }
         }
 
         if (include_color) {
@@ -759,7 +1087,7 @@ module perforated_transducer_can(tx_x, tx_y) {
     }
 }
 
-module pcb_and_transducers_assembly() {
+module pcb_and_transducers_assembly(xray_cutaway=false) {
     m3_coords = [
         [m3_inset, m3_inset],
         [pcb_w - m3_inset, m3_inset],
@@ -776,16 +1104,25 @@ module pcb_and_transducers_assembly() {
             translate([pt[0], pt[1], pcb_ledge_z - 0.5])
                 cylinder(d = m3_drill_d, h = pcb_thick + 1.0);
         }
+        if (xray_cutaway) {
+            // Cleanly notch ONLY the 1.6mm PCB substrate over the Iso-Grid & Helmholtz inspection window
+            translate([21.0, 0.0, pcb_ledge_z - 0.5])
+                cube([51.0, 48.0, pcb_thick + 1.0]);
+            translate([0.0, 0.0, pcb_ledge_z - 0.5])
+                cube([22.0, 4.50, pcb_thick + 1.0]);
+        }
     }
 
     // 2. ENIG Gold M3 Mounting Rings
     color(c_gold_pad)
     for (pt = m3_coords) {
-        difference() {
-            translate([pt[0], pt[1], pcb_top_z - 0.05])
-                cylinder(d = 5.6, h = 0.15);
-            translate([pt[0], pt[1], pcb_top_z - 0.2])
-                cylinder(d = m3_drill_d, h = 0.5);
+        if (!(xray_cutaway && pt[0] < 20 && pt[1] < 20)) {
+            difference() {
+                translate([pt[0], pt[1], pcb_top_z - 0.05])
+                    cylinder(d = 5.6, h = 0.15);
+                translate([pt[0], pt[1], pcb_top_z - 0.2])
+                    cylinder(d = m3_drill_d, h = 0.5);
+            }
         }
     }
 
@@ -796,10 +1133,12 @@ module pcb_and_transducers_assembly() {
             translate([13.0 - 2.0, uy - 2.45, pcb_top_z])
                 cube([3.9, 4.9, 1.55]);
         }
-        translate([38.0 - 4.95, 9.5 - 1.95, pcb_top_z])
-            cube([9.9, 3.9, 1.55]);
-        translate([66.0 - 4.95, 9.5 - 1.95, pcb_top_z])
-            cube([9.9, 3.9, 1.55]);
+        if (!xray_cutaway) {
+            translate([38.0 - 4.95, 9.5 - 1.95, pcb_top_z])
+                cube([9.9, 3.9, 1.55]);
+            translate([66.0 - 4.95, 9.5 - 1.95, pcb_top_z])
+                cube([9.9, 3.9, 1.55]);
+        }
     }
 
     // 4. Local SMD Decoupling Capacitors & Damping Resistors
@@ -809,8 +1148,10 @@ module pcb_and_transducers_assembly() {
             translate([18.0 - 0.6, uy + 0.635 - 1.0, pcb_top_z])
                 cube([1.2, 2.0, 0.9]);
         }
-        translate([47.0 - 0.6, 9.5 - 1.0, pcb_top_z]) cube([1.2, 2.0, 0.9]);
-        translate([57.0 - 0.6, 9.5 - 1.0, pcb_top_z]) cube([1.2, 2.0, 0.9]);
+        if (!xray_cutaway) {
+            translate([47.0 - 0.6, 9.5 - 1.0, pcb_top_z]) cube([1.2, 2.0, 0.9]);
+            translate([57.0 - 0.6, 9.5 - 1.0, pcb_top_z]) cube([1.2, 2.0, 0.9]);
+        }
         translate([4.8 - 0.8, 17.5 - 1.6, pcb_top_z]) cube([1.6, 3.2, 1.2]);
     }
 
@@ -837,9 +1178,11 @@ module pcb_and_transducers_assembly() {
     // 7. 16x Prowave 400ST160 16.2mm Ultrasonic Transducer Cans with Honeycomb Mesh
     for (r = [0 : 3]) {
         for (c = [0 : 3]) {
-            tx_x = tx_grid_x0 + c * tx_pitch;
-            tx_y = tx_grid_y0 + r * tx_pitch;
-            perforated_transducer_can(tx_x, tx_y);
+            if (!(xray_cutaway && r < 2 && c < 3)) {
+                tx_x = tx_grid_x0 + c * tx_pitch;
+                tx_y = tx_grid_y0 + r * tx_pitch;
+                perforated_transducer_can(tx_x, tx_y);
+            }
         }
     }
 }
@@ -945,63 +1288,117 @@ module ffc_daisy_chain_and_star_power_harness() {
 //     4) Onboard 12V -> 5V 3A Buck Regulator + 1000uF Low-ESR Bulk Capacitor!
 //     5) Integrated SSD1306 128x64 OLED Telemetry Window on the Rear Backplane!
 // ----------------------------------------------------------------------------
-module rp2040_master_avionics_dock() {
-    // 1. Master Avionics Enclosure Bay along Left-Front Spine (X = -86..-26, Y = -88..-12, Z = -14..0)
+module rp2040_master_avionics_dock(include_electronics=true, include_color=true) {
+    // Official Raspberry Pi Pico M2 Mounting Hole Pattern (11.4 mm x 47.0 mm)
+    // Centered on the Pico board at X = -66.0, Y = -86.5..-35.5
+    pico_m2_coords = [
+        [-66.0 - 5.7, -84.5],
+        [-66.0 + 5.7, -84.5],
+        [-66.0 - 5.7, -37.5],
+        [-66.0 + 5.7, -37.5]
+    ];
+
+    // 1. Master Avionics Enclosure Bay along Left-Front Spine (X = -84..-32, Y = -88..-16, Z = -13.5..0)
     //    Reaches all the way to the front outer wall (Y = -88.0 mm) so the USB-C port and XT30 power
     //    connector are 100% accessible from the outside edge!
-    color(c_anduril_slate)
-    difference() {
-        union() {
-            // Main Avionics Bay Housing
-            translate([-84.0, -88.0, -13.5])
-                chamfered_prism(52.0, 72.0, 13.5, 4.0);
+    color(include_color ? c_anduril_slate : [0.88, 0.88, 0.88])
+    union() {
+        difference() {
+            union() {
+                // Main Avionics Bay Housing
+                translate([-84.0, -88.0, -13.5])
+                    chamfered_prism(52.0, 72.0, 13.5, 4.0);
 
-            // Central Cruciform Structural Lock Plate (Bolts across all 4 inner tile M3 corners!)
-            translate([-24.0, -24.0, -5.5])
-                chamfered_prism(48.0, 48.0, 5.5, 6.0);
-            translate([-82.0, -8.0, -4.0])
-                chamfered_prism(164.0, 16.0, 4.0, 3.0);
-            translate([-8.0, -76.0, -4.0])
-                chamfered_prism(16.0, 152.0, 4.0, 3.0);
-        }
+                // Central Cruciform Structural Lock Plate (Bolts across all 4 inner tile M3 corners!)
+                translate([-24.0, -24.0, -5.5])
+                    chamfered_prism(48.0, 48.0, 5.5, 6.0);
+                translate([-82.0, -8.0, -4.0])
+                    chamfered_prism(164.0, 16.0, 4.0, 3.0);
+                translate([-8.0, -76.0, -4.0])
+                    chamfered_prism(16.0, 152.0, 4.0, 3.0);
 
-        // Internal Cavity for Raspberry Pi Pico (21.0 x 51.0 mm) & Buck Converter
-        translate([-79.0, -84.0, -11.5])
-            chamfered_prism(42.0, 62.0, 12.0, 2.5);
+                // Integral Monocoque Structural Web Bridges uniting Avionics Bay with Cruciform Arms
+                translate([-78.0, -20.0, -5.5])
+                    chamfered_prism(46.0, 16.0, 5.5, 2.0);
+                translate([-36.0, -74.0, -5.5])
+                    chamfered_prism(30.0, 54.0, 5.5, 2.0);
+            }
 
-        // External Front-Edge USB-C / Micro-USB Programming Port Cutout (at X = -66.0, Y = -88.0, Z = -7.5)
-        translate([-66.0 - 4.8, -89.0, -7.5 - 1.8])
-            cube([9.6, 8.0, 3.6]);
+            // Internal Cavity for Raspberry Pi Pico (21.0 x 51.0 mm) & Buck Converter
+            translate([-79.0, -84.0, -11.5])
+                chamfered_prism(42.0, 62.0, 12.0, 2.5);
 
-        // External Recessed USB-C Cable Plug Boot Relief (allows fat USB-C cable molding to plug flush!)
-        translate([-66.0 - 6.5, -88.5, -7.5 - 3.2])
-            cube([13.0, 2.5, 6.4]);
+            // Internal Honeycomb Truss Lightening Pockets in Avionics Left/Right Side Walls
+            for (ay = [-78.0 : 8.0 : -26.0]) {
+                translate([-81.5, ay, -12.0])
+                    rotate([0, 0, 30])
+                        cylinder(d = 2.6, h = 10.5, $fn = 6);
+                translate([-34.5, ay, -12.0])
+                    rotate([0, 0, 30])
+                        cylinder(d = 2.6, h = 10.5, $fn = 6);
+            }
 
-        // External BOOTSEL Tactile Reset/Flash Button Pinhole on Front Edge (at X = -53.0, Y = -88.0)
-        translate([-53.0, -89.0, -7.5])
-            rotate([-90, 0, 0])
-                cylinder(d = 3.2, h = 8.0);
+            // External Front-Edge USB-C / Micro-USB Programming Port Cutout (at X = -66.0, Y = -88.0, Z = -7.5)
+            translate([-66.0 - 4.8, -89.0, -7.5 - 1.8])
+                cube([9.6, 8.0, 3.6]);
 
-        // External XT30 +12V_DRV Power Input Bay on Front Edge (at X = -42.0, Y = -88.0)
-        translate([-42.0 - 5.5, -89.0, -7.5 - 2.8])
-            cube([11.0, 8.0, 5.6]);
+            // External Recessed USB-C Cable Plug Boot Relief (allows fat USB-C cable molding to plug flush!)
+            translate([-66.0 - 6.5, -88.5, -7.5 - 3.2])
+                cube([13.0, 2.5, 6.4]);
 
-        // Rear Observation Window exposing the Raspberry Pi Pico RP2040 Silicon & Status LEDs
-        translate([-75.0, -78.0, -14.5])
-            chamfered_prism(22.0, 42.0, 4.0, 2.0);
+            // External BOOTSEL Tactile Reset/Flash Button Pinhole on Front Edge (at X = -53.0, Y = -88.0)
+            translate([-53.0, -89.0, -7.5])
+                rotate([-90, 0, 0])
+                    cylinder(d = 3.2, h = 8.0);
 
-        // SSD1306 128x64 OLED HUD Bezel Cutout in Central Cruciform Hub
-        translate([-15.0, -11.0, -6.5])
-            chamfered_prism(30.0, 22.0, 3.0, 1.5);
+            // External XT30 +12V_DRV Power Input Bay on Front Edge (at X = -42.0, Y = -88.0)
+            translate([-42.0 - 5.5, -89.0, -7.5 - 2.8])
+                cube([11.0, 8.0, 5.6]);
 
-        // 4x Inner Tile M3 Corner Bolt Holes (+/-4.5, +/-4.5)
-        for (sx = [-4.5, 4.5]) {
-            for (sy = [-4.5, 4.5]) {
-                translate([sx, sy, -6.5])
-                    cylinder(d = 3.4, h = 7.5);
+            // Rear Observation Window exposing the Raspberry Pi Pico RP2040 Silicon & Status LEDs
+            translate([-75.0, -78.0, -14.5])
+                chamfered_prism(22.0, 42.0, 4.0, 2.0);
+
+            // SSD1306 128x64 OLED HUD Bezel Cutout in Central Cruciform Hub
+            translate([-15.0, -11.0, -6.5])
+                chamfered_prism(30.0, 22.0, 3.0, 1.5);
+
+            // 4x Inner Tile M3 Corner Bolt Holes (+/-4.5, +/-4.5)
+            for (sx = [-4.5, 4.5]) {
+                for (sy = [-4.5, 4.5]) {
+                    translate([sx, sy, -6.5])
+                        cylinder(d = 3.4, h = 7.5);
+                }
             }
         }
+
+        // 1B. 4x Internal M2 Brass Heat-Set Standoff Bosses for Raspberry Pi Pico (11.4 x 47.0 mm pattern)
+        for (mpt = pico_m2_coords) {
+            difference() {
+                translate([mpt[0], mpt[1], -11.5])
+                    cylinder(d = 4.6, h = 4.5, $fn = 24);
+                translate([mpt[0], mpt[1], -9.5])
+                    cylinder(d = 3.1, h = 3.0, $fn = 24); // M2x3x3.2 brass insert bore
+                translate([mpt[0], mpt[1], -11.8])
+                    cylinder(d = 2.2, h = 5.0, $fn = 20);
+            }
+        }
+
+        // 1C. Internal Amass XT30 Retention Collar & 12V->5V Buck Converter Cradle Ribs
+        difference() {
+            translate([-49.0, -84.0, -11.5])
+                cube([14.0, 10.0, 6.5]);
+            translate([-42.0 - 5.1, -85.0, -10.1])
+                cube([10.2, 10.0, 5.2]);
+        }
+        // Buck Regulator Snap-In Cradle Rails (X = -52..-38, Y = -68..-42)
+        translate([-52.0, -68.0, -11.5])
+            cube([1.8, 26.0, 3.5]);
+        translate([-39.8, -68.0, -11.5])
+            cube([1.8, 26.0, 3.5]);
     }
+
+    if (include_electronics) {
 
     // 2. TVA Signal Orange Accent Rim around the Avionics Bay & USB-C I/O Bulkhead
     color(c_tva_orange)
@@ -1133,6 +1530,7 @@ module rp2040_master_avionics_dock() {
                                 cylinder(d = 1.6, h = 9.0, $fn = 12);
                     }
                 }
+        }
     }
 }
 
@@ -1209,14 +1607,148 @@ module central_optical_tof_sensor_pod(multi_body=true) {
 }
 
 // ----------------------------------------------------------------------------
-// 13. ASSEMBLIES: SINGLE TILE, EXPLODED, INTERNAL CUTAWAY & 2x2 HERO QUAD
+// 12C. PRINTABLE PART F: CROSS-SEAM CRUCIFORM SHEAR-LOCK CORNER BRACE CLIP
+//      Bolts across all 4 inner tile M3 brass heat-set inserts at (+/-4.5, +/-4.5)
+//      with integrated diagonal Iso-Grid pockets and FFC/16AWG wire channels.
+// ----------------------------------------------------------------------------
+module interlock_corner_brace_clip(include_color=true) {
+    color(include_color ? c_anduril_slate : [0.88, 0.88, 0.88])
+    difference() {
+        union() {
+            // Central Cruciform Hub Plate (36 x 36 x 5.0 mm)
+            translate([-18.0, -18.0, 0.0])
+                chamfered_prism(36.0, 36.0, 5.0, 4.5);
+
+            // 4x Cruciform Shear Arms Locking Along X=0 and Y=0 Seams (64 mm span)
+            translate([-32.0, -7.0, 0.0])
+                chamfered_prism(64.0, 14.0, 4.0, 2.5);
+            translate([-7.0, -32.0, 0.0])
+                chamfered_prism(14.0, 64.0, 4.0, 2.5);
+
+            // 2x Dovetail Shear Keys Engaging Inner Seam Notches
+            for (sx = [-24.0, 24.0]) {
+                translate([sx - 3.5, -2.2, 4.0])
+                    chamfered_prism(7.0, 4.4, 2.2, 0.8);
+            }
+            for (sy = [-24.0, 24.0]) {
+                translate([-2.2, sy - 3.5, 4.0])
+                    chamfered_prism(4.4, 7.0, 2.2, 0.8);
+            }
+        }
+
+        // 4x M3 Tension Bolt Counterbores at (+/-4.5, +/-4.5 mm)
+        for (bx = [-4.5, 4.5]) {
+            for (by = [-4.5, 4.5]) {
+                translate([bx, by, -0.5])
+                    cylinder(d = 3.4, h = 6.5, $fn = 28);
+                translate([bx, by, 2.6])
+                    cylinder(d = 6.2, h = 3.0, $fn = 28);
+            }
+        }
+
+        // 4x Diagonal Iso-Grid Weight-Reduction & Venting Pockets in Quadrant Corners
+        for (qx_p = [-11.5, 11.5]) {
+            for (qy_p = [-11.5, 11.5]) {
+                translate([qx_p, qy_p, 1.4])
+                    rotate([0, 0, 45])
+                        cylinder(d = 6.2, h = 4.5, $fn = 4);
+            }
+        }
+
+        // Protected Cable Guide Tunnels on Underside for 6-Pin FFC & 16AWG Star Power
+        translate([-34.0, -3.5, -0.2])
+            cube([68.0, 7.0, 1.8]);
+        translate([-3.5, -34.0, -0.2])
+            cube([7.0, 68.0, 1.8]);
+    }
+}
+
+// ----------------------------------------------------------------------------
+// 13. ASSEMBLIES: SINGLE TILE, EXPLODED, INTERNAL CUTAWAY, X-RAY & 2x2 HERO QUAD
 // ----------------------------------------------------------------------------
 module single_tile_complete(qx=0, qy=0, show_bezel=true) {
     tile_exoskeleton_base_frame(qx, qy, true);
+    tile_brass_heatset_inserts_hardware(0.0, 0.0);
     pcb_and_transducers_assembly();
     if (show_bezel) {
         tva_orange_quadrant_bevel(qx, qy);
         acoustic_horn_bezel_plate(true);
+    }
+}
+
+// Stepped Engineering X-Ray Section Cutaway View (render_mode = 17)
+// Slices cleanly through:
+// 1) Front M3 Brass Heat-Set Insert Boss at Y = 4.50mm (showing 3-stage chamfer + knurl + melt-trap!)
+// 2) Row 0 of the Prowave 400ST160 Transducers & Exponential Horn Waveguides at Y = 24.00mm
+//    (showing the Helmholtz acoustic back-chamber, conical phase-diffuser spike, 4-finger O-ring collet,
+//    and 5-stage exponential horn throat!)
+// 3) Right & Back Perimeter Walls sliced horizontally at Z = 10.5mm to reveal the internal
+//    Honeycomb / Warren-Truss structural core cells inside the printed walls!
+module tile_structural_xray_section_view() {
+    translate([-tile_pitch_x/2, -tile_pitch_y/2, 0]) {
+        // 1. Sliced Exoskeleton Base Frame (Stepped Engineering Cutaway)
+        color(c_tva_cream)
+        difference() {
+            tile_exoskeleton_base_frame(0, 0, false);
+
+            // Cutaway 1: Slice front-left corner up to Y = 4.50mm (X = 0..21) to bisect M3 Boss H1 (4.5, 4.5)
+            //            exposing the 3-stage chamfer + knurled brass insert + bottom melt-trap groove!
+            translate([-1.0, -1.0, -1.0])
+                cube([22.0, 5.50, frame_total_h + 5.0]);
+
+            // Cutaway 2: Slice front-right quadrant up to Y = 24.00mm (X = 21..89.5) to bisect Row 0
+            //            Helmholtz Back-Chambers, Conical Phase-Diffuser Spikes, and M2.5 Bezel Pillars!
+            translate([21.0, -1.0, -1.0])
+                cube([68.5, 25.00, frame_total_h + 5.0]);
+
+            // Cutaway 3: Horizontal X-Ray slice across Right Perimeter Wall (X = 89.0..99, Y = 12..93, Z = 10.5..24)
+            //            and Back Perimeter Wall (X = 12..99, Y = 83.2..93, Z = 10.5..24)
+            //            highlighted in TVA Signal Orange to showcase the Staggered Dual-Row Honeycomb Core!
+            color(c_tva_orange) {
+                translate([89.0, 12.0, 10.5])
+                    cube([12.0, 81.0, 15.0]);
+                translate([12.0, 83.2, 10.5])
+                    cube([89.0, 10.0, 15.0]);
+            }
+
+            // Cutaway 4: Horizontal Window in PCB Shelf (X = 21..71, Y = 24..48.5, Z = 5.4..24)
+            //            to expose the Under-PCB 45-Deg Iso-Grid Diamond Lattice & Helmholtz Chambers!
+            translate([21.0, 24.0, 5.4])
+                cube([50.0, 24.5, 20.0]);
+        }
+
+        // 2. Brass Heat-Set Inserts & M3 Screws (Fully visible inside the bisected bosses!)
+        tile_brass_heatset_inserts_hardware(0.0, 0.0);
+
+        // 3. X-Ray PCB & Transducers (6 front-left cans omitted so Row 2 & Column 3 cans are 100% whole!)
+        pcb_and_transducers_assembly(true);
+
+        // 4A. Sliced Orange Perimeter Crown (preserves two-tone Cream Deck + Orange Outer Bevel!):
+        difference() {
+            tva_orange_quadrant_bevel(0, 0);
+            color(c_tva_cream) {
+                translate([-1.0, -1.0, -1.0])
+                    cube([102.0, 58.00, frame_total_h + 5.0]);
+                translate([89.0, 12.0, 10.5])
+                    cube([12.0, 81.0, 15.0]);
+                translate([12.0, 83.2, 10.5])
+                    cube([89.0, 10.0, 15.0]);
+            }
+        }
+
+        // 4B. Sliced Exponential Horn Waveguide Bezel:
+        //     Bisected at the exact centerline of Row 2 (Y = 57.00mm) + stepped notch at Y = 65.25mm
+        //     to expose BOTH the 5-stage Exponential Horn throats AND the Under-Bezel Iso-Grid Sandwich Pockets!
+        color(c_tva_bone)
+        difference() {
+            acoustic_horn_bezel_plate(false);
+            // Main section plane along Row 2 centerline (Y = 57.00mm)
+            translate([-1.0, -1.0, -1.0])
+                cube([102.0, 58.00, frame_total_h + 5.0]);
+            // Stepped X-Ray Window (X = 29.5..62.5, Y = 57.0..65.25) bisecting the Under-Bezel Iso-Grid Pockets!
+            translate([29.5, 56.9, bezel_bottom_z - 0.5])
+                cube([33.0, 8.35, 3.6]);
+        }
     }
 }
 
@@ -1239,12 +1771,18 @@ module quad_2x2_hero_assembly(include_avionics=true, cutaway_left_tiles=false) {
 }
 
 module single_tile_exploded_5layer() {
+    // Layer 1 (z = 0mm): Exoskeleton Base Frame with Iso-Grid & Helmholtz Chambers
     tile_exoskeleton_base_frame(0, 0, true);
-    translate([0, 0, 20.0])
+    // Layer 2 (z = +11mm & +34mm): 4x M3 + 8x M2.5 Knurled Brass Heat-Set Inserts & M3 Screws
+    tile_brass_heatset_inserts_hardware(11.0, 34.0);
+    // Layer 3 (z = +24mm): 4-Layer PCB + 16x Prowave 400ST160 Transducers
+    translate([0, 0, 24.0])
         pcb_and_transducers_assembly();
-    translate([0, 0, 40.0])
+    // Layer 4 (z = +44mm): TVA Signal Orange Perimeter Bevel Crown
+    translate([0, 0, 44.0])
         tva_orange_quadrant_bevel(0, 0);
-    translate([0, 0, 56.0])
+    // Layer 5 (z = +60mm): 16-Channel Exponential Acoustic Waveguide Horn Bezel
+    translate([0, 0, 60.0])
         acoustic_horn_bezel_plate(true);
 }
 
@@ -1258,21 +1796,22 @@ module quad_2x2_full_exploded_assembly() {
         ffc_daisy_chain_and_star_power_harness();
 
     // Layer +5 (z = +62mm): Task 7.4 Central Optical & ToF Sensor Pod
-    translate([0, 0, 56.0])
+    translate([0, 0, 58.0])
         central_optical_tof_sensor_pod();
 
-    // Layer 1..4: 4x Exploded Modular Tiles radially & vertically separated
+    // Layer 1..5: 4x Exploded Modular Tiles radially & vertically separated
     for (qx = [0 : 1]) {
         for (qy = [0 : 1]) {
             sx = (qx == 0) ? -8.0 : 8.0;
             sy = (qy == 0) ? -8.0 : 8.0;
             translate([(qx - 1) * tile_pitch_x + sx, (qy - 1) * tile_pitch_y + sy, 0]) {
                 tile_exoskeleton_base_frame(qx, qy, true);
-                translate([0, 0, 18.0])
+                tile_brass_heatset_inserts_hardware(9.0, 12.0);
+                translate([0, 0, 20.0])
                     pcb_and_transducers_assembly();
-                translate([0, 0, 36.0])
+                translate([0, 0, 38.0])
                     tva_orange_quadrant_bevel(qx, qy);
-                translate([0, 0, 50.0])
+                translate([0, 0, 52.0])
                     acoustic_horn_bezel_plate(true);
             }
         }
@@ -1849,4 +2388,14 @@ if (render_mode == 0) {
     // Printable STL Part E (Task 7.3): Heavy-Duty Tabletop C-Clamp & Pillar Base Bracket
     translate([0, 0, 76.0])
         halo_arch_c_clamp_bracket_stl();
+} else if (render_mode == 16) {
+    // Printable STL Part F: Cross-Seam Cruciform Shear-Lock Corner Brace Clip
+    interlock_corner_brace_clip(false);
+} else if (render_mode == 17) {
+    // View 17: Anduril Engineering X-Ray Section Cutaway (Iso-Grid, Helmholtz Chambers, Wall Truss & Brass Inserts)
+    tile_structural_xray_section_view();
+} else if (render_mode == 18) {
+    // Printable STL Part G: RP2040 Master Avionics Dock & Cruciform Backplane Shield
+    rotate([180, 0, 0])
+        rp2040_master_avionics_dock(false, false);
 }

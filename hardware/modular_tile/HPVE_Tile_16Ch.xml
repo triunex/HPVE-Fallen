@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>N:\Iron Cave Industries\HPVE_Project\hardware\modular_tile\HPVE_Tile_16Ch.kicad_sch</source>
-    <date>2026-11-05T22:25:11</date>
+    <date>2026-11-05T23:47:04</date>
     <tool>Eeschema 10.0.7</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -38,7 +38,7 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>b34f22a7-a5e2-48cd-b668-9219a12c6150</tstamps>
+      <tstamps>d61035ff-7543-45b5-af67-b278fd566840</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -62,7 +62,7 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>d8457e16-4f44-4a59-82e2-0858fb16e9be</tstamps>
+      <tstamps>e108171f-6dbf-4946-80e6-63ec4528d842</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -86,7 +86,7 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>5c60100e-842b-428c-b254-8ebddfb02632</tstamps>
+      <tstamps>4f3cb1ac-9447-4925-941d-07762e6d5db8</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -110,7 +110,7 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>45bf5227-592b-495c-87d7-274aedc8154d</tstamps>
+      <tstamps>75a53856-40c0-4e94-bda6-dd7d9c205438</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -134,7 +134,7 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>4708e2ed-cc35-47f2-8f2e-8477f5295710</tstamps>
+      <tstamps>3a8cff2a-90a9-4129-9f2b-f739a97b1e88</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -158,7 +158,7 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>7c8fbda0-a710-4a3f-be40-e6375090ec9a</tstamps>
+      <tstamps>fe5e0f9c-05a6-425c-a801-15628c17fb30</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -182,7 +182,7 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>32ff389a-66cf-4850-a7c2-eedc1765a632</tstamps>
+      <tstamps>a5b677e1-6d01-41dd-a950-f92da85600d2</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -206,7 +206,7 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>5423e655-cf79-47b5-b1e0-dbd63d6e2cd6</tstamps>
+      <tstamps>731c5237-209f-4b8c-8a4b-f780cbf0780c</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -230,7 +230,7 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>393109e4-8356-4d6c-88eb-cc2a7b70a0a3</tstamps>
+      <tstamps>b8cdd0d4-a17f-4452-95ce-ae6bc3b10ab6</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -254,7 +254,7 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>831d75a3-d14b-4ced-b498-550762d45456</tstamps>
+      <tstamps>f14953b1-40f4-49f4-bf93-f832f53326ac</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -278,7 +278,7 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <property name="ki_fp_filters" value="CP_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>fe754c90-04e5-410f-9fa0-88a8f6d49f3f</tstamps>
+      <tstamps>563b8f0f-4b9b-4348-b2c1-e83cdb1425e6</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -302,7 +302,7 @@
       <property name="ki_keywords" value="mounting hole"/>
       <property name="ki_fp_filters" value="MountingHole*Pad*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>19a1f15a-ce8b-4fe5-aff7-1084b88cc8df</tstamps>
+      <tstamps>2cb5bad0-4896-4ad2-ad2f-5636d3e073cc</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -325,7 +325,7 @@
       <property name="ki_keywords" value="mounting hole"/>
       <property name="ki_fp_filters" value="MountingHole*Pad*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>79dd0502-c3e2-4e02-8c16-ba24079cc98a</tstamps>
+      <tstamps>5e0475e7-e06c-4248-92b7-62a31ffb85d8</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -348,7 +348,7 @@
       <property name="ki_keywords" value="mounting hole"/>
       <property name="ki_fp_filters" value="MountingHole*Pad*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>568556e4-2381-48c9-aad4-d1f778bf5271</tstamps>
+      <tstamps>2ad136c6-3eeb-4795-889b-8d2aec44d590</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -371,7 +371,7 @@
       <property name="ki_keywords" value="mounting hole"/>
       <property name="ki_fp_filters" value="MountingHole*Pad*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>d82f73ed-8d97-4f27-b0c4-7983b6c6987c</tstamps>
+      <tstamps>edae4e0c-0de5-42bb-8336-b09195dbff73</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -392,7 +392,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>2c748b79-7f1a-42cf-8c0c-84d9c40b9175</tstamps>
+      <tstamps>7369e36b-6820-42d1-a780-aba8ec9b1f01</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -419,7 +419,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>c50dd3de-51a4-4049-b5f3-0eeebcb5566f</tstamps>
+      <tstamps>06fff1d6-ce6a-4936-aee8-7f6e1fcb03a0</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -446,7 +446,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>19468650-0077-478e-a71f-c835b2a6e05d</tstamps>
+      <tstamps>da519264-893a-493f-8bc6-0bc4f7f5afaa</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -470,7 +470,7 @@
       <property name="ki_keywords" value="R res resistor"/>
       <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>a93264e4-8cdd-4829-9bd2-49fec7208ee7</tstamps>
+      <tstamps>17ab95c3-a69a-4bcb-8164-a76c437d4dba</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -494,7 +494,7 @@
       <property name="ki_keywords" value="R res resistor"/>
       <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>b5fac423-b34e-4c2b-ac9c-2ef00e16a95d</tstamps>
+      <tstamps>0d42307d-f3d3-494a-b3cc-89cc4eab9ddf</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -518,7 +518,7 @@
       <property name="ki_keywords" value="R res resistor"/>
       <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>bf80094f-15e8-4259-832d-d4f059c0f391</tstamps>
+      <tstamps>7293b414-c3de-4dbe-a2ea-1f31e9bd7c00</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -540,7 +540,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>ef3dd4d1-3580-44b3-9528-ad65feb5b34e</tstamps>
+      <tstamps>7a05a9cd-10bb-4eab-b0f4-fc051e84997b</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -562,7 +562,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>a61f7559-3929-4ca4-82fb-9cbe016333a8</tstamps>
+      <tstamps>52ce9583-075e-4f1f-92e2-c206a7330b9b</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -584,7 +584,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>8f8eae90-59f9-44fe-9c59-0fcec8d2364e</tstamps>
+      <tstamps>b328db2e-1fdb-40f3-ad01-6f7ca7c211f6</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -606,7 +606,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>ebca5b51-ddcd-4b9a-8fcd-d35e4550f339</tstamps>
+      <tstamps>f637421e-b40d-45cb-a0c7-464ed21645d7</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -628,7 +628,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>b6476123-3445-424d-b6db-3226a53229c2</tstamps>
+      <tstamps>58a455bb-652e-4886-8dd9-1cf6764562d3</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -650,7 +650,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>7b35d4af-7c1a-4e47-a0e3-00f10b6a2b48</tstamps>
+      <tstamps>a51b509c-b841-424f-97ef-a9dfce1e32b5</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -672,7 +672,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>0b158a54-97e7-4fef-a231-5b958f91aa46</tstamps>
+      <tstamps>abff2704-1039-40b4-a9cd-8a4d2a30edf7</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -694,7 +694,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>0936cdea-a352-4cae-a233-46a760e5bc0f</tstamps>
+      <tstamps>05f8d813-9fbc-4982-9379-184f347bfa4f</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -716,7 +716,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>3b772ba5-6dd0-4697-b0b1-5a8addd20961</tstamps>
+      <tstamps>f384cbc8-4237-46a6-a259-81930fd7ed72</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -738,7 +738,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>63046fce-6cbb-4064-b243-144bb903d8da</tstamps>
+      <tstamps>4212227a-9336-4023-8464-f183997b8dc9</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -760,7 +760,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>f4524473-3f25-4172-9741-503d15d1473f</tstamps>
+      <tstamps>d044ce65-f101-4180-a649-2ade5c265ee2</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -782,7 +782,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>fb1e2ca8-a610-43e0-b70a-8ac877ddb7c5</tstamps>
+      <tstamps>3c646829-0ce6-46f3-b978-5270f2c0d3b3</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -804,7 +804,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>808b57ab-a456-49e1-9c6b-dd763209d524</tstamps>
+      <tstamps>682afa66-c308-48a5-a524-c01ade81ae59</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -826,7 +826,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>6d591850-e3bb-48bd-a87d-a87417554c22</tstamps>
+      <tstamps>f87300a1-8fb7-4c55-a07b-4f52f572e826</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -848,7 +848,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>af68e2d3-9879-40cd-b453-9088e95a41b8</tstamps>
+      <tstamps>879b65d5-9d17-46a0-8ecc-aa8f5548488a</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -870,7 +870,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>f593c932-9759-44bd-890e-d27b5a46594b</tstamps>
+      <tstamps>127ca0bd-3c4f-400d-a918-3206d6f70e71</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -892,7 +892,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>01e01781-bbad-4939-a67e-03b63611ea86</tstamps>
+      <tstamps>5eb682d1-0477-40f8-9c34-2f2b3f2d8eeb</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -928,7 +928,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>daedd89c-a3cd-4352-8f1c-f92bec2ab719</tstamps>
+      <tstamps>7b13b09b-94e2-4dd7-bdca-ccb140c0ea6d</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -964,7 +964,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>b382df0b-2ad5-4432-8512-51c3fd3e8dc6</tstamps>
+      <tstamps>c7f71fdb-3034-4814-9e97-c491216b3e8b</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -992,7 +992,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>437a2843-80a3-4bdd-9ca8-76af6487dbf9</tstamps>
+      <tstamps>3d48dccd-37b7-4a8c-9667-8c2ca81b076f</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1020,7 +1020,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>9f6c15ee-61c7-486e-bff8-6a64fdf84988</tstamps>
+      <tstamps>e6f1895f-a5f0-49eb-b95b-8debd6fd3b94</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1048,7 +1048,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>1f33a6ab-12b4-47f4-bf81-eca54cb0bff2</tstamps>
+      <tstamps>2ac7ee8b-0385-4861-9cd1-05e7d1a8b360</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1076,7 +1076,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>2d568f2d-4ccf-47ca-a67b-92c649444215</tstamps>
+      <tstamps>df9a1c9c-928a-40c3-9beb-5fbf8a0f66b9</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1104,7 +1104,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>55a2da66-8d88-4108-b7d1-3299aefcb888</tstamps>
+      <tstamps>13786860-73d6-4127-a4e5-c10ca4ba43ca</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1132,7 +1132,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>5051f425-451b-4a0c-8f5e-9d52af0cf8c2</tstamps>
+      <tstamps>a2818561-c5bf-4bfa-98d1-63ad2216bc0a</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1160,7 +1160,7 @@
       <property name="Sheetname" value="HPVE_Tile_16Ch"/>
       <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>0b071eb7-4a2c-4221-84d8-d1fb618b7d78</tstamps>
+      <tstamps>bef530e0-ada2-448f-bc6f-15986e419a33</tstamps>
       <units>
         <unit name="A">
           <pins>

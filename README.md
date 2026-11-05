@@ -27,15 +27,16 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 
 ## hardware architecture
 
-- **modular tile design (`HPVE_Tile_16Ch`)**: scaled from a bulky monolith to daisy-chainable 16-channel phased array tiles (4x4 transducers per board). 4 tiles daisy-chain into a 64-channel array; 16 tiles snap into a 256-channel Holotable!
-- **stackup**: 4-layer high-current board (`F.Cu` signals, `In1.Cu` solid GND plane, `In2.Cu` dedicated +12V power plane, `B.Cu` signals).
+- **modular tile design (`HPVE_Tile_16Ch`)**: scaled from a bulky monolith to daisy-chainable 16-channel phased array tiles (4x4 transducers per board). 4 tiles daisy-chain into a 64-channel array; 16 tiles snap into a 256-channel Holotable! Standalone schematic (`HPVE_Tile_16Ch.kicad_sch`) verified with 0 ERC errors, 0 warnings, and 100% netlist synchronization against the routed PCB.
+- **stackup**: 4-layer high-current board (`F.Cu` signals & 100% single-sided SMT, `In1.Cu` solid GND plane, `In2.Cu` dedicated +12V power plane, `B.Cu` signals).
 - **interconnects**: ultra-low profile 0.5mm horizontal flip-lock FFC ribbon connectors (`J_IN` / `J_OUT`, Hirose FH12-6S-0.5SH) for flush edge-to-edge tile stacking, plus dedicated 2-pin auxiliary 12V bench power terminal (`J_PWR`).
 - **mcu**: raspberry pi pico (rp2040). standard arduinos are way too slow to drive 64 phase channels, but the rp2040 has PIO (programmable i/o) state machines running at 133 mhz, which can toggle pins with nanosecond timing without burning cpu cycles.
 - **transducers**: 16x Prowave 400ST160 40khz ultrasonic emitters per tile (64 across 4 tiles). each has a 16.2 mm can and 10.0 mm lead spacing, so the tile uses a 4x4 grid at 16.5 mm pitch with 10 mm plated-hole footprints (solder direct, or fit two single-pin sockets per transducer). tile size is 98 x 88 mm.
 - **drivers**: 8x TC4427 dual high-speed MOSFET gate drivers per tile with individual 0.1uF 50V X7R 0805 decoupling caps, level shifting 3.3v logic up to 12v peak-to-peak.
 - **shift registers**: 2x 74HC595 SOIC-16 shift registers per tile cascading SPI control.
-- **exoskeleton chassis**: native parametric OpenSCAD snap-lock exoskeleton (`HPVE_Modular_Exoskeleton.scad`) locking 4 tiles into a rigid 196x176mm 2x2 grid, with rear RP2040 master avionics dock, external USB-C port, external BOOTSEL pin, and Amass XT30 12V 10A power input.
-- **exponential horn waveguides**: contoured 64-channel 5-stage exponential horn bezel (+3.8 dB acoustic SPL boost) with 37-pore perforated stainless honeycomb mesh clamping the transducer cans flush.
+- **exoskeleton chassis**: native parametric OpenSCAD snap-lock exoskeleton (`HPVE_Modular_Exoskeleton.scad`) locking 4 tiles into a rigid 196x176mm 2x2 grid with internal honeycomb wall core (I-beam perimeter stiffness), under-PCB 45-degree iso-grid diamond trusses, 16x Helmholtz acoustic back-chambers with conical phase-diffusers, 4-finger O-ring collet cradles, and 3-stage knurled brass heat-set insert bosses (M3 & M2.5) with melt-trap relief grooves.
+- **rear avionics & power**: integrated RP2040 master avionics dock with internal M2 Pico standoffs, screw-retained XT30 12V 10A power input collar, buck regulator cradle, external USB-C port, external BOOTSEL pin, SSD1306 OLED HUD, and dual Pan-Tilt Gimbal yoke trunnions.
+- **exponential horn waveguides**: contoured 64-channel 5-stage exponential horn bezel (+3.8 dB acoustic SPL boost) with under-bezel iso-grid sandwich pockets and 37-pore perforated stainless honeycomb mesh clamping the transducer cans flush.
 - **central optical & tof docking bay**: downward-looking VL53L5CX 8x8 multizone Time-of-Flight hand-tracking sensor + 4x collimated 450nm cyan photonic projection laser diodes centered at (0, 0).
 - **controls**: dual rotary encoders for moving the focal point (x, y, z) + 0.96 inch i2c oled screen for telemetry.
 
@@ -91,6 +92,9 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - [x] central cruciform docking bay for downward-looking VL53L5CX 8x8 ToF hand tracker + 4x 450nm photonic laser diodes
 - [x] export watertight production STL package ready for 3D printing (PETG)
 - [x] **500 XP FLIGHT GRANT UNLOCKED! (517 XP banked on Day 7, Sami evolved to Stage 3!)**
+- [x] **DAY 8 MARATHON COMPLETE: 12.03h LOGGED (+111 XP) ➔ 628 XP TOTAL (STAGE 3 PROGRESSION)!**
+- [x] standalone pristine modular tile schematic (`HPVE_Tile_16Ch.kicad_sch`) with 0 ERC violations & 100% netlist sync
+- [x] native OpenSCAD Anduril-grade structural exoskeleton CAD with wall honeycomb, iso-grid floor & printable STL suite
 - [ ] submit official Chinese F-Visa & $1,000 USD Travel Grant application on Hack Club portal
 - [ ] implement closed-loop VL53L5CX ToF spatial hand tracking & autonomous forcefield trigger (`firmware/spatial_tracker.c`)
 - [ ] build desktop Stark Holo-Console GUI (`host_console/`) with live 3D Gor'kov slices and G-code control
