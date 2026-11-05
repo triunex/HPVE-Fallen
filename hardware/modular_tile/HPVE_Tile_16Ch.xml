@@ -1,0 +1,1655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>N:\Iron Cave Industries\HPVE_Project\hardware\modular_tile\HPVE_Tile_16Ch.kicad_sch</source>
+    <date>2026-11-05T22:25:11</date>
+    <tool>Eeschema 10.0.7</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>HPVE 16-Channel Phased Array Modular Tile</title>
+        <company>Iron Cave Industries</company>
+        <rev>v1.2</rev>
+        <date>2026-11-05</date>
+        <source>HPVE_Tile_16Ch.kicad_sch</source>
+        <comment number="1" value="16x 40kHz Ultrasonic Emitters + TC4427 Driver Bank + 74HC595 Cascading Shift Registers"/>
+        <comment number="2" value="Hack Club Fallen - Stage 3 Hardware Package"/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b34f22a7-a5e2-48cd-b668-9219a12c6150</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>0.1uF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d8457e16-4f44-4a59-82e2-0858fb16e9be</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C101">
+      <value>0.1uF_50V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5c60100e-842b-428c-b254-8ebddfb02632</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C102">
+      <value>0.1uF_50V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>45bf5227-592b-495c-87d7-274aedc8154d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C103">
+      <value>0.1uF_50V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4708e2ed-cc35-47f2-8f2e-8477f5295710</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C104">
+      <value>0.1uF_50V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7c8fbda0-a710-4a3f-be40-e6375090ec9a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C105">
+      <value>0.1uF_50V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>32ff389a-66cf-4850-a7c2-eedc1765a632</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C106">
+      <value>0.1uF_50V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5423e655-cf79-47b5-b1e0-dbd63d6e2cd6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C107">
+      <value>0.1uF_50V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>393109e4-8356-4d6c-88eb-cc2a7b70a0a3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C108">
+      <value>0.1uF_50V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>831d75a3-d14b-4ced-b498-550762d45456</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C_BULK">
+      <value>10uF_25V</value>
+      <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_SMD:C_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="C_Polarized_US" description="Polarized capacitor, US symbol"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="CP_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fe754c90-04e5-410f-9fa0-88a8f6d49f3f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H1">
+      <value>M3_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3_Pad</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*Pad*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>19a1f15a-ce8b-4fe5-aff7-1084b88cc8df</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H2">
+      <value>M3_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3_Pad</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*Pad*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>79dd0502-c3e2-4e02-8c16-ba24079cc98a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H3">
+      <value>M3_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3_Pad</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*Pad*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>568556e4-2381-48c9-aad4-d1f778bf5271</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H4">
+      <value>M3_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3_Pad</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*Pad*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d82f73ed-8d97-4f27-b0c4-7983b6c6987c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J_IN">
+      <value>0.5mm_FFC_6P</value>
+      <footprint>HPVE:Hirose_FH12-6S-0.5SH_1x06-1MP_P0.50mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">HPVE:Hirose_FH12-6S-0.5SH_1x06-1MP_P0.50mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="FFC_6P" description="6-Pin 0.5mm Pitch Top Contact FFC/FPC Connector"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2c748b79-7f1a-42cf-8c0c-84d9c40b9175</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="MP"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J_OUT">
+      <value>0.5mm_FFC_6P</value>
+      <footprint>HPVE:Hirose_FH12-6S-0.5SH_1x06-1MP_P0.50mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">HPVE:Hirose_FH12-6S-0.5SH_1x06-1MP_P0.50mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="FFC_6P" description="6-Pin 0.5mm Pitch Top Contact FFC/FPC Connector"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c50dd3de-51a4-4049-b5f3-0eeebcb5566f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="MP"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J_PWR">
+      <value>AUX_12V_IN</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="CONN_2P" description="2-Pin 2.54mm Screw Terminal / Header Ingress"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>19468650-0077-478e-a71f-c835b2a6e05d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>33R</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a93264e4-8cdd-4829-9bd2-49fec7208ee7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>33R</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b5fac423-b34e-4c2b-ac9c-2ef00e16a95d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>33R</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bf80094f-15e8-4259-832d-d4f059c0f391</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX1">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ef3dd4d1-3580-44b3-9528-ad65feb5b34e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX2">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a61f7559-3929-4ca4-82fb-9cbe016333a8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX3">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8f8eae90-59f9-44fe-9c59-0fcec8d2364e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX4">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ebca5b51-ddcd-4b9a-8fcd-d35e4550f339</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX5">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b6476123-3445-424d-b6db-3226a53229c2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX6">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7b35d4af-7c1a-4e47-a0e3-00f10b6a2b48</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX7">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0b158a54-97e7-4fef-a231-5b958f91aa46</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX8">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0936cdea-a352-4cae-a233-46a760e5bc0f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX9">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3b772ba5-6dd0-4697-b0b1-5a8addd20961</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX10">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>63046fce-6cbb-4064-b243-144bb903d8da</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX11">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f4524473-3f25-4172-9741-503d15d1473f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX12">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fb1e2ca8-a610-43e0-b70a-8ac877ddb7c5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX13">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>808b57ab-a456-49e1-9c6b-dd763209d524</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX14">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6d591850-e3bb-48bd-a87d-a87417554c22</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX15">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>af68e2d3-9879-40cd-b453-9088e95a41b8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TX16">
+      <value>400ST160</value>
+      <footprint>HPVE:TX_400ST160_P10.0mm</footprint>
+      <fields>
+        <field name="Footprint">HPVE:TX_400ST160_P10.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="400ST160" description="40kHz Ultrasonic Transmitter Transducer"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f593c932-9759-44bd-890e-d27b5a46594b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>74HC595</value>
+      <footprint>Package_SO:SOIC-16_3.9x9.9mm_P1.27mm</footprint>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-16_3.9x9.9mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="74HC595" description="8-Bit Serial-In/Parallel-Out Shift Register with 3-State Outputs"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>01e01781-bbad-4939-a67e-03b63611ea86</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="14"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="10"/>
+            <pin num="16"/>
+            <pin num="8"/>
+            <pin num="15"/>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="9"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U2">
+      <value>74HC595</value>
+      <footprint>Package_SO:SOIC-16_3.9x9.9mm_P1.27mm</footprint>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-16_3.9x9.9mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="74HC595" description="8-Bit Serial-In/Parallel-Out Shift Register with 3-State Outputs"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>daedd89c-a3cd-4352-8f1c-f92bec2ab719</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="14"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="10"/>
+            <pin num="16"/>
+            <pin num="8"/>
+            <pin num="15"/>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="9"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U101">
+      <value>TC4427ACOA</value>
+      <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="TC4427ACOA" description="Dual 1.5A High-Speed Power MOSFET Driver"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b382df0b-2ad5-4432-8512-51c3fd3e8dc6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="1"/>
+            <pin num="6"/>
+            <pin num="3"/>
+            <pin num="8"/>
+            <pin num="7"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U102">
+      <value>TC4427ACOA</value>
+      <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="TC4427ACOA" description="Dual 1.5A High-Speed Power MOSFET Driver"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>437a2843-80a3-4bdd-9ca8-76af6487dbf9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="1"/>
+            <pin num="6"/>
+            <pin num="3"/>
+            <pin num="8"/>
+            <pin num="7"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U103">
+      <value>TC4427ACOA</value>
+      <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="TC4427ACOA" description="Dual 1.5A High-Speed Power MOSFET Driver"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9f6c15ee-61c7-486e-bff8-6a64fdf84988</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="1"/>
+            <pin num="6"/>
+            <pin num="3"/>
+            <pin num="8"/>
+            <pin num="7"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U104">
+      <value>TC4427ACOA</value>
+      <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="TC4427ACOA" description="Dual 1.5A High-Speed Power MOSFET Driver"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1f33a6ab-12b4-47f4-bf81-eca54cb0bff2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="1"/>
+            <pin num="6"/>
+            <pin num="3"/>
+            <pin num="8"/>
+            <pin num="7"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U105">
+      <value>TC4427ACOA</value>
+      <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="TC4427ACOA" description="Dual 1.5A High-Speed Power MOSFET Driver"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2d568f2d-4ccf-47ca-a67b-92c649444215</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="1"/>
+            <pin num="6"/>
+            <pin num="3"/>
+            <pin num="8"/>
+            <pin num="7"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U106">
+      <value>TC4427ACOA</value>
+      <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="TC4427ACOA" description="Dual 1.5A High-Speed Power MOSFET Driver"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>55a2da66-8d88-4108-b7d1-3299aefcb888</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="1"/>
+            <pin num="6"/>
+            <pin num="3"/>
+            <pin num="8"/>
+            <pin num="7"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U107">
+      <value>TC4427ACOA</value>
+      <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="TC4427ACOA" description="Dual 1.5A High-Speed Power MOSFET Driver"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5051f425-451b-4a0c-8f5e-9d52af0cf8c2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="1"/>
+            <pin num="6"/>
+            <pin num="3"/>
+            <pin num="8"/>
+            <pin num="7"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U108">
+      <value>TC4427ACOA</value>
+      <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
+      <fields>
+        <field name="Footprint">Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE" part="TC4427ACOA" description="Dual 1.5A High-Speed Power MOSFET Driver"/>
+      <property name="Sheetname" value="HPVE_Tile_16Ch"/>
+      <property name="Sheetfile" value="HPVE_Tile_16Ch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0b071eb7-4a2c-4221-84d8-d1fb618b7d78</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="1"/>
+            <pin num="6"/>
+            <pin num="3"/>
+            <pin num="8"/>
+            <pin num="7"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C_Polarized_US">
+      <description>Polarized capacitor, US symbol</description>
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Polarized_US</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Polarized capacitor, US symbol</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE" part="400ST160">
+      <description>40kHz Ultrasonic Transmitter Transducer</description>
+      <docs>https://www.prowave.com.tw/pdf/400st160.pdf</docs>
+      <fields>
+        <field name="Reference">TX</field>
+        <field name="Value">400ST160</field>
+        <field name="Footprint">TX_400ST160_P10.0mm</field>
+        <field name="Datasheet">https://www.prowave.com.tw/pdf/400st160.pdf</field>
+        <field name="Description">40kHz Ultrasonic Transmitter Transducer</field>
+      </fields>
+      <pins>
+        <pin num="1" name="SIG" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE" part="74HC595">
+      <description>8-Bit Serial-In/Parallel-Out Shift Register with 3-State Outputs</description>
+      <docs>http://www.ti.com/lit/ds/symlink/sn74hc595.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74HC595</field>
+        <field name="Footprint">SOIC-16_3.9x9.9mm_P1.27mm</field>
+        <field name="Datasheet">http://www.ti.com/lit/ds/symlink/sn74hc595.pdf</field>
+        <field name="Description">8-Bit Serial-In/Parallel-Out Shift Register with 3-State Outputs</field>
+      </fields>
+      <pins>
+        <pin num="1" name="QB" type="output"/>
+        <pin num="2" name="QC" type="output"/>
+        <pin num="3" name="QD" type="output"/>
+        <pin num="4" name="QE" type="output"/>
+        <pin num="5" name="QF" type="output"/>
+        <pin num="6" name="QG" type="output"/>
+        <pin num="7" name="QH" type="output"/>
+        <pin num="8" name="GND" type="power_in"/>
+        <pin num="9" name="QH'" type="output"/>
+        <pin num="10" name="~{SRCLR}" type="input"/>
+        <pin num="11" name="SRCLK" type="input"/>
+        <pin num="12" name="RCLK" type="input"/>
+        <pin num="13" name="~{OE}" type="input"/>
+        <pin num="14" name="SER" type="input"/>
+        <pin num="15" name="QA" type="output"/>
+        <pin num="16" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE" part="CONN_2P">
+      <description>2-Pin 2.54mm Screw Terminal / Header Ingress</description>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN_2P</field>
+        <field name="Footprint">PinHeader_1x02_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description">2-Pin 2.54mm Screw Terminal / Header Ingress</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE" part="FFC_6P">
+      <description>6-Pin 0.5mm Pitch Top Contact FFC/FPC Connector</description>
+      <docs>https://www.hirose.com/product/document?clcode=CL0586-0545-0-55&amp;productname=FH12-6S-0.5SH(55)&amp;series=FH12&amp;documenttype=Catalog&amp;lang=en</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">FFC_6P</field>
+        <field name="Footprint">Hirose_FH12-6S-0.5SH_1x06-1MP_P0.50mm_Horizontal</field>
+        <field name="Datasheet">https://www.hirose.com/product/document?clcode=CL0586-0545-0-55&amp;productname=FH12-6S-0.5SH(55)&amp;series=FH12&amp;documenttype=Catalog&amp;lang=en</field>
+        <field name="Description">6-Pin 0.5mm Pitch Top Contact FFC/FPC Connector</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+        <pin num="5" name="5" type="passive"/>
+        <pin num="6" name="6" type="passive"/>
+        <pin num="MP" name="MP" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE" part="TC4427ACOA">
+      <description>Dual 1.5A High-Speed Power MOSFET Driver</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/20001422G.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TC4427ACOA</field>
+        <field name="Footprint">SOIC-8_3.9x4.9mm_P1.27mm</field>
+        <field name="Datasheet">http://ww1.microchip.com/downloads/en/DeviceDoc/20001422G.pdf</field>
+        <field name="Description">Dual 1.5A High-Speed Power MOSFET Driver</field>
+      </fields>
+      <pins>
+        <pin num="1" name="NC" type="no_connect"/>
+        <pin num="2" name="IN_A" type="input"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="IN_B" type="input"/>
+        <pin num="5" name="OUT_B" type="output"/>
+        <pin num="6" name="VDD" type="power_in"/>
+        <pin num="7" name="OUT_A" type="output"/>
+        <pin num="8" name="NC" type="no_connect"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole_Pad">
+      <description>Mounting Hole with connection</description>
+      <footprints>
+        <fp>MountingHole*Pad*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole_Pad</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Mounting Hole with connection</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Device">
+      <uri>N:/resume/share/kicad/symbols/Device.kicad_sym</uri>
+    </library>
+    <library logical="HPVE">
+      <uri>N:/Iron Cave Industries/HPVE_Project/hardware/modular_tile/HPVE.kicad_sym</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>N:/resume/share/kicad/symbols/Mechanical.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/+5V" class="Default">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="J_IN" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J_OUT" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="~{SRCLR}_10" pintype="input"/>
+      <node ref="U1" pin="16" pinfunction="VCC_16" pintype="power_in"/>
+      <node ref="U2" pin="10" pinfunction="~{SRCLR}_10" pintype="input"/>
+      <node ref="U2" pin="16" pinfunction="VCC_16" pintype="power_in"/>
+    </net>
+    <net code="2" name="/+12V" class="Default">
+      <node ref="C101" pin="1" pintype="passive"/>
+      <node ref="C102" pin="1" pintype="passive"/>
+      <node ref="C103" pin="1" pintype="passive"/>
+      <node ref="C104" pin="1" pintype="passive"/>
+      <node ref="C105" pin="1" pintype="passive"/>
+      <node ref="C106" pin="1" pintype="passive"/>
+      <node ref="C107" pin="1" pintype="passive"/>
+      <node ref="C108" pin="1" pintype="passive"/>
+      <node ref="C_BULK" pin="1" pintype="passive"/>
+      <node ref="J_IN" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="J_OUT" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="J_PWR" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U101" pin="6" pinfunction="VDD_6" pintype="power_in"/>
+      <node ref="U102" pin="6" pinfunction="VDD_6" pintype="power_in"/>
+      <node ref="U103" pin="6" pinfunction="VDD_6" pintype="power_in"/>
+      <node ref="U104" pin="6" pinfunction="VDD_6" pintype="power_in"/>
+      <node ref="U105" pin="6" pinfunction="VDD_6" pintype="power_in"/>
+      <node ref="U106" pin="6" pinfunction="VDD_6" pintype="power_in"/>
+      <node ref="U107" pin="6" pinfunction="VDD_6" pintype="power_in"/>
+      <node ref="U108" pin="6" pinfunction="VDD_6" pintype="power_in"/>
+    </net>
+    <net code="3" name="/DRV_1" class="Default">
+      <node ref="TX1" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U101" pin="7" pinfunction="OUT_A_7" pintype="output"/>
+    </net>
+    <net code="4" name="/DRV_2" class="Default">
+      <node ref="TX2" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U101" pin="5" pinfunction="OUT_B_5" pintype="output"/>
+    </net>
+    <net code="5" name="/DRV_3" class="Default">
+      <node ref="TX3" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U102" pin="7" pinfunction="OUT_A_7" pintype="output"/>
+    </net>
+    <net code="6" name="/DRV_4" class="Default">
+      <node ref="TX4" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U102" pin="5" pinfunction="OUT_B_5" pintype="output"/>
+    </net>
+    <net code="7" name="/DRV_5" class="Default">
+      <node ref="TX5" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U103" pin="7" pinfunction="OUT_A_7" pintype="output"/>
+    </net>
+    <net code="8" name="/DRV_6" class="Default">
+      <node ref="TX6" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U103" pin="5" pinfunction="OUT_B_5" pintype="output"/>
+    </net>
+    <net code="9" name="/DRV_7" class="Default">
+      <node ref="TX7" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U104" pin="7" pinfunction="OUT_A_7" pintype="output"/>
+    </net>
+    <net code="10" name="/DRV_8" class="Default">
+      <node ref="TX8" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U104" pin="5" pinfunction="OUT_B_5" pintype="output"/>
+    </net>
+    <net code="11" name="/DRV_9" class="Default">
+      <node ref="TX9" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U105" pin="7" pinfunction="OUT_A_7" pintype="output"/>
+    </net>
+    <net code="12" name="/DRV_10" class="Default">
+      <node ref="TX10" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U105" pin="5" pinfunction="OUT_B_5" pintype="output"/>
+    </net>
+    <net code="13" name="/DRV_11" class="Default">
+      <node ref="TX11" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U106" pin="7" pinfunction="OUT_A_7" pintype="output"/>
+    </net>
+    <net code="14" name="/DRV_12" class="Default">
+      <node ref="TX12" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U106" pin="5" pinfunction="OUT_B_5" pintype="output"/>
+    </net>
+    <net code="15" name="/DRV_13" class="Default">
+      <node ref="TX13" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U107" pin="7" pinfunction="OUT_A_7" pintype="output"/>
+    </net>
+    <net code="16" name="/DRV_14" class="Default">
+      <node ref="TX14" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U107" pin="5" pinfunction="OUT_B_5" pintype="output"/>
+    </net>
+    <net code="17" name="/DRV_15" class="Default">
+      <node ref="TX15" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U108" pin="7" pinfunction="OUT_A_7" pintype="output"/>
+    </net>
+    <net code="18" name="/DRV_16" class="Default">
+      <node ref="TX16" pin="1" pinfunction="SIG_1" pintype="passive"/>
+      <node ref="U108" pin="5" pinfunction="OUT_B_5" pintype="output"/>
+    </net>
+    <net code="19" name="/GND" class="Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C101" pin="2" pintype="passive"/>
+      <node ref="C102" pin="2" pintype="passive"/>
+      <node ref="C103" pin="2" pintype="passive"/>
+      <node ref="C104" pin="2" pintype="passive"/>
+      <node ref="C105" pin="2" pintype="passive"/>
+      <node ref="C106" pin="2" pintype="passive"/>
+      <node ref="C107" pin="2" pintype="passive"/>
+      <node ref="C108" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C_BULK" pin="2" pintype="passive"/>
+      <node ref="H1" pin="1" pinfunction="1_1" pintype="input"/>
+      <node ref="H2" pin="1" pinfunction="1_1" pintype="input"/>
+      <node ref="H3" pin="1" pinfunction="1_1" pintype="input"/>
+      <node ref="H4" pin="1" pinfunction="1_1" pintype="input"/>
+      <node ref="J_IN" pin="3" pinfunction="3_3" pintype="passive"/>
+      <node ref="J_IN" pin="MP" pinfunction="MP_MP" pintype="passive"/>
+      <node ref="J_OUT" pin="3" pinfunction="3_3" pintype="passive"/>
+      <node ref="J_OUT" pin="MP" pinfunction="MP_MP" pintype="passive"/>
+      <node ref="J_PWR" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="TX1" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX10" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX11" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX12" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX13" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX14" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX15" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX16" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX2" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX3" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX4" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX5" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX6" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX7" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX8" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="TX9" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="~{OE}_13" pintype="input"/>
+      <node ref="U1" pin="8" pinfunction="GND_8" pintype="power_in"/>
+      <node ref="U101" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U102" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U103" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U104" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U105" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U106" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U107" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U108" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U2" pin="13" pinfunction="~{OE}_13" pintype="input"/>
+      <node ref="U2" pin="8" pinfunction="GND_8" pintype="power_in"/>
+    </net>
+    <net code="20" name="/SIG_1" class="Default">
+      <node ref="U1" pin="15" pinfunction="QA_15" pintype="output"/>
+      <node ref="U101" pin="2" pinfunction="IN_A_2" pintype="input"/>
+    </net>
+    <net code="21" name="/SIG_2" class="Default">
+      <node ref="U1" pin="1" pinfunction="QB_1" pintype="output"/>
+      <node ref="U101" pin="4" pinfunction="IN_B_4" pintype="input"/>
+    </net>
+    <net code="22" name="/SIG_3" class="Default">
+      <node ref="U1" pin="2" pinfunction="QC_2" pintype="output"/>
+      <node ref="U102" pin="2" pinfunction="IN_A_2" pintype="input"/>
+    </net>
+    <net code="23" name="/SIG_4" class="Default">
+      <node ref="U1" pin="3" pinfunction="QD_3" pintype="output"/>
+      <node ref="U102" pin="4" pinfunction="IN_B_4" pintype="input"/>
+    </net>
+    <net code="24" name="/SIG_5" class="Default">
+      <node ref="U1" pin="4" pinfunction="QE_4" pintype="output"/>
+      <node ref="U103" pin="2" pinfunction="IN_A_2" pintype="input"/>
+    </net>
+    <net code="25" name="/SIG_6" class="Default">
+      <node ref="U1" pin="5" pinfunction="QF_5" pintype="output"/>
+      <node ref="U103" pin="4" pinfunction="IN_B_4" pintype="input"/>
+    </net>
+    <net code="26" name="/SIG_7" class="Default">
+      <node ref="U1" pin="6" pinfunction="QG_6" pintype="output"/>
+      <node ref="U104" pin="2" pinfunction="IN_A_2" pintype="input"/>
+    </net>
+    <net code="27" name="/SIG_8" class="Default">
+      <node ref="U1" pin="7" pinfunction="QH_7" pintype="output"/>
+      <node ref="U104" pin="4" pinfunction="IN_B_4" pintype="input"/>
+    </net>
+    <net code="28" name="/SIG_9" class="Default">
+      <node ref="U105" pin="2" pinfunction="IN_A_2" pintype="input"/>
+      <node ref="U2" pin="15" pinfunction="QA_15" pintype="output"/>
+    </net>
+    <net code="29" name="/SIG_10" class="Default">
+      <node ref="U105" pin="4" pinfunction="IN_B_4" pintype="input"/>
+      <node ref="U2" pin="1" pinfunction="QB_1" pintype="output"/>
+    </net>
+    <net code="30" name="/SIG_11" class="Default">
+      <node ref="U106" pin="2" pinfunction="IN_A_2" pintype="input"/>
+      <node ref="U2" pin="2" pinfunction="QC_2" pintype="output"/>
+    </net>
+    <net code="31" name="/SIG_12" class="Default">
+      <node ref="U106" pin="4" pinfunction="IN_B_4" pintype="input"/>
+      <node ref="U2" pin="3" pinfunction="QD_3" pintype="output"/>
+    </net>
+    <net code="32" name="/SIG_13" class="Default">
+      <node ref="U107" pin="2" pinfunction="IN_A_2" pintype="input"/>
+      <node ref="U2" pin="4" pinfunction="QE_4" pintype="output"/>
+    </net>
+    <net code="33" name="/SIG_14" class="Default">
+      <node ref="U107" pin="4" pinfunction="IN_B_4" pintype="input"/>
+      <node ref="U2" pin="5" pinfunction="QF_5" pintype="output"/>
+    </net>
+    <net code="34" name="/SIG_15" class="Default">
+      <node ref="U108" pin="2" pinfunction="IN_A_2" pintype="input"/>
+      <node ref="U2" pin="6" pinfunction="QG_6" pintype="output"/>
+    </net>
+    <net code="35" name="/SIG_16" class="Default">
+      <node ref="U108" pin="4" pinfunction="IN_B_4" pintype="input"/>
+      <node ref="U2" pin="7" pinfunction="QH_7" pintype="output"/>
+    </net>
+    <net code="36" name="/SPI_LATCH" class="Default">
+      <node ref="J_OUT" pin="6" pinfunction="6_6" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="RCLK_12" pintype="input"/>
+      <node ref="U2" pin="12" pinfunction="RCLK_12" pintype="input"/>
+    </net>
+    <net code="37" name="/SPI_LATCH_IN" class="Default">
+      <node ref="J_IN" pin="6" pinfunction="6_6" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+    </net>
+    <net code="38" name="/SPI_MOSI" class="Default">
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="SER_14" pintype="input"/>
+    </net>
+    <net code="39" name="/SPI_MOSI_CASCADE" class="Default">
+      <node ref="U1" pin="9" pinfunction="QH'_9" pintype="output"/>
+      <node ref="U2" pin="14" pinfunction="SER_14" pintype="input"/>
+    </net>
+    <net code="40" name="/SPI_MOSI_IN" class="Default">
+      <node ref="J_IN" pin="4" pinfunction="4_4" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+    </net>
+    <net code="41" name="/SPI_MOSI_OUT" class="Default">
+      <node ref="J_OUT" pin="4" pinfunction="4_4" pintype="passive"/>
+      <node ref="U2" pin="9" pinfunction="QH'_9" pintype="output"/>
+    </net>
+    <net code="42" name="/SPI_SCK" class="Default">
+      <node ref="J_OUT" pin="5" pinfunction="5_5" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="SRCLK_11" pintype="input"/>
+      <node ref="U2" pin="11" pinfunction="SRCLK_11" pintype="input"/>
+    </net>
+    <net code="43" name="/SPI_SCK_IN" class="Default">
+      <node ref="J_IN" pin="5" pinfunction="5_5" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+    </net>
+    <net code="44" name="unconnected-(U101-NC-Pad1)" class="Default">
+      <node ref="U101" pin="1" pinfunction="NC_1" pintype="no_connect"/>
+    </net>
+    <net code="45" name="unconnected-(U101-NC-Pad8)" class="Default">
+      <node ref="U101" pin="8" pinfunction="NC_8" pintype="no_connect"/>
+    </net>
+    <net code="46" name="unconnected-(U102-NC-Pad1)" class="Default">
+      <node ref="U102" pin="1" pinfunction="NC_1" pintype="no_connect"/>
+    </net>
+    <net code="47" name="unconnected-(U102-NC-Pad8)" class="Default">
+      <node ref="U102" pin="8" pinfunction="NC_8" pintype="no_connect"/>
+    </net>
+    <net code="48" name="unconnected-(U103-NC-Pad1)" class="Default">
+      <node ref="U103" pin="1" pinfunction="NC_1" pintype="no_connect"/>
+    </net>
+    <net code="49" name="unconnected-(U103-NC-Pad8)" class="Default">
+      <node ref="U103" pin="8" pinfunction="NC_8" pintype="no_connect"/>
+    </net>
+    <net code="50" name="unconnected-(U104-NC-Pad1)" class="Default">
+      <node ref="U104" pin="1" pinfunction="NC_1" pintype="no_connect"/>
+    </net>
+    <net code="51" name="unconnected-(U104-NC-Pad8)" class="Default">
+      <node ref="U104" pin="8" pinfunction="NC_8" pintype="no_connect"/>
+    </net>
+    <net code="52" name="unconnected-(U105-NC-Pad1)" class="Default">
+      <node ref="U105" pin="1" pinfunction="NC_1" pintype="no_connect"/>
+    </net>
+    <net code="53" name="unconnected-(U105-NC-Pad8)" class="Default">
+      <node ref="U105" pin="8" pinfunction="NC_8" pintype="no_connect"/>
+    </net>
+    <net code="54" name="unconnected-(U106-NC-Pad1)" class="Default">
+      <node ref="U106" pin="1" pinfunction="NC_1" pintype="no_connect"/>
+    </net>
+    <net code="55" name="unconnected-(U106-NC-Pad8)" class="Default">
+      <node ref="U106" pin="8" pinfunction="NC_8" pintype="no_connect"/>
+    </net>
+    <net code="56" name="unconnected-(U107-NC-Pad1)" class="Default">
+      <node ref="U107" pin="1" pinfunction="NC_1" pintype="no_connect"/>
+    </net>
+    <net code="57" name="unconnected-(U107-NC-Pad8)" class="Default">
+      <node ref="U107" pin="8" pinfunction="NC_8" pintype="no_connect"/>
+    </net>
+    <net code="58" name="unconnected-(U108-NC-Pad1)" class="Default">
+      <node ref="U108" pin="1" pinfunction="NC_1" pintype="no_connect"/>
+    </net>
+    <net code="59" name="unconnected-(U108-NC-Pad8)" class="Default">
+      <node ref="U108" pin="8" pinfunction="NC_8" pintype="no_connect"/>
+    </net>
+  </nets>
+</export>

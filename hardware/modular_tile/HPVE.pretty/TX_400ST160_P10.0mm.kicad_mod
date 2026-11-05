@@ -1,0 +1,69 @@
+(footprint "TX_400ST160_P10.0mm"
+		(layer "F.Cu")
+		(uuid "29d2a21a-2d27-480b-8eed-e4f8919ddb67")
+		(at 79 40.5)
+		(property "Reference" "TX8"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "9d568e94-f10d-452a-990e-73acdfd533e2")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "400ST160_FEMALE_SOCKET"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "aca420d5-1b51-445c-807b-16cef3764132")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "00f3ec1a-6bf1-473b-af25-5efb954806f0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "34f9dbda-d1e6-4a36-a357-d5c9bb74333b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(duplicate_pad_numbers_are_jumpers no)
+		(pad "1" thru_hole circle
+			(at -5 0)
+			(size 1.9 1.9)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "DRV_8")
+			(uuid "cd1c9677-a32d-4626-aeab-5b6b31bdf9fa")
+		)
+		(pad "2" thru_hole circle
+			(at 5 0)
+			(size 1.9 1.9)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "GND")
+			(uuid "475480bb-6c57-491e-baaf-ceee2a850ae1")
+		)
+		(embedded_fonts no)
+	)

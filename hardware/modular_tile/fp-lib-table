@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "HPVE")(type "KiCad")(uri "N:/Iron Cave Industries/HPVE_Project/hardware/modular_tile/HPVE.pretty")(options "")(descr "HPVE Footprints"))
+)
