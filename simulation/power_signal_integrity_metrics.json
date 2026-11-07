@@ -1,0 +1,23 @@
+{
+    "dc_distribution": {
+        "i_rms_per_channel_ma": 9.19574336173691,
+        "i_tile_active_avg_a": 0.485,
+        "i_array_active_avg_a": 1.94,
+        "r_branch_mohm": 4.8729,
+        "dc_drop_harness_mv": 2.3633564999999996,
+        "dc_drop_pcb_mv": 0.873,
+        "total_dc_drop_mv": 3.2363565,
+        "v_tile_min_v": 11.9967636435
+    },
+    "switching_transients": {
+        "v_droop_mv": 27.582101061065956,
+        "v_ripple_pkpk_mv": 39.32108900050224,
+        "margin_pct": 77.01491578244503
+    },
+    "signal_integrity": {
+        "max_skew_ns": 2.0978791206137877,
+        "min_setup_margin_ns": 12.902120879386212,
+        "min_hold_margin_ns": 7.276705789464525,
+        "timing_status": "ALL_TILES_PASS"
+    }
+}

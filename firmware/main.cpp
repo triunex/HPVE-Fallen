@@ -3,6 +3,7 @@
 #include "wave_solver.h"
 #include "trajectory.h"
 #include "ui_telemetry.h"
+#include "spatial_tracker.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -85,6 +86,7 @@ int main(void) {
     hpve_solver_init();
     hpve_driver_init(&g_system_state);
     hpve_ui_init(&g_system_state);
+    tracker_init(NULL);
 
     const hpve_transducer_map_t *geom = hpve_driver_get_geometry_table();
     hpve_solve_frame(&g_system_state, geom, 0u, &g_latest_channel_frame);
@@ -104,6 +106,15 @@ int main(void) {
 
         hpve_ui_poll_inputs(&g_system_state, now_ms);
         hpve_ui_poll_usb_serial(&g_system_state);
+
+        static uint32_t last_tof_poll_ms = 0u;
+        if (now_ms - last_tof_poll_ms >= 16u) {
+            last_tof_poll_ms = now_ms;
+            spatial_tracker_t *trk = (spatial_tracker_t *)tracker_get_instance();
+            if (tracker_poll_and_read_depth_map(trk, now_ms)) {
+                tracker_hook_wave_solver(trk, &g_system_state);
+            }
+        }
 
         if (now_ms - last_oled_ms >= 33u) {
             last_oled_ms = now_ms;

@@ -56,7 +56,10 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
   - **Demo 2 (Endgame Möbius Strip & Trefoil Knot)**: real-time 3D parametric curve solver with curvature-adaptive minimum-jerk stepping and RGB color sync.
   - **Demo 3 (Spatiotemporal Haptic Forcefield Wall & Detent Dial)**: 5.7 m/s ultrasonic focal sweep with 200 Hz tactile envelope and dynamic virtual spring penetration resistance.
 - **live OLED HUD & G-Code CLI (`firmware/ui_telemetry.c`)**: 128x64 SSD1306 display showing a 3D wireframe chamber reticle, live trajectory trail, and 8x8 transducer matrix, with USB serial G-code input (G0, M200..M207).
-- **cycle-accurate HIL verification (`firmware/verify_cascade_engine.py`, `firmware/verify_trajectory_engine.py`)**: verified 0 bit errors across 1,024 bits/cycle and 100% trajectory velocity stability.
+- **closed-loop ToF spatial hand tracker (`firmware/spatial_tracker.c`)**: 60 Hz non-blocking I2C driver for ST VL53L5CX 8x8 multizone depth matrix, connected components / BFS point-cloud clustering, and full 6D state Kalman filter ([x, y, z, vx, vy, vz]^T) with dynamic process noise covariance Q(t) and spatial outlier rejection.
+- **autonomous forcefield interception engine (`firmware/spatial_tracker.c`, `wave_solver.c`)**: real-time trigger when hands penetrate Z <= 75mm, instantly switching array from idle/standby and dynamically steering 200 Hz haptic focal beam onto the moving fingertip with non-linear spring restitution F(z) = k * delta_z * (1 + 4.2 * delta_z^2) - b * v_z (up to 280 Pa radiation pressure).
+- **cycle-accurate HIL verification (`firmware/verify_cascade_engine.py`, `firmware/verify_trajectory_engine.py`, `firmware/verify_spatial_tracker.py`)**: verified 0 bit errors across 1,024 bits/cycle, 100% trajectory velocity stability, and sub-10mm tracking lock across 180 continuous 60 Hz frames.
+- **4-tile star power & high-speed FFC signal integrity engine (`simulation/four_tile_power_and_signal_integrity.py`)**: transient RLC PDN simulation proving 3.24 mV DC drop across 12V 10A star harness (11.997 V minimum tile rail), 27.58 mV SSN dynamic droop (77% safety margin under 120 mV threshold), and 2.10 ns cumulative SPI clock skew across 310 mm daisy chain with +12.90 ns setup slack (zero bit-slips).
 
 ## repository structure
 
@@ -95,8 +98,10 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - [x] **DAY 8 MARATHON COMPLETE: 12.03h LOGGED (+111 XP) ➔ 628 XP TOTAL (STAGE 3 PROGRESSION)!**
 - [x] standalone pristine modular tile schematic (`HPVE_Tile_16Ch.kicad_sch`) with 0 ERC violations & 100% netlist sync
 - [x] native OpenSCAD Anduril-grade structural exoskeleton CAD with wall honeycomb, iso-grid floor & printable STL suite
+- [x] **700+ XP CLUB UNLOCKED: 8.15h LOGGED (+75 XP) ➔ 703 XP TOTAL (SATURDAY STREAK ACTIVE, 1.15x MULTIPLIER)!**
+- [x] implement closed-loop VL53L5CX ToF spatial hand tracking & autonomous forcefield trigger (`firmware/spatial_tracker.c`)
+- [x] 4-tile master power & FFC signal integrity validation: simulated 3.24 mV DC drop, 27.6 mV SSN droop, 2.10 ns clock skew (`simulation/fig13`)
 - [ ] submit official Chinese F-Visa & $1,000 USD Travel Grant application on Hack Club portal
-- [ ] implement closed-loop VL53L5CX ToF spatial hand tracking & autonomous forcefield trigger (`firmware/spatial_tracker.c`)
 - [ ] build desktop Stark Holo-Console GUI (`host_console/`) with live 3D Gor'kov slices and G-code control
 - [ ] order custom tiles from JLCPCB and components from LCSC / AliExpress
 - [ ] assemble and calibrate acoustic output across 4 snapped modular tiles

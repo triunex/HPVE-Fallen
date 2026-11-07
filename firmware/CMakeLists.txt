@@ -15,6 +15,7 @@ if(PICO_SDK_FOUND)
         wave_solver.c
         trajectory.c
         ui_telemetry.c
+        spatial_tracker.c
     )
 
     pico_generate_pio_header(hpve_cascade_engine ${CMAKE_CURRENT_LIST_DIR}/cascade_spi.pio)
@@ -56,6 +57,7 @@ else()
         wave_solver.c
         trajectory.c
         ui_telemetry.c
+        spatial_tracker.c
     )
     target_compile_options(hpve_host_bench PRIVATE -O3 -Wall -Wextra)
     if(UNIX)
