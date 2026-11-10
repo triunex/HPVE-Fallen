@@ -27,3 +27,7 @@ docs/images/
 error_reports/
 logs/
 
+# CAD parametric source files (keep only STLs on git)
+*.scad
+
+

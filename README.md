@@ -34,7 +34,14 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - **transducers**: 16x Prowave 400ST160 40khz ultrasonic emitters per tile (64 across 4 tiles). each has a 16.2 mm can and 10.0 mm lead spacing, so the tile uses a 4x4 grid at 16.5 mm pitch with 10 mm plated-hole footprints (solder direct, or fit two single-pin sockets per transducer). tile size is 98 x 88 mm.
 - **drivers**: 8x TC4427 dual high-speed MOSFET gate drivers per tile with individual 0.1uF 50V X7R 0805 decoupling caps, level shifting 3.3v logic up to 12v peak-to-peak.
 - **shift registers**: 2x 74HC595 SOIC-16 shift registers per tile cascading SPI control.
-- **exoskeleton chassis**: native parametric OpenSCAD snap-lock exoskeleton (`HPVE_Modular_Exoskeleton.scad`) locking 4 tiles into a rigid 196x176mm 2x2 grid with internal honeycomb wall core (I-beam perimeter stiffness), under-PCB 45-degree iso-grid diamond trusses, 16x Helmholtz acoustic back-chambers with conical phase-diffusers, 4-finger O-ring collet cradles, and 3-stage knurled brass heat-set insert bosses (M3 & M2.5) with melt-trap relief grooves.
+- **exoskeleton chassis**: native parametric snap-lock exoskeleton locking 4 tiles into a rigid 196x176mm 2x2 grid with internal honeycomb wall core (I-beam perimeter stiffness), under-PCB 45-degree iso-grid diamond trusses, 16x Helmholtz acoustic back-chambers with conical phase-diffusers, 4-finger O-ring collet cradles, and 3-stage knurled brass heat-set insert bosses (M3 & M2.5) with melt-trap relief grooves.
+- **portable breakdown halo arch stand (`hardware/cad/halo_arch/`)**: 7-subassembly modular display stand engineered to pack completely flat into a travel backpack. Sliced to fit standard 220x220mm / 256x256mm 3D printer beds:
+  - **Sub-Assembly A (Top Central Bridge)**: suspended array dock with dual-axis +/-15 deg gimbal yoke, recessed pocket for 38mm round analog SPL needle gauge (driven via Pico PWM low-pass filter), master amplitude dial, status LEDs, and rear louvered service covers.
+  - **Sub-Assemblies B & C (Left & Right Pillars)**: precision 0.15mm slip-fit keyed tenons, 6x custom knurled control dials with internal D-shaft profiles, hollow continuous internal cable raceways, and captive M3 service covers.
+  - **Sub-Assemblies D & E (Heavy-Duty Table C-Clamps)**: 60mm jaw opening with 5-lobe hand screws, swivel pressure plates, and soft non-marring TPU gripper pads.
+  - **Sub-Assembly F (Under-Desk Power & Battery Chassis)**: quick-release dovetail mount, dual bays fitting Mean Well 12V 10A power supply + 4S2P 18650 Li-ion battery cradle with BMS, illuminated rocker switch, and XT30/XT60 ports.
+  - **Sub-Assembly G (Umbilical System)**: flexible corrugated TPU conduits with 90-degree elbows, angled glands, and array rear manifold.
+  - **Production STL Suite**: 35+ watertight production STLs verified via 20-stage automated boolean interference test harness.
 - **rear avionics & power**: integrated RP2040 master avionics dock with internal M2 Pico standoffs, screw-retained XT30 12V 10A power input collar, buck regulator cradle, external USB-C port, external BOOTSEL pin, SSD1306 OLED HUD, and dual Pan-Tilt Gimbal yoke trunnions.
 - **exponential horn waveguides**: contoured 64-channel 5-stage exponential horn bezel (+3.8 dB acoustic SPL boost) with under-bezel iso-grid sandwich pockets and 37-pore perforated stainless honeycomb mesh clamping the transducer cans flush.
 - **central optical & tof docking bay**: downward-looking VL53L5CX 8x8 multizone Time-of-Flight hand-tracking sensor + 4x collimated 450nm cyan photonic projection laser diodes centered at (0, 0).
@@ -101,6 +108,9 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - [x] **700+ XP CLUB UNLOCKED: 8.15h LOGGED (+75 XP) ➔ 703 XP TOTAL (SATURDAY STREAK ACTIVE, 1.15x MULTIPLIER)!**
 - [x] implement closed-loop VL53L5CX ToF spatial hand tracking & autonomous forcefield trigger (`firmware/spatial_tracker.c`)
 - [x] 4-tile master power & FFC signal integrity validation: simulated 3.24 mV DC drop, 27.6 mV SSN droop, 2.10 ns clock skew (`simulation/fig13`)
+- [x] **900+ XP CLUB UNLOCKED: 16h 40m MONSTER SPRINT (+171 XP) ➔ 929 XP TOTAL (ONLY 71 XP TO FINAL FORM)!**
+- [x] portable breakdown halo arch stand CAD: 7 modular sub-assemblies, 35+ production STLs, 20-stage fit check harness (fits standard 220x220mm beds)
+- [x] standalone modular tile schematic updated to v1.2 with verified 0.5mm FFC daisy-chain pinouts
 - [ ] submit official Chinese F-Visa & $1,000 USD Travel Grant application on Hack Club portal
 - [ ] build desktop Stark Holo-Console GUI (`host_console/`) with live 3D Gor'kov slices and G-code control
 - [ ] order custom tiles from JLCPCB and components from LCSC / AliExpress
