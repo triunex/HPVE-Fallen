@@ -1,0 +1,303 @@
+
+(rules PCB HPVE_Master_Carrier
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 5)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.4)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.4)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 180.0)
+    (clear 180.0 (type smd_to_turn_gap))
+  )
+  (padstack "Via[0-1]_600:300_um"
+    (shape
+      (circle F.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 600.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_900:450_um"
+    (shape
+      (circle F.Cu 900.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 900.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_700:350_um"
+    (shape
+      (circle F.Cu 700.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 700.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_900:450_um" "Via[0-1]_900:450_um" default
+  )
+  (via 
+    "Via[0-1]_700:350_um" "Via[0-1]_700:350_um" default
+  )
+  (via 
+    "Via[0-1]_600:300_um-kicad_default" "Via[0-1]_600:300_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_900:450_um-kicad_default" "Via[0-1]_900:450_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_700:350_um-kicad_default" "Via[0-1]_700:350_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_600:300_um-POWER_12V" "Via[0-1]_600:300_um" "POWER_12V"
+  )
+  (via 
+    "Via[0-1]_900:450_um-POWER_12V" "Via[0-1]_900:450_um" "POWER_12V"
+  )
+  (via 
+    "Via[0-1]_700:350_um-POWER_12V" "Via[0-1]_700:350_um" "POWER_12V"
+  )
+  (via 
+    "Via[0-1]_800:400_um-POWER_12V" "Via[0-1]_800:400_um" "POWER_12V"
+  )
+  (via 
+    "Via[0-1]_600:300_um-POWER_3V3" "Via[0-1]_600:300_um" "POWER_3V3"
+  )
+  (via 
+    "Via[0-1]_900:450_um-POWER_3V3" "Via[0-1]_900:450_um" "POWER_3V3"
+  )
+  (via 
+    "Via[0-1]_700:350_um-POWER_3V3" "Via[0-1]_700:350_um" "POWER_3V3"
+  )
+  (via 
+    "Via[0-1]_800:400_um-POWER_3V3" "Via[0-1]_800:400_um" "POWER_3V3"
+  )
+  (via 
+    "Via[0-1]_600:300_um-HIGH_SPEED_SPI" "Via[0-1]_600:300_um" "HIGH_SPEED_SPI"
+  )
+  (via 
+    "Via[0-1]_900:450_um-HIGH_SPEED_SPI" "Via[0-1]_900:450_um" "HIGH_SPEED_SPI"
+  )
+  (via 
+    "Via[0-1]_700:350_um-HIGH_SPEED_SPI" "Via[0-1]_700:350_um" "HIGH_SPEED_SPI"
+  )
+  (via 
+    "Via[0-1]_800:400_um-HIGH_SPEED_SPI" "Via[0-1]_800:400_um" "HIGH_SPEED_SPI"
+  )
+  (via 
+    "Via[0-1]_600:300_um-POWER_FFC" "Via[0-1]_600:300_um" "POWER_FFC"
+  )
+  (via 
+    "Via[0-1]_900:450_um-POWER_FFC" "Via[0-1]_900:450_um" "POWER_FFC"
+  )
+  (via 
+    "Via[0-1]_700:350_um-POWER_FFC" "Via[0-1]_700:350_um" "POWER_FFC"
+  )
+  (via 
+    "Via[0-1]_800:400_um-POWER_FFC" "Via[0-1]_800:400_um" "POWER_FFC"
+  )
+  (via 
+    "Via[0-1]_600:300_um-POWER_5V" "Via[0-1]_600:300_um" "POWER_5V"
+  )
+  (via 
+    "Via[0-1]_900:450_um-POWER_5V" "Via[0-1]_900:450_um" "POWER_5V"
+  )
+  (via 
+    "Via[0-1]_700:350_um-POWER_5V" "Via[0-1]_700:350_um" "POWER_5V"
+  )
+  (via 
+    "Via[0-1]_800:400_um-POWER_5V" "Via[0-1]_800:400_um" "POWER_5V"
+  )
+  (via 
+    "Via[0-1]_600:300_um-GND_PLANE" "Via[0-1]_600:300_um" "GND_PLANE"
+  )
+  (via 
+    "Via[0-1]_900:450_um-GND_PLANE" "Via[0-1]_900:450_um" "GND_PLANE"
+  )
+  (via 
+    "Via[0-1]_700:350_um-GND_PLANE" "Via[0-1]_700:350_um" "GND_PLANE"
+  )
+  (via 
+    "Via[0-1]_800:400_um-GND_PLANE" "Via[0-1]_800:400_um" "GND_PLANE"
+  )
+  (via 
+    "Via[0-1]_600:300_um" "Via[0-1]_600:300_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via_rule
+    default "Via[0-1]_600:300_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_600:300_um-kicad_default"
+  )
+  (via_rule
+    "POWER_12V" "Via[0-1]_900:450_um-POWER_12V"
+  )
+  (via_rule
+    "POWER_3V3" "Via[0-1]_700:350_um-POWER_3V3"
+  )
+  (via_rule
+    "HIGH_SPEED_SPI" "Via[0-1]_600:300_um-HIGH_SPEED_SPI"
+  )
+  (via_rule
+    "POWER_FFC" "Via[0-1]_600:300_um-POWER_FFC"
+  )
+  (via_rule
+    "POWER_5V" "Via[0-1]_800:400_um-POWER_5V"
+  )
+  (via_rule
+    "GND_PLANE" "Via[0-1]_800:400_um-GND_PLANE"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_600:300_um-kicad_default"
+  )
+  (via_rule
+    "POWER_12V" "Via[0-1]_800:400_um-POWER_12V"
+  )
+  (via_rule
+    "POWER_5V" "Via[0-1]_800:400_um-POWER_5V"
+  )
+  (via_rule
+    "POWER_FFC" "Via[0-1]_600:300_um-POWER_FFC"
+  )
+  (via_rule
+    "GND_PLANE" "Via[0-1]_800:400_um-GND_PLANE"
+  )
+  (via_rule
+    "POWER_3V3" "Via[0-1]_600:300_um-POWER_3V3"
+  )
+  (via_rule
+    "HIGH_SPEED_SPI" "Via[0-1]_600:300_um-HIGH_SPEED_SPI"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "/AUX_OE_5V" "/BTN_ENABLE" "/BTN_MODE" "/DIAL_0" "/DIAL_1" "/DIAL_2" "/DIAL_3" "/DIAL_4"
+    "/DIAL_5" "/DIAL_6" "/DIAL_7" "/DISP_BLK" "/DISP_CS" "/DISP_DC" "/DISP_RST" "/I2C0_SCL"
+    "/I2C0_SDA" "/LASER_B_PWM" "/LASER_G_PWM" "/LASER_R_PWM" "/MUX_COM" "/MUX_S0" "/MUX_S1" "/MUX_S2"
+    "/PIO_DRV_OE" "/STAT_LED" "/SYNC_TRIG" "/SYS_RESET" "/TOF_INT" "/TOF_LPN" "/VSENSE_12V" "Net-(D4-A)"
+    "Net-(D5-A)" "Net-(D6-A)" "Net-(D7-A)" "Net-(Q1-G)" "Net-(Q2-G)" "Net-(Q3-G)" "Net-(R13-Pad1)" "Net-(U2-BOOT)"
+    "Net-(U2-EN)" "Net-(U2-FB)" "unconnected-(U1-3V3_EN-Pad37)" "unconnected-(U1-ADC_VREF-Pad35)" "unconnected-(U1-VBUS-Pad40)"
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "POWER_12V"
+    +12V "Net-(D2-A)" "Net-(J1-Pin_2)" "Net-(U2-SW)"
+    (clearance_class "POWER_12V")
+    (via_rule "POWER_12V")
+    (rule
+      (width 700.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "POWER_3V3"
+    +3V3
+    (clearance_class "POWER_3V3")
+    (via_rule "POWER_3V3")
+    (rule
+      (width 400.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "HIGH_SPEED_SPI"
+    "/DISP_SCL" "/DISP_SDA" "/FFC_LATCH" "/FFC_MOSI" "/FFC_SCK" "/PIO_SPI_LATCH" "/PIO_SPI_MOSI" "/PIO_SPI_SCK"
+    "Net-(R10-Pad1)" "Net-(R11-Pad1)" "Net-(R12-Pad1)"
+    (clearance_class "HIGH_SPEED_SPI")
+    (via_rule "HIGH_SPEED_SPI")
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "POWER_FFC"
+    "/+5V_FFC" "/+12V_FFC"
+    (clearance_class "POWER_FFC")
+    (via_rule "POWER_FFC")
+    (rule
+      (width 300.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "POWER_5V"
+    +5V "/LASER_B_K" "/LASER_G_K" "/LASER_R_K" "/PICO_VSYS"
+    (clearance_class "POWER_5V")
+    (via_rule "POWER_5V")
+    (rule
+      (width 600.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "GND_PLANE"
+    /AGND GND
+    (clearance_class "GND_PLANE")
+    (via_rule "GND_PLANE")
+    (rule
+      (width 300.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
