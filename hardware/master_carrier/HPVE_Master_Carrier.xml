@@ -1,0 +1,3352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>n:\Iron Cave Industries\HPVE_Project\hardware\master_carrier\HPVE_Master_Carrier.kicad_sch</source>
+    <date>2026-11-12T01:11:07</date>
+    <tool>Eeschema 10.0.7</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>HPVE Master Carrier Avionics Motherboard (MK-I)</title>
+        <company>Iron Cave Industries</company>
+        <rev>v1.0</rev>
+        <date>2026-11-12</date>
+        <source>HPVE_Master_Carrier.kicad_sch</source>
+        <comment number="1" value="TPS54302 5V/3A Buck + RP2040 Pico + CD74HC4051 8-Dial MUX + SN74AHCT125 5V SPI + GC9A01 IPS"/>
+        <comment number="2" value="HPVE Phased Array Volumetric Projection Engine - Production Schematic"/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>100uF_35V</value>
+      <footprint>HPVE_Carrier:CP_Elec_6.3x7.7</footprint>
+      <fields>
+        <field name="LCSC">C128836</field>
+        <field name="MPN">RVT1V101M0607</field>
+        <field name="Footprint">HPVE_Carrier:CP_Elec_6.3x7.7</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C_Polarized" description="Polarized capacitor"/>
+      <property name="LCSC" value="C128836"/>
+      <property name="MPN" value="RVT1V101M0607"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="CP_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a4f256b6-06fa-452c-8402-aa3db3bc0b33</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>10uF_25V</value>
+      <footprint>HPVE_Carrier:C_1206_3216Metric</footprint>
+      <fields>
+        <field name="LCSC">C13585</field>
+        <field name="MPN">CL31A106KAHNNNE</field>
+        <field name="Footprint">HPVE_Carrier:C_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C13585"/>
+      <property name="MPN" value="CL31A106KAHNNNE"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1881ddd3-c003-4a10-98b8-ceb0c7353952</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C3">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>683c6f59-fa0c-47b9-a790-90a6aedf7f63</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C4">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>54d3db9e-e6ec-48a4-95af-ca0d02b5ad32</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C5">
+      <value>100pF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C1791</field>
+        <field name="MPN">CL21C101JBANNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C1791"/>
+      <property name="MPN" value="CL21C101JBANNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d9682e8d-4527-4d5b-a244-b7869c818fe6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C6">
+      <value>100uF_16V</value>
+      <footprint>HPVE_Carrier:CP_Elec_6.3x7.7</footprint>
+      <fields>
+        <field name="LCSC">C128835</field>
+        <field name="MPN">RVT1C101M0607</field>
+        <field name="Footprint">HPVE_Carrier:CP_Elec_6.3x7.7</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C_Polarized" description="Polarized capacitor"/>
+      <property name="LCSC" value="C128835"/>
+      <property name="MPN" value="RVT1C101M0607"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="CP_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>99d6c70a-26b6-4bdb-8d1c-604836532cfd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C7">
+      <value>22uF_16V</value>
+      <footprint>HPVE_Carrier:C_1206_3216Metric</footprint>
+      <fields>
+        <field name="LCSC">C12891</field>
+        <field name="MPN">CL31A226KOHNNNE</field>
+        <field name="Footprint">HPVE_Carrier:C_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C12891"/>
+      <property name="MPN" value="CL31A226KOHNNNE"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cff2fb12-0255-4563-89c7-c9780b4b0680</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C8">
+      <value>22uF_16V</value>
+      <footprint>HPVE_Carrier:C_1206_3216Metric</footprint>
+      <fields>
+        <field name="LCSC">C12891</field>
+        <field name="MPN">CL31A226KOHNNNE</field>
+        <field name="Footprint">HPVE_Carrier:C_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C12891"/>
+      <property name="MPN" value="CL31A226KOHNNNE"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0f7b29fa-340f-4b53-886d-93569a3b24a9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C9">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ef20359f-9f7f-46c4-be5c-3334b9900a6c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C10">
+      <value>10uF_25V</value>
+      <footprint>HPVE_Carrier:C_1206_3216Metric</footprint>
+      <fields>
+        <field name="LCSC">C13585</field>
+        <field name="MPN">CL31A106KAHNNNE</field>
+        <field name="Footprint">HPVE_Carrier:C_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C13585"/>
+      <property name="MPN" value="CL31A106KAHNNNE"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>55d8c7a9-e59f-4328-9e84-93b5b2e5f6d8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C11">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f0b332c3-b40b-4efa-84ff-be3343c840bf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C12">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>47aa6141-ddf2-4b93-a892-ed801bb0c279</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C13">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1fccb22f-6e3f-4cc8-bb54-2f6a1354ba2a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C14">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>23b15191-8577-44de-8f85-23875d31f3eb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C15">
+      <value>10nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C1710</field>
+        <field name="MPN">CL21B103KBANNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C1710"/>
+      <property name="MPN" value="CL21B103KBANNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>716bd118-9bc5-42ce-886f-4f8097ebc550</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C16">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fec5c763-0a99-4a76-8590-3cd92d5fe73f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C17">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0f907f96-8523-4be5-af24-d36915c75fbe</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C18">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>67e42e4b-f4b5-4e22-851a-f7318cbfacf8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C19">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e9794510-6b19-461b-9920-9631b90276f4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C20">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>62ae92a5-c80b-4a6b-afdf-9e21fd980512</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C21">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c6f5c2a1-f8fc-4558-9d4f-39e60f4e82a2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C22">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>49cdb199-0a7b-4fc7-8190-625906b90245</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C23">
+      <value>100nF</value>
+      <footprint>HPVE_Carrier:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C49678</field>
+        <field name="MPN">CL21B104KBCNNNC</field>
+        <field name="Footprint">HPVE_Carrier:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="C" description="Unpolarized capacitor"/>
+      <property name="LCSC" value="C49678"/>
+      <property name="MPN" value="CL21B104KBCNNNC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8e4c0118-e61c-468c-813f-d919977dd79e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>SMBJ15CA</value>
+      <footprint>HPVE_Carrier:D_SMB</footprint>
+      <fields>
+        <field name="LCSC">C116756</field>
+        <field name="MPN">SMBJ15CA</field>
+        <field name="Footprint">HPVE_Carrier:D_SMB</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="D_TVS" description="Bidirectional transient-voltage-suppression diode"/>
+      <property name="LCSC" value="C116756"/>
+      <property name="MPN" value="SMBJ15CA"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="diode TVS thyrector"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e1f1c566-f4a4-4b25-8829-4e8d9eb862e0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D2">
+      <value>SS34</value>
+      <footprint>HPVE_Carrier:D_SMA</footprint>
+      <fields>
+        <field name="LCSC">C8678</field>
+        <field name="MPN">SS34</field>
+        <field name="Footprint">HPVE_Carrier:D_SMA</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="SS34" description="40V 3A Schottky Diode, SMA"/>
+      <property name="LCSC" value="C8678"/>
+      <property name="MPN" value="SS34"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="diode Schottky"/>
+      <property name="ki_fp_filters" value="D*SMA*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0abbba33-a234-4301-b79c-e48fe422e1fe</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D3">
+      <value>SS34</value>
+      <footprint>HPVE_Carrier:D_SMA</footprint>
+      <fields>
+        <field name="LCSC">C8678</field>
+        <field name="MPN">SS34</field>
+        <field name="Footprint">HPVE_Carrier:D_SMA</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="SS34" description="40V 3A Schottky Diode, SMA"/>
+      <property name="LCSC" value="C8678"/>
+      <property name="MPN" value="SS34"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="diode Schottky"/>
+      <property name="ki_fp_filters" value="D*SMA*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c0a1e695-232f-4358-a5f6-df17f56498eb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D4">
+      <value>LED_12V_AMB</value>
+      <footprint>HPVE_Carrier:LED_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C2296</field>
+        <field name="MPN">LED_12V_AMB</field>
+        <field name="Footprint">HPVE_Carrier:LED_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="LED" description="Light emitting diode"/>
+      <property name="LCSC" value="C2296"/>
+      <property name="MPN" value="LED_12V_AMB"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <property name="ki_fp_filters" value="LED* LED_SMD:* LED_THT:*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>43d2ba95-502f-468d-bb2a-fffcfd1bae54</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D5">
+      <value>LED_5V_GRN</value>
+      <footprint>HPVE_Carrier:LED_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C2297</field>
+        <field name="MPN">LED_5V_GRN</field>
+        <field name="Footprint">HPVE_Carrier:LED_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="LED" description="Light emitting diode"/>
+      <property name="LCSC" value="C2297"/>
+      <property name="MPN" value="LED_5V_GRN"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <property name="ki_fp_filters" value="LED* LED_SMD:* LED_THT:*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4855a730-fd1c-4bac-8678-d9f3fffdc716</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D6">
+      <value>LED_3V3_CYN</value>
+      <footprint>HPVE_Carrier:LED_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C2293</field>
+        <field name="MPN">LED_3V3_CYN</field>
+        <field name="Footprint">HPVE_Carrier:LED_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="LED" description="Light emitting diode"/>
+      <property name="LCSC" value="C2293"/>
+      <property name="MPN" value="LED_3V3_CYN"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <property name="ki_fp_filters" value="LED* LED_SMD:* LED_THT:*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f7a10e99-4e83-473b-914f-b5f6b4a721a1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D7">
+      <value>LED_STAT_ORG</value>
+      <footprint>HPVE_Carrier:LED_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C2295</field>
+        <field name="MPN">LED_STAT_ORG</field>
+        <field name="Footprint">HPVE_Carrier:LED_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="LED" description="Light emitting diode"/>
+      <property name="LCSC" value="C2295"/>
+      <property name="MPN" value="LED_STAT_ORG"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <property name="ki_fp_filters" value="LED* LED_SMD:* LED_THT:*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c237012f-a555-4c24-a358-bf6678e29551</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="F1">
+      <value>5A_PTC</value>
+      <footprint>HPVE_Carrier:Fuse_1812_4532Metric</footprint>
+      <fields>
+        <field name="LCSC">C69682</field>
+        <field name="MPN">1812L500/24DR</field>
+        <field name="Footprint">HPVE_Carrier:Fuse_1812_4532Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Polyfuse" description="Resettable fuse, polymeric positive temperature coefficient"/>
+      <property name="LCSC" value="C69682"/>
+      <property name="MPN" value="1812L500/24DR"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="resettable fuse PTC PPTC polyfuse polyswitch"/>
+      <property name="ki_fp_filters" value="*polyfuse* *PTC*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>520d8d97-47b4-4abd-87d6-9cd418abeb7b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="F2">
+      <value>0.5A_PTC</value>
+      <footprint>HPVE_Carrier:Fuse_1206_3216Metric</footprint>
+      <fields>
+        <field name="LCSC">C369168</field>
+        <field name="MPN">SMD1206P050TF</field>
+        <field name="Footprint">HPVE_Carrier:Fuse_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Polyfuse" description="Resettable fuse, polymeric positive temperature coefficient"/>
+      <property name="LCSC" value="C369168"/>
+      <property name="MPN" value="SMD1206P050TF"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="resettable fuse PTC PPTC polyfuse polyswitch"/>
+      <property name="ki_fp_filters" value="*polyfuse* *PTC*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bf6f16ef-2cc8-4d75-8c01-3c2b86e847ea</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="F3">
+      <value>0.5A_PTC</value>
+      <footprint>HPVE_Carrier:Fuse_1206_3216Metric</footprint>
+      <fields>
+        <field name="LCSC">C369168</field>
+        <field name="MPN">SMD1206P050TF</field>
+        <field name="Footprint">HPVE_Carrier:Fuse_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Polyfuse" description="Resettable fuse, polymeric positive temperature coefficient"/>
+      <property name="LCSC" value="C369168"/>
+      <property name="MPN" value="SMD1206P050TF"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="resettable fuse PTC PPTC polyfuse polyswitch"/>
+      <property name="ki_fp_filters" value="*polyfuse* *PTC*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2074019a-c335-4569-bfe4-95221856afaf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H1">
+      <value>M3_CHASSIS_GND</value>
+      <footprint>HPVE_Carrier:MountingHole_3.2mm_M3_ISO14580_Pad_TopBottom</footprint>
+      <fields>
+        <field name="MPN">M3_NPTH_PAD</field>
+        <field name="Footprint">HPVE_Carrier:MountingHole_3.2mm_M3_ISO14580_Pad_TopBottom</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="MPN" value="M3_NPTH_PAD"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*Pad*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>12b17f03-431b-4dd2-a9d7-c925e360b018</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H2">
+      <value>M3_CHASSIS_GND</value>
+      <footprint>HPVE_Carrier:MountingHole_3.2mm_M3_ISO14580_Pad_TopBottom</footprint>
+      <fields>
+        <field name="MPN">M3_NPTH_PAD</field>
+        <field name="Footprint">HPVE_Carrier:MountingHole_3.2mm_M3_ISO14580_Pad_TopBottom</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="MPN" value="M3_NPTH_PAD"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*Pad*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a5ad31b7-7937-4c3c-ba3c-45e2a2ee7417</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H3">
+      <value>M3_CHASSIS_GND</value>
+      <footprint>HPVE_Carrier:MountingHole_3.2mm_M3_ISO14580_Pad_TopBottom</footprint>
+      <fields>
+        <field name="MPN">M3_NPTH_PAD</field>
+        <field name="Footprint">HPVE_Carrier:MountingHole_3.2mm_M3_ISO14580_Pad_TopBottom</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="MPN" value="M3_NPTH_PAD"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*Pad*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8b7749f9-885c-41de-886c-587a6bbd7984</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H4">
+      <value>M3_CHASSIS_GND</value>
+      <footprint>HPVE_Carrier:MountingHole_3.2mm_M3_ISO14580_Pad_TopBottom</footprint>
+      <fields>
+        <field name="MPN">M3_NPTH_PAD</field>
+        <field name="Footprint">HPVE_Carrier:MountingHole_3.2mm_M3_ISO14580_Pad_TopBottom</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="MPN" value="M3_NPTH_PAD"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*Pad*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0b74a332-5499-4ca3-9497-dd296ffd880c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>XT30_12V_IN</value>
+      <footprint>HPVE_Carrier:AMASS_XT30UPB-M_1x02_P5.0mm_Vertical</footprint>
+      <fields>
+        <field name="LCSC">C2913283</field>
+        <field name="MPN">AMASS-XT30UPB-M</field>
+        <field name="Footprint">HPVE_Carrier:AMASS_XT30UPB-M_1x02_P5.0mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="LCSC" value="C2913283"/>
+      <property name="MPN" value="AMASS-XT30UPB-M"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>08640b77-4fb9-448b-81ea-4fafecf6afab</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J2">
+      <value>FH12-6S-0.5SH</value>
+      <footprint>HPVE_Carrier:Hirose_FH12-6S-0.5SH_1x06-1MP_P0.50mm_Horizontal</footprint>
+      <fields>
+        <field name="LCSC">C424667</field>
+        <field name="MPN">FH12-6S-0.5SH(55)</field>
+        <field name="Footprint">HPVE_Carrier:Hirose_FH12-6S-0.5SH_1x06-1MP_P0.50mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Conn_01x06_MountingPin" description="Generic connectable mounting pin connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="LCSC" value="C424667"/>
+      <property name="MPN" value="FH12-6S-0.5SH(55)"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??-1MP*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3b028784-b69f-454f-ac22-5788e1e7225b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="MP"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J3">
+      <value>GC9A01_ROUND_IPS</value>
+      <footprint>HPVE_Carrier:JST_XH_B8B-XH-A_1x08_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="LCSC">C71698</field>
+        <field name="MPN">B8B-XH-A</field>
+        <field name="Footprint">HPVE_Carrier:JST_XH_B8B-XH-A_1x08_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Conn_01x08" description="Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="LCSC" value="C71698"/>
+      <property name="MPN" value="B8B-XH-A"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>db30d42a-462f-40dc-b0c4-83d4ec5df1e8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J4">
+      <value>LEFT_DIALS_5P</value>
+      <footprint>HPVE_Carrier:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="LCSC">C173752</field>
+        <field name="MPN">B5B-XH-A</field>
+        <field name="Footprint">HPVE_Carrier:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Conn_01x05" description="Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="LCSC" value="C173752"/>
+      <property name="MPN" value="B5B-XH-A"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>18f5c0fe-498d-46a4-91e2-cdd73ffb81a3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J5">
+      <value>RIGHT_DIALS_5P</value>
+      <footprint>HPVE_Carrier:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="LCSC">C173752</field>
+        <field name="MPN">B5B-XH-A</field>
+        <field name="Footprint">HPVE_Carrier:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Conn_01x05" description="Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="LCSC" value="C173752"/>
+      <property name="MPN" value="B5B-XH-A"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>94937041-e606-4a18-8727-23217f091b62</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J6">
+      <value>BRIDGE_DIALS_4P</value>
+      <footprint>HPVE_Carrier:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="LCSC">C158012</field>
+        <field name="MPN">B4B-XH-A</field>
+        <field name="Footprint">HPVE_Carrier:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="LCSC" value="C158012"/>
+      <property name="MPN" value="B4B-XH-A"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bd398b1f-7326-4de6-a8ef-c370fe4167a4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J7">
+      <value>SSD1306_OLED_4P</value>
+      <footprint>HPVE_Carrier:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="LCSC">C158012</field>
+        <field name="MPN">B4B-XH-A</field>
+        <field name="Footprint">HPVE_Carrier:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="LCSC" value="C158012"/>
+      <property name="MPN" value="B4B-XH-A"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>13afe43b-aadb-4bad-a466-edc3e17b5f69</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J8">
+      <value>VL53L5CX_6P</value>
+      <footprint>HPVE_Carrier:JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="LCSC">C158014</field>
+        <field name="MPN">B6B-XH-A</field>
+        <field name="Footprint">HPVE_Carrier:JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Conn_01x06" description="Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="LCSC" value="C158014"/>
+      <property name="MPN" value="B6B-XH-A"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0f3cb924-b4d1-4877-8483-4e69520d085f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J9">
+      <value>RGB_LASERS_4P</value>
+      <footprint>HPVE_Carrier:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="LCSC">C158012</field>
+        <field name="MPN">B4B-XH-A</field>
+        <field name="Footprint">HPVE_Carrier:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="LCSC" value="C158012"/>
+      <property name="MPN" value="B4B-XH-A"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b51bea77-e0a1-4c1a-b0ff-5eea2d6611ce</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J10">
+      <value>AUX_SYNC_4P</value>
+      <footprint>HPVE_Carrier:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="LCSC">C158012</field>
+        <field name="MPN">B4B-XH-A</field>
+        <field name="Footprint">HPVE_Carrier:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="LCSC" value="C158012"/>
+      <property name="MPN" value="B4B-XH-A"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1939f256-c4a4-46cd-948a-9360b36644d3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L1">
+      <value>10uH_6.5A</value>
+      <footprint>HPVE_Carrier:L_10.4x10.4_H4.8</footprint>
+      <fields>
+        <field name="LCSC">C169395</field>
+        <field name="MPN">CDRH104RNP-100NC</field>
+        <field name="Footprint">HPVE_Carrier:L_10.4x10.4_H4.8</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="L" description="Inductor"/>
+      <property name="LCSC" value="C169395"/>
+      <property name="MPN" value="CDRH104RNP-100NC"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="inductor choke coil reactor magnetic"/>
+      <property name="ki_fp_filters" value="Choke_* *Coil* Inductor_* L_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2d9a58a0-5982-4ebc-a158-8914a823d66d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q1">
+      <value>AO3400A</value>
+      <footprint>HPVE_Carrier:SOT-23</footprint>
+      <fields>
+        <field name="LCSC">C20917</field>
+        <field name="MPN">AO3400A</field>
+        <field name="Footprint">HPVE_Carrier:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="AO3400A" description="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
+      <property name="LCSC" value="C20917"/>
+      <property name="MPN" value="AO3400A"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="N-Channel MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5940eebc-2fcf-4e66-9deb-0357159c53ce</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="3"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q2">
+      <value>AO3400A</value>
+      <footprint>HPVE_Carrier:SOT-23</footprint>
+      <fields>
+        <field name="LCSC">C20917</field>
+        <field name="MPN">AO3400A</field>
+        <field name="Footprint">HPVE_Carrier:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="AO3400A" description="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
+      <property name="LCSC" value="C20917"/>
+      <property name="MPN" value="AO3400A"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="N-Channel MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b8cebb06-61ac-4d0b-974e-e2455ff6f522</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="3"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q3">
+      <value>AO3400A</value>
+      <footprint>HPVE_Carrier:SOT-23</footprint>
+      <fields>
+        <field name="LCSC">C20917</field>
+        <field name="MPN">AO3400A</field>
+        <field name="Footprint">HPVE_Carrier:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="AO3400A" description="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
+      <property name="LCSC" value="C20917"/>
+      <property name="MPN" value="AO3400A"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="N-Channel MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5e4f8a94-dd50-4224-8b2f-2c4da757d3e6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="3"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>100k_1%</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17407</field>
+        <field name="MPN">0805W8F1003T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17407"/>
+      <property name="MPN" value="0805W8F1003T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e99925d5-49a8-4823-b542-1ff3369a7c79</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>22k_1%</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17560</field>
+        <field name="MPN">0805W8F2202T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17560"/>
+      <property name="MPN" value="0805W8F2202T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>874b6456-eeeb-45df-8888-f98a0eb22faf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>100k_1%</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17407</field>
+        <field name="MPN">0805W8F1003T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17407"/>
+      <property name="MPN" value="0805W8F1003T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bbfd45f1-8e76-41f2-a825-63f0d5fff3ee</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>13.3k_1%</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17451</field>
+        <field name="MPN">0805W8F1332T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17451"/>
+      <property name="MPN" value="0805W8F1332T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0b88c69e-ccaf-474f-bb71-14446f8e7343</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>39k_1%</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17651</field>
+        <field name="MPN">0805W8F3902T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17651"/>
+      <property name="MPN" value="0805W8F3902T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f37b9818-8dfc-4f17-9c4e-cf934befa1cd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>10k_1%</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17414</field>
+        <field name="MPN">0805W8F1002T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17414"/>
+      <property name="MPN" value="0805W8F1002T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>42a58974-3438-4242-abbf-2b8c2b245016</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>0R_STAR_GND</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17477</field>
+        <field name="MPN">0805W8F0000T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17477"/>
+      <property name="MPN" value="0805W8F0000T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>19f01453-f921-4aa7-a404-3093d1d1b40e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>4.7k</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17673</field>
+        <field name="MPN">0805W8F4701T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17673"/>
+      <property name="MPN" value="0805W8F4701T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>73d166c8-c3b2-41b0-849a-ed9d7ca19886</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R9">
+      <value>4.7k</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17673</field>
+        <field name="MPN">0805W8F4701T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17673"/>
+      <property name="MPN" value="0805W8F4701T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b0f9c39c-056c-4155-9a3b-cc595e6e9a1b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R10">
+      <value>33R</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17630</field>
+        <field name="MPN">0805W8F330JT5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17630"/>
+      <property name="MPN" value="0805W8F330JT5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2094eca7-1f7a-4d44-b88c-e7e11d31fa05</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R11">
+      <value>33R</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17630</field>
+        <field name="MPN">0805W8F330JT5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17630"/>
+      <property name="MPN" value="0805W8F330JT5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e6bb4c0b-c505-4921-8718-d663a382335a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R12">
+      <value>33R</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17630</field>
+        <field name="MPN">0805W8F330JT5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17630"/>
+      <property name="MPN" value="0805W8F330JT5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cfe2d979-1207-4fa1-bea3-17368888427c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R13">
+      <value>33R</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17630</field>
+        <field name="MPN">0805W8F330JT5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17630"/>
+      <property name="MPN" value="0805W8F330JT5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6b30993a-bf14-4275-8c85-2bfe34d6fca1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R14">
+      <value>100R</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17408</field>
+        <field name="MPN">0805W8F1000T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17408"/>
+      <property name="MPN" value="0805W8F1000T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d23d476f-31c8-4520-99b1-7179f1f03378</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R15">
+      <value>100R</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17408</field>
+        <field name="MPN">0805W8F1000T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17408"/>
+      <property name="MPN" value="0805W8F1000T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>02730e72-31d3-4a66-a606-5cf0e001bcee</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R16">
+      <value>100R</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17408</field>
+        <field name="MPN">0805W8F1000T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17408"/>
+      <property name="MPN" value="0805W8F1000T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f9d023ff-e8f7-44bd-8c98-62d3fd111a06</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R17">
+      <value>10k</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17414</field>
+        <field name="MPN">0805W8F1002T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17414"/>
+      <property name="MPN" value="0805W8F1002T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f594324f-8d38-49ce-902c-297589744cc7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R18">
+      <value>10k</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17414</field>
+        <field name="MPN">0805W8F1002T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17414"/>
+      <property name="MPN" value="0805W8F1002T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1141069f-963a-4c6e-9bb8-ad2e7051c061</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R19">
+      <value>10k</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17414</field>
+        <field name="MPN">0805W8F1002T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17414"/>
+      <property name="MPN" value="0805W8F1002T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5bc57561-aeff-4965-9088-054e1fe73c97</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R20">
+      <value>100k</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17407</field>
+        <field name="MPN">0805W8F1003T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17407"/>
+      <property name="MPN" value="0805W8F1003T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>11a26e85-73ab-46c3-af1b-dd43e7b146d6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R21">
+      <value>10k</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17414</field>
+        <field name="MPN">0805W8F1002T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17414"/>
+      <property name="MPN" value="0805W8F1002T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e1cb90a1-3c0f-454b-bba7-06480d969504</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R22">
+      <value>10k</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17414</field>
+        <field name="MPN">0805W8F1002T5E</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17414"/>
+      <property name="MPN" value="0805W8F1002T5E"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8171bee7-9fdb-4086-b5bc-4a56316ac94a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R23">
+      <value>4.7k</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17673</field>
+        <field name="MPN">4.7k</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17673"/>
+      <property name="MPN" value="4.7k"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b4af4b29-655b-405b-82cb-d8c4aa6c5f7c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R24">
+      <value>1k</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17513</field>
+        <field name="MPN">1k</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17513"/>
+      <property name="MPN" value="1k"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>44279c33-17fb-4835-b465-4d0f8dd2bf21</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R25">
+      <value>470R</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17710</field>
+        <field name="MPN">470R</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17710"/>
+      <property name="MPN" value="470R"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>601f056c-b169-41d5-974f-0a82c13c3a1e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R26">
+      <value>470R</value>
+      <footprint>HPVE_Carrier:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="LCSC">C17710</field>
+        <field name="MPN">470R</field>
+        <field name="Footprint">HPVE_Carrier:R_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="R" description="Resistor"/>
+      <property name="LCSC" value="C17710"/>
+      <property name="MPN" value="470R"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>715d9cfa-a0bc-41d1-9d36-bdb5f8b53076</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW1">
+      <value>SW_RESET</value>
+      <footprint>HPVE_Carrier:SW_Push_1P1T_NO_CK_KMR2</footprint>
+      <fields>
+        <field name="LCSC">C115356</field>
+        <field name="MPN">KMR231GLFS</field>
+        <field name="Footprint">HPVE_Carrier:SW_Push_1P1T_NO_CK_KMR2</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="SW_Push" description="Push button switch, generic, two pins"/>
+      <property name="LCSC" value="C115356"/>
+      <property name="MPN" value="KMR231GLFS"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cbd5ce11-26d8-49da-9029-d2d7905c2b33</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW2">
+      <value>SW_MODE</value>
+      <footprint>HPVE_Carrier:SW_Push_1P1T_NO_CK_KMR2</footprint>
+      <fields>
+        <field name="LCSC">C115356</field>
+        <field name="MPN">KMR231GLFS</field>
+        <field name="Footprint">HPVE_Carrier:SW_Push_1P1T_NO_CK_KMR2</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="SW_Push" description="Push button switch, generic, two pins"/>
+      <property name="LCSC" value="C115356"/>
+      <property name="MPN" value="KMR231GLFS"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6e7d4691-f65d-4477-ba9d-78f38ff09582</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW3">
+      <value>SW_ENABLE</value>
+      <footprint>HPVE_Carrier:SW_Push_1P1T_NO_CK_KMR2</footprint>
+      <fields>
+        <field name="LCSC">C115356</field>
+        <field name="MPN">KMR231GLFS</field>
+        <field name="Footprint">HPVE_Carrier:SW_Push_1P1T_NO_CK_KMR2</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="SW_Push" description="Push button switch, generic, two pins"/>
+      <property name="LCSC" value="C115356"/>
+      <property name="MPN" value="KMR231GLFS"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3a03381d-28b9-4f18-9998-893dc96f2c65</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>RaspberryPi_Pico</value>
+      <footprint>HPVE_Carrier:RaspberryPi_Pico_Common_THT</footprint>
+      <fields>
+        <field name="MPN">RPI-PICO</field>
+        <field name="Footprint">HPVE_Carrier:RaspberryPi_Pico_Common_THT</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="RaspberryPi_Pico" description="Versatile and inexpensive microcontroller module powered by RP2040 dual-core Arm Cortex-M0+ processor up to 133 MHz, 264kB SRAM, 2MB QSPI flash; also supports Raspberry Pi Pico 2"/>
+      <property name="MPN" value="RPI-PICO"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="RP2350A M33 RISC-V Hazard3 usb"/>
+      <property name="ki_fp_filters" value="RaspberryPi?Pico?Common* RaspberryPi?Pico?SMD*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1652ba16-23e5-4fac-85ac-2786e9e90434</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="30"/>
+            <pin num="37"/>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="19"/>
+            <pin num="20"/>
+            <pin num="39"/>
+            <pin num="40"/>
+            <pin num="3"/>
+            <pin num="23"/>
+            <pin num="28"/>
+            <pin num="18"/>
+            <pin num="13"/>
+            <pin num="38"/>
+            <pin num="8"/>
+            <pin num="36"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="29"/>
+            <pin num="35"/>
+            <pin num="31"/>
+            <pin num="32"/>
+            <pin num="34"/>
+            <pin num="33"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U2">
+      <value>TPS54302DDCR</value>
+      <footprint>HPVE_Carrier:SOT-23-6</footprint>
+      <fields>
+        <field name="LCSC">C314440</field>
+        <field name="MPN">TPS54302DDCR</field>
+        <field name="Footprint">HPVE_Carrier:SOT-23-6</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="TPS54302" description="3A, 4.5 to 28V Input, EMI Friendly integrated switch synchronous step-down regulator, pulse-skipping, SOT-23-6"/>
+      <property name="LCSC" value="C314440"/>
+      <property name="MPN" value="TPS54302DDCR"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="switching buck converter power-supply voltage regulator emi spread spectrum"/>
+      <property name="ki_fp_filters" value="SOT?23*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>34bcdefc-b0ce-438a-b0d2-320b580f6208</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="5"/>
+            <pin num="1"/>
+            <pin num="6"/>
+            <pin num="2"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U3">
+      <value>CD74HC4051M</value>
+      <footprint>HPVE_Carrier:SOIC-16_3.9x9.9mm_P1.27mm</footprint>
+      <fields>
+        <field name="LCSC">C7430</field>
+        <field name="MPN">CD74HC4051M96</field>
+        <field name="Footprint">HPVE_Carrier:SOIC-16_3.9x9.9mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="74HC4051" description="8-channel analog multiplexer/demultiplexer, DIP-16/SOIC-16/TSSOP-16"/>
+      <property name="LCSC" value="C7430"/>
+      <property name="MPN" value="CD74HC4051M96"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="HCMOS Multiplexer Demultiplexer Analog"/>
+      <property name="ki_fp_filters" value="DIP*W7.62mm* SOIC*3.9x9.9mm*P1.27mm* SOIC*5.3x10.2mm*P1.27mm* TSSOP*4.4x5mm*P0.65mm*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>83dbfc07-1f9b-48e8-bc88-3b2cd618b667</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="11"/>
+            <pin num="10"/>
+            <pin num="9"/>
+            <pin num="6"/>
+            <pin num="16"/>
+            <pin num="8"/>
+            <pin num="7"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="12"/>
+            <pin num="1"/>
+            <pin num="5"/>
+            <pin num="2"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U4">
+      <value>SN74AHCT125D</value>
+      <footprint>HPVE_Carrier:SOIC-14_3.9x8.7mm_P1.27mm</footprint>
+      <fields>
+        <field name="LCSC">C5440</field>
+        <field name="MPN">SN74AHCT125DR</field>
+        <field name="Footprint">HPVE_Carrier:SOIC-14_3.9x8.7mm_P1.27mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="HPVE_Carrier" part="74AHCT125" description="Quadruple Bus Buffer Gates With 3-State Outputs"/>
+      <property name="LCSC" value="C5440"/>
+      <property name="MPN" value="SN74AHCT125DR"/>
+      <property name="Sheetname" value="HPVE_Master_Carrier"/>
+      <property name="Sheetfile" value="HPVE_Master_Carrier.kicad_sch"/>
+      <property name="ki_keywords" value="buffer 3State"/>
+      <property name="ki_fp_filters" value="DIP*W7.62mm* SO14* SSOP?14* TSSOP?14* SOIC*3.9x8.7mm*P1.27mm*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5e74893f-c89d-403b-bbc1-e4c0b2258b4a 9e4654ba-43ec-45cc-9599-a7e8ea8e1857 6199f008-66ed-4d20-b849-7ddb3d30a2e8 44cdcb08-1822-41e3-8457-acd0b2c5ff9d 0d9e84d7-a6b9-4a74-b22e-8aa8df9c4a3b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+        <unit name="B">
+          <pins>
+            <pin num="5"/>
+            <pin num="4"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+        <unit name="C">
+          <pins>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="8"/>
+          </pins>
+        </unit>
+        <unit name="D">
+          <pins>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="11"/>
+          </pins>
+        </unit>
+        <unit name="E">
+          <pins>
+            <pin num="14"/>
+            <pin num="7"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="HPVE_Carrier" part="74AHCT125">
+      <description>Quadruple Bus Buffer Gates With 3-State Outputs</description>
+      <docs>https://www.ti.com/lit/ds/symlink/sn74ahct125.pdf</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+        <fp>SO14*</fp>
+        <fp>SSOP?14*</fp>
+        <fp>TSSOP?14*</fp>
+        <fp>SOIC*3.9x8.7mm*P1.27mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74AHCT125</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/sn74ahct125.pdf</field>
+        <field name="Description">Quadruple Bus Buffer Gates With 3-State Outputs</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="input"/>
+        <pin num="2" name="" type="input"/>
+        <pin num="3" name="" type="tri_state"/>
+        <pin num="4" name="" type="input"/>
+        <pin num="5" name="" type="input"/>
+        <pin num="6" name="" type="tri_state"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="" type="tri_state"/>
+        <pin num="9" name="" type="input"/>
+        <pin num="10" name="" type="input"/>
+        <pin num="11" name="" type="tri_state"/>
+        <pin num="12" name="" type="input"/>
+        <pin num="13" name="" type="input"/>
+        <pin num="14" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="74HC4051">
+      <description>8-channel analog multiplexer/demultiplexer, DIP-16/SOIC-16/TSSOP-16</description>
+      <docs>http://www.ti.com/lit/ds/symlink/cd74hc4051.pdf</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+        <fp>SOIC*3.9x9.9mm*P1.27mm*</fp>
+        <fp>SOIC*5.3x10.2mm*P1.27mm*</fp>
+        <fp>TSSOP*4.4x5mm*P0.65mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74HC4051</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">http://www.ti.com/lit/ds/symlink/cd74hc4051.pdf</field>
+        <field name="Description">8-channel analog multiplexer/demultiplexer, DIP-16/SOIC-16/TSSOP-16</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A4" type="passive"/>
+        <pin num="2" name="A6" type="passive"/>
+        <pin num="3" name="A" type="passive"/>
+        <pin num="4" name="A7" type="passive"/>
+        <pin num="5" name="A5" type="passive"/>
+        <pin num="6" name="~{E}" type="input"/>
+        <pin num="7" name="VEE" type="power_in"/>
+        <pin num="8" name="GND" type="power_in"/>
+        <pin num="9" name="S2" type="input"/>
+        <pin num="10" name="S1" type="input"/>
+        <pin num="11" name="S0" type="input"/>
+        <pin num="12" name="A3" type="passive"/>
+        <pin num="13" name="A0" type="passive"/>
+        <pin num="14" name="A1" type="passive"/>
+        <pin num="15" name="A2" type="passive"/>
+        <pin num="16" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="AO3400A">
+      <description>30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23</description>
+      <docs>http://www.aosmd.com/pdfs/datasheet/AO3400A.pdf</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">AO3400A</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet">http://www.aosmd.com/pdfs/datasheet/AO3400A.pdf</field>
+        <field name="Description">30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="C_Polarized">
+      <description>Polarized capacitor</description>
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Polarized</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Polarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="Conn_01x05">
+      <description>Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x05</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="Conn_01x06">
+      <description>Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x06</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="Conn_01x06_MountingPin">
+      <description>Generic connectable mounting pin connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??-1MP*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x06_MountingPin</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connectable mounting pin connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+        <pin num="MP" name="MountPin" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="Conn_01x08">
+      <description>Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x08</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+        <pin num="7" name="Pin_7" type="passive"/>
+        <pin num="8" name="Pin_8" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="D_TVS">
+      <description>Bidirectional transient-voltage-suppression diode</description>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_TVS</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Bidirectional transient-voltage-suppression diode</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A1" type="passive"/>
+        <pin num="2" name="A2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="L">
+      <description>Inductor</description>
+      <footprints>
+        <fp>Choke_*</fp>
+        <fp>*Coil*</fp>
+        <fp>Inductor_*</fp>
+        <fp>L_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">L</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Inductor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="LED">
+      <description>Light emitting diode</description>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Light emitting diode</field>
+        <field name="Sim.Pins">1=K 2=A</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="MountingHole_Pad">
+      <description>Mounting Hole with connection</description>
+      <footprints>
+        <fp>MountingHole*Pad*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole_Pad</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Mounting Hole with connection</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="Polyfuse">
+      <description>Resettable fuse, polymeric positive temperature coefficient</description>
+      <footprints>
+        <fp>*polyfuse*</fp>
+        <fp>*PTC*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">Polyfuse</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resettable fuse, polymeric positive temperature coefficient</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="RaspberryPi_Pico">
+      <description>Versatile and inexpensive microcontroller module powered by RP2040 dual-core Arm Cortex-M0+ processor up to 133 MHz, 264kB SRAM, 2MB QSPI flash; also supports Raspberry Pi Pico 2</description>
+      <docs>https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf</docs>
+      <footprints>
+        <fp>RaspberryPi?Pico?Common*</fp>
+        <fp>RaspberryPi?Pico?SMD*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">A</field>
+        <field name="Value">RaspberryPi_Pico</field>
+        <field name="Footprint">Module:RaspberryPi_Pico_Common_Unspecified</field>
+        <field name="Datasheet">https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf</field>
+        <field name="Description">Versatile and inexpensive microcontroller module powered by RP2040 dual-core Arm Cortex-M0+ processor up to 133 MHz, 264kB SRAM, 2MB QSPI flash; also supports Raspberry Pi Pico 2</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GPIO0" type="bidirectional"/>
+        <pin num="2" name="GPIO1" type="bidirectional"/>
+        <pin num="3" name="GND" type="power_out"/>
+        <pin num="4" name="GPIO2" type="bidirectional"/>
+        <pin num="5" name="GPIO3" type="bidirectional"/>
+        <pin num="6" name="GPIO4" type="bidirectional"/>
+        <pin num="7" name="GPIO5" type="bidirectional"/>
+        <pin num="8" name="GND" type="passive"/>
+        <pin num="9" name="GPIO6" type="bidirectional"/>
+        <pin num="10" name="GPIO7" type="bidirectional"/>
+        <pin num="11" name="GPIO8" type="bidirectional"/>
+        <pin num="12" name="GPIO9" type="bidirectional"/>
+        <pin num="13" name="GND" type="passive"/>
+        <pin num="14" name="GPIO10" type="bidirectional"/>
+        <pin num="15" name="GPIO11" type="bidirectional"/>
+        <pin num="16" name="GPIO12" type="bidirectional"/>
+        <pin num="17" name="GPIO13" type="bidirectional"/>
+        <pin num="18" name="GND" type="passive"/>
+        <pin num="19" name="GPIO14" type="bidirectional"/>
+        <pin num="20" name="GPIO15" type="bidirectional"/>
+        <pin num="21" name="GPIO16" type="bidirectional"/>
+        <pin num="22" name="GPIO17" type="bidirectional"/>
+        <pin num="23" name="GND" type="passive"/>
+        <pin num="24" name="GPIO18" type="bidirectional"/>
+        <pin num="25" name="GPIO19" type="bidirectional"/>
+        <pin num="26" name="GPIO20" type="bidirectional"/>
+        <pin num="27" name="GPIO21" type="bidirectional"/>
+        <pin num="28" name="GND" type="passive"/>
+        <pin num="29" name="GPIO22" type="bidirectional"/>
+        <pin num="30" name="RUN" type="passive"/>
+        <pin num="31" name="GPIO26_ADC0" type="bidirectional"/>
+        <pin num="32" name="GPIO27_ADC1" type="bidirectional"/>
+        <pin num="33" name="AGND" type="power_out"/>
+        <pin num="34" name="GPIO28_ADC2" type="bidirectional"/>
+        <pin num="35" name="ADC_VREF" type="power_in"/>
+        <pin num="36" name="3V3" type="power_out"/>
+        <pin num="37" name="3V3_EN" type="passive"/>
+        <pin num="38" name="GND" type="passive"/>
+        <pin num="39" name="VSYS" type="power_in"/>
+        <pin num="40" name="VBUS" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="SS34">
+      <description>40V 3A Schottky Diode, SMA</description>
+      <docs>https://www.vishay.com/docs/88751/ss32.pdf</docs>
+      <footprints>
+        <fp>D*SMA*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">SS34</field>
+        <field name="Footprint">Diode_SMD:D_SMA</field>
+        <field name="Datasheet">https://www.vishay.com/docs/88751/ss32.pdf</field>
+        <field name="Description">40V 3A Schottky Diode, SMA</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="SW_Push">
+      <description>Push button switch, generic, two pins</description>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_Push</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Push button switch, generic, two pins</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="HPVE_Carrier" part="TPS54302">
+      <description>3A, 4.5 to 28V Input, EMI Friendly integrated switch synchronous step-down regulator, pulse-skipping, SOT-23-6</description>
+      <docs>http://www.ti.com/lit/ds/symlink/tps54302.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TPS54302</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6</field>
+        <field name="Datasheet">http://www.ti.com/lit/ds/symlink/tps54302.pdf</field>
+        <field name="Description">3A, 4.5 to 28V Input, EMI Friendly integrated switch synchronous step-down regulator, pulse-skipping, SOT-23-6</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="power_in"/>
+        <pin num="2" name="SW" type="power_out"/>
+        <pin num="3" name="VIN" type="power_in"/>
+        <pin num="4" name="FB" type="input"/>
+        <pin num="5" name="EN" type="input"/>
+        <pin num="6" name="BOOT" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="HPVE_Carrier">
+      <uri>${KIPRJMOD}/HPVE_Carrier.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+3V3" class="Default">
+      <node ref="C10" pin="1" pintype="passive"/>
+      <node ref="C11" pin="1" pintype="passive"/>
+      <node ref="C13" pin="1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J4" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J5" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J6" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J7" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J8" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="R21" pin="1" pintype="passive"/>
+      <node ref="R22" pin="1" pintype="passive"/>
+      <node ref="R25" pin="1" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="U1" pin="36" pinfunction="3V3_36" pintype="power_out"/>
+      <node ref="U3" pin="16" pinfunction="VCC_16" pintype="power_in"/>
+    </net>
+    <net code="2" name="+5V" class="Default">
+      <node ref="C12" pin="1" pintype="passive"/>
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="C8" pin="1" pintype="passive"/>
+      <node ref="C9" pin="1" pintype="passive"/>
+      <node ref="D3" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="F3" pin="1" pintype="passive"/>
+      <node ref="J10" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J9" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="L1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R24" pin="1" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="U4" pin="14" pinfunction="VCC_14" pintype="power_in"/>
+    </net>
+    <net code="3" name="+12V" class="Default">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="A2_2" pintype="passive"/>
+      <node ref="D2" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="F2" pin="1" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="R23" pin="1" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="U2" pin="3" pinfunction="VIN_3" pintype="power_in"/>
+    </net>
+    <net code="4" name="/+5V_FFC" class="Default">
+      <node ref="F3" pin="2" pintype="passive"/>
+      <node ref="J2" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+    </net>
+    <net code="5" name="/+12V_FFC" class="Default">
+      <node ref="F2" pin="2" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+    </net>
+    <net code="6" name="/AGND" class="Default">
+      <node ref="C14" pin="2" pintype="passive"/>
+      <node ref="C15" pin="2" pintype="passive"/>
+      <node ref="C16" pin="2" pintype="passive"/>
+      <node ref="C17" pin="2" pintype="passive"/>
+      <node ref="C18" pin="2" pintype="passive"/>
+      <node ref="C19" pin="2" pintype="passive"/>
+      <node ref="C20" pin="2" pintype="passive"/>
+      <node ref="C21" pin="2" pintype="passive"/>
+      <node ref="C22" pin="2" pintype="passive"/>
+      <node ref="C23" pin="2" pintype="passive"/>
+      <node ref="J4" pin="5" pinfunction="Pin_5_5" pintype="passive"/>
+      <node ref="J5" pin="5" pinfunction="Pin_5_5" pintype="passive"/>
+      <node ref="J6" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="R20" pin="2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="U1" pin="33" pinfunction="AGND_33" pintype="power_out"/>
+      <node ref="U3" pin="7" pinfunction="VEE_7" pintype="power_in"/>
+    </net>
+    <net code="7" name="/AUX_OE_5V" class="Default">
+      <node ref="J10" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="R13" pin="2" pintype="passive"/>
+    </net>
+    <net code="8" name="/BTN_ENABLE" class="Default">
+      <node ref="R22" pin="2" pintype="passive"/>
+      <node ref="SW3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="22" pinfunction="GPIO17_22" pintype="bidirectional"/>
+    </net>
+    <net code="9" name="/BTN_MODE" class="Default">
+      <node ref="R21" pin="2" pintype="passive"/>
+      <node ref="SW2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="21" pinfunction="GPIO16_21" pintype="bidirectional"/>
+    </net>
+    <net code="10" name="/DIAL_0" class="Default">
+      <node ref="C16" pin="1" pintype="passive"/>
+      <node ref="J4" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U3" pin="13" pinfunction="A0_13" pintype="passive"/>
+    </net>
+    <net code="11" name="/DIAL_1" class="Default">
+      <node ref="C17" pin="1" pintype="passive"/>
+      <node ref="J4" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="U3" pin="14" pinfunction="A1_14" pintype="passive"/>
+    </net>
+    <net code="12" name="/DIAL_2" class="Default">
+      <node ref="C18" pin="1" pintype="passive"/>
+      <node ref="J4" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="U3" pin="15" pinfunction="A2_15" pintype="passive"/>
+    </net>
+    <net code="13" name="/DIAL_3" class="Default">
+      <node ref="C19" pin="1" pintype="passive"/>
+      <node ref="J5" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U3" pin="12" pinfunction="A3_12" pintype="passive"/>
+    </net>
+    <net code="14" name="/DIAL_4" class="Default">
+      <node ref="C20" pin="1" pintype="passive"/>
+      <node ref="J5" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="U3" pin="1" pinfunction="A4_1" pintype="passive"/>
+    </net>
+    <net code="15" name="/DIAL_5" class="Default">
+      <node ref="C21" pin="1" pintype="passive"/>
+      <node ref="J5" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="U3" pin="5" pinfunction="A5_5" pintype="passive"/>
+    </net>
+    <net code="16" name="/DIAL_6" class="Default">
+      <node ref="C22" pin="1" pintype="passive"/>
+      <node ref="J6" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="U3" pin="2" pinfunction="A6_2" pintype="passive"/>
+    </net>
+    <net code="17" name="/DIAL_7" class="Default">
+      <node ref="C23" pin="1" pintype="passive"/>
+      <node ref="J6" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="U3" pin="4" pinfunction="A7_4" pintype="passive"/>
+    </net>
+    <net code="18" name="/DISP_BLK" class="Default">
+      <node ref="J3" pin="8" pinfunction="Pin_8_8" pintype="passive"/>
+      <node ref="U1" pin="20" pinfunction="GPIO15_20" pintype="bidirectional"/>
+    </net>
+    <net code="19" name="/DISP_CS" class="Default">
+      <node ref="J3" pin="6" pinfunction="Pin_6_6" pintype="passive"/>
+      <node ref="U1" pin="17" pinfunction="GPIO13_17" pintype="bidirectional"/>
+    </net>
+    <net code="20" name="/DISP_DC" class="Default">
+      <node ref="J3" pin="5" pinfunction="Pin_5_5" pintype="passive"/>
+      <node ref="U1" pin="16" pinfunction="GPIO12_16" pintype="bidirectional"/>
+    </net>
+    <net code="21" name="/DISP_RST" class="Default">
+      <node ref="J3" pin="7" pinfunction="Pin_7_7" pintype="passive"/>
+      <node ref="U1" pin="19" pinfunction="GPIO14_19" pintype="bidirectional"/>
+    </net>
+    <net code="22" name="/DISP_SCL" class="Default">
+      <node ref="J3" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="GPIO10_14" pintype="bidirectional"/>
+    </net>
+    <net code="23" name="/DISP_SDA" class="Default">
+      <node ref="J3" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="U1" pin="15" pinfunction="GPIO11_15" pintype="bidirectional"/>
+    </net>
+    <net code="24" name="/FFC_LATCH" class="Default">
+      <node ref="J2" pin="6" pinfunction="Pin_6_6" pintype="passive"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+    </net>
+    <net code="25" name="/FFC_MOSI" class="Default">
+      <node ref="J2" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+    </net>
+    <net code="26" name="/FFC_SCK" class="Default">
+      <node ref="J2" pin="5" pinfunction="Pin_5_5" pintype="passive"/>
+      <node ref="R11" pin="2" pintype="passive"/>
+    </net>
+    <net code="27" name="/I2C0_SCL" class="Default">
+      <node ref="J7" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="J8" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="GPIO1_2" pintype="bidirectional"/>
+    </net>
+    <net code="28" name="/I2C0_SDA" class="Default">
+      <node ref="J7" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="J8" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="GPIO0_1" pintype="bidirectional"/>
+    </net>
+    <net code="29" name="/LASER_B_K" class="Default">
+      <node ref="J9" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="Q3" pin="3" pinfunction="D_3" pintype="passive"/>
+    </net>
+    <net code="30" name="/LASER_B_PWM" class="Default">
+      <node ref="R16" pin="1" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="GPIO8_11" pintype="bidirectional"/>
+    </net>
+    <net code="31" name="/LASER_G_K" class="Default">
+      <node ref="J9" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="Q2" pin="3" pinfunction="D_3" pintype="passive"/>
+    </net>
+    <net code="32" name="/LASER_G_PWM" class="Default">
+      <node ref="R15" pin="1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="GPIO7_10" pintype="bidirectional"/>
+    </net>
+    <net code="33" name="/LASER_R_K" class="Default">
+      <node ref="J9" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="Q1" pin="3" pinfunction="D_3" pintype="passive"/>
+    </net>
+    <net code="34" name="/LASER_R_PWM" class="Default">
+      <node ref="R14" pin="1" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="GPIO6_9" pintype="bidirectional"/>
+    </net>
+    <net code="35" name="/MUX_COM" class="Default">
+      <node ref="C15" pin="1" pintype="passive"/>
+      <node ref="R20" pin="1" pintype="passive"/>
+      <node ref="U1" pin="31" pinfunction="GPIO26_ADC0_31" pintype="bidirectional"/>
+      <node ref="U3" pin="3" pinfunction="A_3" pintype="passive"/>
+    </net>
+    <net code="36" name="/MUX_S0" class="Default">
+      <node ref="U1" pin="24" pinfunction="GPIO18_24" pintype="bidirectional"/>
+      <node ref="U3" pin="11" pinfunction="S0_11" pintype="input"/>
+    </net>
+    <net code="37" name="/MUX_S1" class="Default">
+      <node ref="U1" pin="25" pinfunction="GPIO19_25" pintype="bidirectional"/>
+      <node ref="U3" pin="10" pinfunction="S1_10" pintype="input"/>
+    </net>
+    <net code="38" name="/MUX_S2" class="Default">
+      <node ref="U1" pin="26" pinfunction="GPIO20_26" pintype="bidirectional"/>
+      <node ref="U3" pin="9" pinfunction="S2_9" pintype="input"/>
+    </net>
+    <net code="39" name="/PICO_VSYS" class="Default">
+      <node ref="D3" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="U1" pin="39" pinfunction="VSYS_39" pintype="power_in"/>
+    </net>
+    <net code="40" name="/PIO_DRV_OE" class="Default">
+      <node ref="U1" pin="7" pinfunction="GPIO5_7" pintype="bidirectional"/>
+      <node ref="U4" pin="12" pintype="input"/>
+    </net>
+    <net code="41" name="/PIO_SPI_LATCH" class="Default">
+      <node ref="U1" pin="6" pinfunction="GPIO4_6" pintype="bidirectional"/>
+      <node ref="U4" pin="9" pintype="input"/>
+    </net>
+    <net code="42" name="/PIO_SPI_MOSI" class="Default">
+      <node ref="U1" pin="4" pinfunction="GPIO2_4" pintype="bidirectional"/>
+      <node ref="U4" pin="2" pintype="input"/>
+    </net>
+    <net code="43" name="/PIO_SPI_SCK" class="Default">
+      <node ref="U1" pin="5" pinfunction="GPIO3_5" pintype="bidirectional"/>
+      <node ref="U4" pin="5" pintype="input"/>
+    </net>
+    <net code="44" name="/STAT_LED" class="Default">
+      <node ref="R26" pin="1" pintype="passive"/>
+      <node ref="U1" pin="34" pinfunction="GPIO28_ADC2_34" pintype="bidirectional"/>
+    </net>
+    <net code="45" name="/SYNC_TRIG" class="Default">
+      <node ref="J10" pin="4" pinfunction="Pin_4_4" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="GPIO9_12" pintype="bidirectional"/>
+    </net>
+    <net code="46" name="/SYS_RESET" class="Default">
+      <node ref="SW1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="30" pinfunction="RUN_30" pintype="passive"/>
+    </net>
+    <net code="47" name="/TOF_INT" class="Default">
+      <node ref="J8" pin="5" pinfunction="Pin_5_5" pintype="passive"/>
+      <node ref="U1" pin="27" pinfunction="GPIO21_27" pintype="bidirectional"/>
+    </net>
+    <net code="48" name="/TOF_LPN" class="Default">
+      <node ref="J8" pin="6" pinfunction="Pin_6_6" pintype="passive"/>
+      <node ref="U1" pin="29" pinfunction="GPIO22_29" pintype="bidirectional"/>
+    </net>
+    <net code="49" name="/VSENSE_12V" class="Default">
+      <node ref="C14" pin="1" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="U1" pin="32" pinfunction="GPIO27_ADC1_32" pintype="bidirectional"/>
+    </net>
+    <net code="50" name="GND" class="Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C10" pin="2" pintype="passive"/>
+      <node ref="C11" pin="2" pintype="passive"/>
+      <node ref="C12" pin="2" pintype="passive"/>
+      <node ref="C13" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="C8" pin="2" pintype="passive"/>
+      <node ref="C9" pin="2" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="A1_1" pintype="passive"/>
+      <node ref="D4" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="D5" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="D6" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="D7" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="H1" pin="1" pinfunction="1_1" pintype="input"/>
+      <node ref="H2" pin="1" pinfunction="1_1" pintype="input"/>
+      <node ref="H3" pin="1" pinfunction="1_1" pintype="input"/>
+      <node ref="H4" pin="1" pinfunction="1_1" pintype="input"/>
+      <node ref="J1" pin="1" pinfunction="Pin_1_1" pintype="passive"/>
+      <node ref="J10" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J2" pin="3" pinfunction="Pin_3_3" pintype="passive"/>
+      <node ref="J2" pin="MP" pinfunction="MountPin_MP" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J7" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="J8" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="Q2" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="Q3" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="R17" pin="2" pintype="passive"/>
+      <node ref="R18" pin="2" pintype="passive"/>
+      <node ref="R19" pin="2" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="SW1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="SW2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="SW3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="GND_13" pintype="passive"/>
+      <node ref="U1" pin="18" pinfunction="GND_18" pintype="passive"/>
+      <node ref="U1" pin="23" pinfunction="GND_23" pintype="passive"/>
+      <node ref="U1" pin="28" pinfunction="GND_28" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="GND_3" pintype="power_out"/>
+      <node ref="U1" pin="38" pinfunction="GND_38" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="GND_8" pintype="passive"/>
+      <node ref="U2" pin="1" pinfunction="GND_1" pintype="power_in"/>
+      <node ref="U3" pin="6" pinfunction="~{E}_6" pintype="input"/>
+      <node ref="U3" pin="8" pinfunction="GND_8" pintype="power_in"/>
+      <node ref="U4" pin="1" pintype="input"/>
+      <node ref="U4" pin="10" pintype="input"/>
+      <node ref="U4" pin="13" pintype="input"/>
+      <node ref="U4" pin="4" pintype="input"/>
+      <node ref="U4" pin="7" pinfunction="GND_7" pintype="power_in"/>
+    </net>
+    <net code="51" name="Net-(D2-A)" class="Default">
+      <node ref="D2" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="F1" pin="2" pintype="passive"/>
+    </net>
+    <net code="52" name="Net-(D4-A)" class="Default">
+      <node ref="D4" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R23" pin="2" pintype="passive"/>
+    </net>
+    <net code="53" name="Net-(D5-A)" class="Default">
+      <node ref="D5" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R24" pin="2" pintype="passive"/>
+    </net>
+    <net code="54" name="Net-(D6-A)" class="Default">
+      <node ref="D6" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R25" pin="2" pintype="passive"/>
+    </net>
+    <net code="55" name="Net-(D7-A)" class="Default">
+      <node ref="D7" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R26" pin="2" pintype="passive"/>
+    </net>
+    <net code="56" name="Net-(J1-Pin_2)" class="Default">
+      <node ref="F1" pin="1" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="Pin_2_2" pintype="passive"/>
+    </net>
+    <net code="57" name="Net-(Q1-G)" class="Default">
+      <node ref="Q1" pin="1" pinfunction="G_1" pintype="input"/>
+      <node ref="R14" pin="2" pintype="passive"/>
+      <node ref="R17" pin="1" pintype="passive"/>
+    </net>
+    <net code="58" name="Net-(Q2-G)" class="Default">
+      <node ref="Q2" pin="1" pinfunction="G_1" pintype="input"/>
+      <node ref="R15" pin="2" pintype="passive"/>
+      <node ref="R18" pin="1" pintype="passive"/>
+    </net>
+    <net code="59" name="Net-(Q3-G)" class="Default">
+      <node ref="Q3" pin="1" pinfunction="G_1" pintype="input"/>
+      <node ref="R16" pin="2" pintype="passive"/>
+      <node ref="R19" pin="1" pintype="passive"/>
+    </net>
+    <net code="60" name="Net-(R10-Pad1)" class="Default">
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="U4" pin="3" pintype="tri_state"/>
+    </net>
+    <net code="61" name="Net-(R11-Pad1)" class="Default">
+      <node ref="R11" pin="1" pintype="passive"/>
+      <node ref="U4" pin="6" pintype="tri_state"/>
+    </net>
+    <net code="62" name="Net-(R12-Pad1)" class="Default">
+      <node ref="R12" pin="1" pintype="passive"/>
+      <node ref="U4" pin="8" pintype="tri_state"/>
+    </net>
+    <net code="63" name="Net-(R13-Pad1)" class="Default">
+      <node ref="R13" pin="1" pintype="passive"/>
+      <node ref="U4" pin="11" pintype="tri_state"/>
+    </net>
+    <net code="64" name="Net-(U2-BOOT)" class="Default">
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="U2" pin="6" pinfunction="BOOT_6" pintype="passive"/>
+    </net>
+    <net code="65" name="Net-(U2-EN)" class="Default">
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="U2" pin="5" pinfunction="EN_5" pintype="input"/>
+    </net>
+    <net code="66" name="Net-(U2-FB)" class="Default">
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="U2" pin="4" pinfunction="FB_4" pintype="input"/>
+    </net>
+    <net code="67" name="Net-(U2-SW)" class="Default">
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="L1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="2" pinfunction="SW_2" pintype="power_out"/>
+    </net>
+    <net code="68" name="unconnected-(U1-3V3_EN-Pad37)" class="Default">
+      <node ref="U1" pin="37" pinfunction="3V3_EN_37" pintype="passive+no_connect"/>
+    </net>
+    <net code="69" name="unconnected-(U1-ADC_VREF-Pad35)" class="Default">
+      <node ref="U1" pin="35" pinfunction="ADC_VREF_35" pintype="power_in+no_connect"/>
+    </net>
+    <net code="70" name="unconnected-(U1-VBUS-Pad40)" class="Default">
+      <node ref="U1" pin="40" pinfunction="VBUS_40" pintype="power_out+no_connect"/>
+    </net>
+  </nets>
+</export>
