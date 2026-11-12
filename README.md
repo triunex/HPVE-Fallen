@@ -34,6 +34,14 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - **transducers**: 16x Prowave 400ST160 40khz ultrasonic emitters per tile (64 across 4 tiles). each has a 16.2 mm can and 10.0 mm lead spacing, so the tile uses a 4x4 grid at 16.5 mm pitch with 10 mm plated-hole footprints (solder direct, or fit two single-pin sockets per transducer). tile size is 98 x 88 mm.
 - **drivers**: 8x TC4427 dual high-speed MOSFET gate drivers per tile with individual 0.1uF 50V X7R 0805 decoupling caps, level shifting 3.3v logic up to 12v peak-to-peak.
 - **shift registers**: 2x 74HC595 SOIC-16 shift registers per tile cascading SPI control.
+- **master avionics carrier motherboard (`hardware/master_carrier/`)**: 124.0 x 76.0 mm 2-layer carrier PCB mounting inside the rear bridge dock of the Halo Arch rig.
+  - **MCU Dock**: dual female socket headers for Raspberry Pi Pico (RP2040) with top-edge USB access for direct firmware flashing.
+  - **Power Stage**: vertical XT30 12V input with 5A PTC polyfuse (`F1`), `SMBJ15CA` TVS diode (`D1`), `SS34` Schottky reverse-polarity protection (`D2`), and `TPS54302DDCR` synchronous buck regulator (`U2`, 12V -> 5.08V @ 3A max, 10uH `L1`, EN/UVLO divider `R1/R2`). `SS34` OR-ing diode (`D3`) powers Pico `VSYS` safely alongside USB, and `39k/10k` divider monitors 12V telemetry (`VSENSE_12V` on `GP27/ADC1`).
+  - **3.3V -> 5.0V Logic Shifter & Tile Link**: `SN74AHCT125D` (`U4`) translates Pico `GP2..GP5` 3.3V logic to 5.0V CMOS with 33R series damping resistors (`R10..R13`) to drive modular tile shift registers. Matched pin-for-pin via bottom-edge Hirose `FH12-6S-0.5SH` (`J2`, Type-D reverse FFC cable). Dual 0.5A PTC polyfuses (`F2`, `F3`) protect both FFC power rails.
+  - **8-Dial Console**: `CD74HC4051M` 8:1 analog MUX (`U3`, `GP18..GP20`) reading `DIAL_0..DIAL_7` into `GP26/ADC0` with 8x 100nF hardware debounce capacitors (`C16..C23`), `100k/10nF` COM filter, and star AGND bridge (`R7`, 0R) broken out to `LEFT DIALS` (`J4`), `RIGHT DIALS` (`J5`), and `BRIDGE DIALS` (`J6`).
+  - **Circular IPS HUD**: 8-pin JST-XH header (`J3`) driving a 1.28" GC9A01 round SPI1 display (`GP10..GP15`), upgrading from vintage needle meters to real-time graphic holographic animations.
+  - **Auxiliary Telemetry & Photonics**: shared I2C0 bus (`GP0/GP1`) for SSD1306 OLED HUD (`J7`) and VL53L5CX ToF sensor (`J8`), 3x `AO3400A` NMOS low-side drivers (`Q1..Q3` + `J9`) for RGB lasers, `AUX_SYNC_4P` (`J10`), tactile buttons `SW1..SW3` (`RESET`, `MODE`, `ENABLE`), and 4 discrete rail/status LEDs (`D4..D7` for 12V, 5V, 3.3V, and Pico GP28 heartbeat).
+  - **Certified 0 DRC & 0 ERC**: 84 components, 0 DRC violations, 0 unconnected items, 0 footprint errors, and 0 ERC messages with 100% schematic parity verified.
 - **exoskeleton chassis**: native parametric snap-lock exoskeleton locking 4 tiles into a rigid 196x176mm 2x2 grid with internal honeycomb wall core (I-beam perimeter stiffness), under-PCB 45-degree iso-grid diamond trusses, 16x Helmholtz acoustic back-chambers with conical phase-diffusers, 4-finger O-ring collet cradles, and 3-stage knurled brass heat-set insert bosses (M3 & M2.5) with melt-trap relief grooves.
 - **portable breakdown halo arch stand (`hardware/cad/halo_arch/`)**: 7-subassembly modular display stand engineered to pack completely flat into a travel backpack. Sliced to fit standard 220x220mm / 256x256mm 3D printer beds:
   - **Sub-Assembly A (Top Central Bridge)**: suspended array dock with dual-axis +/-15 deg gimbal yoke, recessed pocket for 38mm round analog SPL needle gauge (driven via Pico PWM low-pass filter), master amplitude dial, status LEDs, and rear louvered service covers.
@@ -73,8 +81,9 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 ```
 ├── firmware/         # rp2040 c++ code, pio state machines, trajectory engines & verification
 ├── hardware/         # kicad schematics, pcb layout, gerbers, drc reports
-│   ├── modular_tile/ # 16-channel 4-layer modular tile (pcb, gerbers, bom, cpl, 3d renders)
-│   └── cad/          # native openscad exoskeleton, horn bezel, halo arch, stl exports & renders
+│   ├── modular_tile/   # 16-channel 4-layer modular tile (pcb, gerbers, bom, cpl, 3d renders)
+│   ├── master_carrier/ # RP2040 master carrier motherboard (pcb, bom, cpl, schematics, renders)
+│   └── cad/            # native openscad exoskeleton, horn bezel, halo arch, stl exports & renders
 ├── simulation/       # python wave physics model, 3d gor'kov trapping, impedance
 ├── docs/             # calculations, notes, pinout architecture
 ├── CAMPAIGN_ROADMAP_45_DAYS.md # master 45-day expedition manifest & live telemetry
@@ -111,6 +120,10 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - [x] **900+ XP CLUB UNLOCKED: 16h 40m MONSTER SPRINT (+171 XP) ➔ 929 XP TOTAL (ONLY 71 XP TO FINAL FORM)!**
 - [x] portable breakdown halo arch stand CAD: 7 modular sub-assemblies, 35+ production STLs, 20-stage fit check harness (fits standard 220x220mm beds)
 - [x] standalone modular tile schematic updated to v1.2 with verified 0.5mm FFC daisy-chain pinouts
+- [x] **1,000+ XP SHENZHEN QUALIFIER SHATTERED! (1,043 XP banked, 108h 10m logged across 14 journals!)**
+- [x] design & route RP2040 Master Avionics Carrier PCB (`HPVE_Master_Carrier` MK-I) in KiCad 10
+- [x] integrate 12V 3A buck, 8-dial MUX, 1.28" GC9A01 circular IPS display, 74AHCT125 level shifter, dual FFC polyfuses, ToF, and RGB lasers
+- [x] achieve 0 DRC violations, 0 unconnected pads, 0 footprint errors, and 0 ERC messages on Master Carrier
 - [ ] submit official Chinese F-Visa & $1,000 USD Travel Grant application on Hack Club portal
 - [ ] build desktop Stark Holo-Console GUI (`host_console/`) with live 3D Gor'kov slices and G-code control
 - [ ] order custom tiles from JLCPCB and components from LCSC / AliExpress
