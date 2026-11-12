@@ -1,0 +1,41 @@
+Category,Item,Part_Number_or_LCSC,Quantity,Unit_Price_USD,Total_Price_USD,Requested_From_Grant_USD,Self_Funded_By_Maker_USD,Vendor_Source,Notes
+Phased-Array Tiles,JLCPCB 4-Layer Custom PCB Fabrication (98x88mm ENIG/HASL),HPVE_Tile_16Ch_Rev1.2,5,4.40,22.00,22.00,0.00,https://jlcpcb.com,5x 4-layer boards (4 active quad array + 1 bench spare)
+Phased-Array Tiles,JLCPCB SMT Stencil & Machine Setup Fee,SMT-SETUP-4L,1,12.00,12.00,12.00,0.00,https://jlcpcb.com,Custom laser stainless stencil and single-sided top SMT setup
+Phased-Array Tiles,TC4427EOA Dual 1.5A High-Speed MOSFET Gate Drivers,C636891,32,0.67,21.44,21.44,0.00,https://www.lcsc.com,Levels 3.3V logic to 12Vpp to drive 64 ultrasonic channels
+Phased-Array Tiles,74HC595D SOIC-16 High-Speed 8-Bit Shift Registers,C5947,8,0.15,1.20,1.20,0.00,https://www.lcsc.com,High-speed cascaded SPI latching for 40 kHz phased emission
+Phased-Array Tiles,Hirose FH12-6S-0.5SH 6-Pin 0.5mm Horizontal FFC Connectors,C283048,8,0.42,3.36,3.36,0.00,https://www.lcsc.com,Daisy-chain connectors J_IN and J_OUT on all 4 modular tiles
+Phased-Array Tiles,Tile SMT Passives Kit (0.1uF 50V X7R C49678 x40 10uF C15850 x4 33R C17631 x12),C49678_C15850_C17631,1,3.50,3.50,3.50,0.00,https://www.lcsc.com,Decoupling capacitors per driver IC and damping resistors
+Phased-Array Tiles,JLCPCB SMT Placement & Feeder Setup Fees (4 assembled tiles),SMT-FEED-TILE,1,14.50,14.50,14.50,0.00,https://jlcpcb.com,Assembly cost for automated pick-and-place across 4 tiles
+Phased-Array Tiles,Prowave 400ST160 40kHz Ultrasonic Transmitter Transducers (16mm Cans),400ST160,70,0.55,38.50,38.50,0.00,https://www.aliexpress.com,64-element acoustic emitter matrix core (64 active + 6 spares)
+Master Carrier,JLCPCB 2-Layer Custom PCB Fabrication (124x76mm Matte Finish),HPVE_Master_Carrier_Rev1.0,5,1.20,6.00,6.00,0.00,https://jlcpcb.com,5x 2-layer carrier motherboards (2 assembled + 3 bare spares)
+Master Carrier,JLCPCB SMT Stencil & Machine Setup Fee,SMT-SETUP-2L,1,10.00,10.00,10.00,0.00,https://jlcpcb.com,Custom laser stencil and SMT setup for Master Carrier
+Master Carrier,TI TPS54302DDCR 3A Synchronous Step-Down Buck Regulators,C314440,2,0.75,1.50,1.50,0.00,https://www.lcsc.com,Steps raw 12V down to clean 5.08V to power logic & Pico
+Master Carrier,Sumida CDRH104RNP-100NC 10uH 6.5A Shielded Power Inductor,C169395,2,0.75,1.50,1.50,0.00,https://www.lcsc.com,High-saturation buck power inductor for 3A 5V rail
+Master Carrier,TI CD74HC4051M SOIC-16 8:1 Analog Multiplexer IC,C7430,2,0.35,0.70,0.70,0.00,https://www.lcsc.com,Reads all 8 front console dials into a single Pico ADC0 pin
+Master Carrier,TI SN74AHCT125D SOIC-14 3.3V to 5.0V CMOS Level Shifter,C5440,2,0.30,0.60,0.60,0.00,https://www.lcsc.com,Level-shifts Pico 3.3V SPI up to 5V CMOS for tile shift registers
+Master Carrier,Power Silicon & Protection Kit (SMBJ15CA TVS SS34 Schottky AO3400A 5A/0.5A PTCs),C116756_C8678_C20917,1,4.00,4.00,4.00,0.00,https://www.lcsc.com,Reverse-polarity TVS spike and dual FFC umbilical polyfuses
+Master Carrier,Carrier Passives & Control Kit (0805 Caps Resistors Status LEDs KMR2 Tactile Switches),PASSIVES_CARRIER,1,4.50,4.50,4.50,0.00,https://www.lcsc.com,Star AGND bridge debounce caps status LEDs and reset/mode buttons
+Master Carrier,Carrier Connectors Kit (Amass XT30UPB-M Hirose FH12-6S JST-XH 4P/5P/6P/8P Headers),CONNECTORS_CARRIER,1,6.50,6.50,6.50,0.00,https://www.lcsc.com,Vertical XT30 12V input FFC tile connector and dial/HUD headers
+Master Carrier,JLCPCB SMT Placement & Feeder Setup Fees (2 assembled carriers),SMT-FEED-CARR,1,12.50,12.50,12.50,0.00,https://jlcpcb.com,Automated surface-mount assembly for 2 Master Carrier boards
+Master Carrier,Raspberry Pi Pico (RP2040 Dual ARM Cortex-M0+ 133MHz Dev Board),SC0915,2,4.00,8.00,8.00,0.00,https://www.digikey.com,Master pulse generator using PIO state machines (1 main + 1 spare)
+Displays & Sensors,GC9A01 1.28 Inch Round Color IPS LCD Display Module (240x240 SPI),GC9A01-IPS,1,5.50,5.50,5.50,0.00,https://www.aliexpress.com,Circular digital HUD screen mounted on central gantry bridge
+Displays & Sensors,STMicroelectronics VL53L5CX 8x8 Multizone Time-of-Flight Sensor Module,VL53L5CX,1,16.50,16.50,16.50,0.00,https://www.aliexpress.com,Downward-looking 60 Hz 3D hand tracker for forcefield trigger
+Displays & Sensors,SSD1306 0.96 Inch 128x64 I2C Blue OLED Telemetry Display Module,SSD1306-096,1,3.50,3.50,3.50,0.00,https://www.amazon.com,Live acoustic coordinate HUD wireframe reticle and telemetry
+Displays & Sensors,450nm Cyan/Blue Collimated Projection Laser Diode Modules (5mW 3-5V),LASER-450NM,3,2.83,8.50,8.50,0.00,https://www.aliexpress.com,Tri-laser optical illuminators focused into mid-air trap volume
+Displays & Sensors,Precision 10k Linear Rotary Potentiometers (6mm D-Shaft),POT-10K-D6,8,0.45,3.60,3.60,0.00,https://www.aliexpress.com,Control dials for Left/Right pillars and bridge calibration
+Displays & Sensors,JST-XH Pre-Crimped Wire Harness Kit (4P 5P 6P 8P Silicone Leads),JST-XH-KIT,1,6.00,6.00,6.00,0.00,https://www.amazon.com,Interconnect cables for all dials displays ToF and lasers
+Displays & Sensors,6-Pin 0.5mm Pitch Reverse Type-D FFC Ribbon Cables (Pack of 5),FFC-6P-05-TYPED,1,5.00,5.00,5.00,0.00,https://www.aliexpress.com,Flexible FFC umbilical connecting Master Carrier to tile J_IN
+Power Subsystem,Mean Well LRS-150-12 (12V 12.5A 150W Industrial Power Supply),LRS-150-12,1,18.50,18.50,18.50,0.00,https://www.amazon.com,Clean regulated 12V 10A+ power for all 64 transducers and buck
+Power Subsystem,16AWG High-Strand Silicone Star Harness + Amass XT60/XT30 + Rocker Switch,POWER-HARNESS,1,7.50,7.50,7.50,0.00,https://www.amazon.com,Low-resistance star power delivery and illuminated master switch
+Volumetric Optics,Volumetric Optical Scattering Micro-Tracers & Precision Manipulator Kit,OPT-VOL-TRACER,1,7.50,7.50,7.50,0.00,https://www.amazon.com,Precision optical scattering nodes for 3D vector light illumination and acoustic trap calibration
+Factory Shipping,JLCPCB DHL/FedEx Express Air Shipping (PCBs + PCBA Assembly Boxes),EXP-FREIGHT-AIR,1,30.00,30.00,14.60,15.40,https://jlcpcb.com,Direct air express courier delivery for custom PCBA packages
+CAD & 3D Printing,Matte Warm White / Desert Tan PETG 3D Printing Filament (1kg Spool),PETG-WHITE-1KG,2,18.00,36.00,0.00,36.00,https://www.amazon.com,Main monocoque Halo Arch bridge vertical pillars and clamp bodies
+CAD & 3D Printing,TVA Signal Orange / Brass Accent PETG Filament (1kg Spool),PETG-ORANGE-1KG,1,18.00,18.00,0.00,18.00,https://www.amazon.com,Custom knurled control dials seam collars and accent wedges
+CAD & 3D Printing,95A Flexible TPU 3D Printing Filament (0.5kg Spool),TPU-95A-05KG,1,14.00,14.00,0.00,14.00,https://www.amazon.com,Corrugated umbilical conduits and soft non-marring clamp pads
+Hardware Fasteners,M3 Brass Heat-Set Threaded Inserts with Melt-Trap Undercut (Pack of 50),INSERT-M3-BRASS,1,4.00,4.00,0.00,4.00,https://www.amazon.com,Heat-set knurled inserts for rigid gantry frame assembly
+Hardware Fasteners,M2.5 Brass Heat-Set Threaded Inserts for PCB Standoffs (Pack of 50),INSERT-M25-BRASS,1,4.00,4.00,0.00,4.00,https://www.amazon.com,Precision brass inserts for tile and carrier board mounting
+Hardware Fasteners,Metric Socket Head Cap Screws Assortment (M3x6 M3x8 M3x12 M3x16 M3x25),SCREWS-M3-KIT,1,8.50,8.50,0.00,8.50,https://www.amazon.com,Black oxide high-tensile hardware for Halo Arch assembly
+Assembly Tools,Rosin Core 60/40 Solder Wire (0.8mm) + No-Clean Rosin Flux Pen,SOLDER-FLUX-KIT,1,8.00,8.00,0.00,8.00,https://www.amazon.com,Consumables for hand-soldering 64 ultrasonic transducer pins
+Battery Hardware,Under-Desk 4S2P 18650 Battery Cradle Tray & 4S 20A BMS Protection Module,BMS-4S-20A,1,15.40,15.40,0.00,15.40,https://www.amazon.com,Optional off-grid battery hardware inside under-desk cradle
+Import Buffer,Component Freight & International Customs Buffer,FREIGHT-BUFFER,1,22.10,22.10,0.00,22.10,Local / Maker,Contingency buffer for local customs import clearance
+TOTAL,HPVE MASTER VOLUMETRIC SYSTEM BUILD (FULL SUITE),COMPLETE-SYSTEM,1,400.00,400.00,270.00,130.00,Consolidated,"Total Cost: $400.00 | Requested from Hack Club: $270.00 (67.5%) | Self-Funded by Maker: $130.00 (32.5%)"

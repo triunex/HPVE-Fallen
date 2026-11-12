@@ -1,16 +1,16 @@
 # HPVE (Haptic Photonic Volumetric Engine)
 
-building mid-air touch and acoustic levitation for hack club fallen / maker faire shenzhen 2026.
+building an open-air, chamber-free touchable 3D hologram in mid-air for hack club fallen / maker faire shenzhen 2026.
 
 ## what is this?
 
-screens are flat and boring, and wearing clunky vr goggles feels terrible. ever since i saw tony stark working over his holographic table in iron man, i wanted to build an interface where you can reach out with your bare hands and physically touch things floating in mid air. no gloves, no controllers, no smoke screens.
+screens are flat and boring, and wearing clunky vr goggles feels terrible. ever since i saw tony stark working over his holographic table in iron man, i wanted to build an interface where you can reach out with your bare hands and physically touch things floating in mid air. no gloves, no controllers, no glass, no acrylic boxes, no smoke screens.
 
-hpve uses phased array ultrasound to physically manipulate empty air. by firing 64 ultrasonic transducers at 40,000 hz with microsecond phase delays, sound waves smash together at a single coordinate in 3d space.
+hpve uses phased array ultrasound and synchronized photonic lasers to physically manipulate empty air. by firing 64 ultrasonic transducers at 40,000 hz with microsecond phase delays, sound waves smash together at a single coordinate in 3d space.
 
-this does two things:
-1. **mid-air haptics**: when the sound waves meet at your hand, acoustic radiation pressure pushes against your skin. modulated at 200 hz, it feels like an invisible button or forcefield clicking against your palm.
-2. **acoustic levitation**: the pressure creates an acoustic standing wave trap (gor'kov potential well) that can hold tiny lightweight particles floating in mid air.
+this creates two revolutionary spatial capabilities:
+1. **chamber-free 3D volumetric holography**: the downward-directed phased array focuses acoustic and photonic vector fields into open space beneath the Halo Arch, suspending a glowing apple-sized 3D vector hologram in mid-air with zero glass, no acrylic tanks, and no VR goggles.
+2. **200 Hz touchable mid-air haptics**: when you reach out and push your bare hand into the hologram, downward Time-of-Flight sensors track your fingertips at 60 Hz, dynamically modulating the ultrasound carrier at 200 Hz. The acoustic radiation pressure acts directly on your skin's Pacinian corpuscles, generating an elastic physical forcefield you can actually feel in empty air.
 
 ## how the physics works
 
@@ -93,7 +93,7 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 ## fallen 6-week roadmap
 
 - [x] simulate wave interference in python (142x focal pressure verified)
-- [x] 3d gor'kov acoustic trap simulation (2.0mm bead levitation & 200hz skin haptics modeled)
+- [x] 3D Gor'kov acoustic trap & 200Hz skin haptics simulation modeled
 - [x] timing budget verified: 20MHz SPI loads 64 channels in 3.25us (87% margin)
 - [x] architectural pivot: scalable 16-channel 4-layer modular tile (`HPVE_Tile_16Ch`)
 - [x] route 4-layer modular tile with 0.5mm FFC connectors, bench power, and decoupling
@@ -128,7 +128,7 @@ i already wrote a python simulation (`verify_hpve.py`) to test this. running a 1
 - [ ] build desktop Stark Holo-Console GUI (`host_console/`) with live 3D Gor'kov slices and G-code control
 - [ ] order custom tiles from JLCPCB and components from LCSC / AliExpress
 - [ ] assemble and calibrate acoustic output across 4 snapped modular tiles
-- [ ] test mid-air skin haptics and particle levitation with multi-tile array
+- [ ] test mid-air skin haptics and touchable volumetric forcefield with multi-tile array
 - [ ] ship build submission and demo live at maker faire shenzhen 2026!
 
 ## author

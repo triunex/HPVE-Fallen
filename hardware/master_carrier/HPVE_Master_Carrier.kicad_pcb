@@ -20639,7 +20639,7 @@
 			)
 		)
 	)
-	(gr_text "IRON CAVE IND. // REV 1.0"
+	(gr_text "IRON CAVE IND. // REV 1.4"
 		(at 120.5 105 0)
 		(layer "F.SilkS")
 		(uuid "738e6597-1ab6-4973-8152-fbdbccd18e5a")
